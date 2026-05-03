@@ -2,8 +2,8 @@ package fuzs.illagerinvasion.data.loot;
 
 import fuzs.illagerinvasion.init.ModItems;
 import fuzs.illagerinvasion.init.ModLootTables;
-import fuzs.puzzleslib.api.data.v2.AbstractLootProvider;
-import fuzs.puzzleslib.api.data.v2.core.DataProviderContext;
+import fuzs.puzzleslib.common.api.data.v2.AbstractLootProvider;
+import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;

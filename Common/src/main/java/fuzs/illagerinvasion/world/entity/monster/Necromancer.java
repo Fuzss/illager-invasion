@@ -95,7 +95,7 @@ public class Necromancer extends SpellcasterIllager {
         --this.conjureSkullCooldown;
         List<Mob> mobs = serverLevel.getEntitiesOfClass(Mob.class,
                 this.getBoundingBox().inflate(10.0),
-                (Mob mob) -> mob.getType().is(EntityTypeTags.UNDEAD));
+                (Mob mob) -> mob.is(EntityTypeTags.UNDEAD));
         if (!mobs.isEmpty()) {
             mobs.forEach(this::doUndeadLinkLogic);
             if (this.tickCount % 10 == 0) {
@@ -108,14 +108,14 @@ public class Necromancer extends SpellcasterIllager {
         if (this.getTarget() != null) {
             mobs = serverLevel.getEntitiesOfClass(Mob.class,
                     this.getBoundingBox().inflate(30.0),
-                    (Mob mob) -> mob.getType().is(EntityTypeTags.UNDEAD));
+                    (Mob mob) -> mob.is(EntityTypeTags.UNDEAD));
             mobs.forEach(this::setUndeadTarget);
         }
     }
 
     @Override
     public boolean canAttack(LivingEntity target) {
-        return !target.getType().is(EntityTypeTags.UNDEAD) && super.canAttack(target);
+        return !target.is(EntityTypeTags.UNDEAD) && super.canAttack(target);
     }
 
     public void doUndeadLinkLogic(LivingEntity entity) {

@@ -27,7 +27,7 @@ public class InvokerFangs extends EvokerFangs {
     }
 
     @Override
-    protected void dealDamageTo(LivingEntity target) {
+    public void dealDamageTo(LivingEntity target) {
         LivingEntity owner = this.getOwner();
         if (target.isAlive() && !target.isInvulnerable() && target != owner) {
             // copied from super with increased damage and push effect
@@ -36,8 +36,9 @@ public class InvokerFangs extends EvokerFangs {
                 target.push(0.0, 1.7, 0.0);
             } else if (!owner.isAlliedTo(target)) {
                 DamageSource damageSource = this.damageSources().indirectMagic(this, owner);
-                if (this.level() instanceof ServerLevel serverLevel &&
-                        target.hurtServer(serverLevel, damageSource, 6.0F)) {
+                if (this.level() instanceof ServerLevel serverLevel && target.hurtServer(serverLevel,
+                        damageSource,
+                        6.0F)) {
                     EnchantmentHelper.doPostAttackEffects(serverLevel, target, damageSource);
                     target.push(0.0, 0.6, 0.0);
                 }
@@ -53,9 +54,14 @@ public class InvokerFangs extends EvokerFangs {
             if (!this.isSilent()) {
                 // copied from super with custom sound event
                 this.level()
-                        .playLocalSound(
-                                this.getX(), this.getY(), this.getZ(), ModSoundEvents.INVOKER_FANGS_SOUND_EVENT.value(), this.getSoundSource(), 1.0F, this.random.nextFloat() * 0.2F + 0.85F, false
-                        );
+                        .playLocalSound(this.getX(),
+                                this.getY(),
+                                this.getZ(),
+                                ModSoundEvents.INVOKER_FANGS_SOUND_EVENT.value(),
+                                this.getSoundSource(),
+                                1.0F,
+                                this.random.nextFloat() * 0.2F + 0.85F,
+                                false);
             }
         }
     }

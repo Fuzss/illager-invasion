@@ -3,7 +3,7 @@ package fuzs.illagerinvasion.world.item.enchantment;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import fuzs.illagerinvasion.init.ModRegistry;
-import fuzs.neoforgedatapackextensions.api.v2.DataMapLookup;
+import fuzs.multiloaderdataextensions.common.api.v2.DataMapLookup;
 import net.minecraft.core.Holder;
 import net.minecraft.world.item.enchantment.Enchantment;
 

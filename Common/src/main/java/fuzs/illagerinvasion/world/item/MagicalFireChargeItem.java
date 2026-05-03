@@ -1,7 +1,6 @@
 package fuzs.illagerinvasion.world.item;
 
 import fuzs.illagerinvasion.init.ModRegistry;
-import fuzs.puzzleslib.api.util.v1.InteractionResultHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -29,7 +28,7 @@ public class MagicalFireChargeItem extends FireChargeItem {
             level.setBlockAndUpdate(blockPos, ModRegistry.MAGIC_FIRE_BLOCK.value().defaultBlockState());
             level.gameEvent(context.getPlayer(), GameEvent.BLOCK_PLACE, blockPos);
             context.getItemInHand().consume(1, context.getPlayer());
-            return InteractionResultHelper.sidedSuccess(level.isClientSide());
+            return InteractionResult.SUCCESS;
         } else {
             return InteractionResult.FAIL;
         }

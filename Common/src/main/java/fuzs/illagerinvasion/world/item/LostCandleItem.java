@@ -36,8 +36,8 @@ public class LostCandleItem extends Item {
                     Component component = blockState.getBlock()
                             .getName()
                             .withColor(blockState.getMapColor(level, blockPos).col);
-                    player.displayClientMessage(Component.translatable(this.getDescriptionId() + ".foundNearby",
-                            component), true);
+                    player.sendOverlayMessage(Component.translatable(this.getDescriptionId() + ".foundNearby",
+                            component));
                     return InteractionResult.SUCCESS;
                 }
             }

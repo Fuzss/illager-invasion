@@ -2,6 +2,7 @@ package fuzs.illagerinvasion.init;
 
 import fuzs.illagerinvasion.world.item.*;
 import net.minecraft.core.Holder;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
@@ -27,7 +28,9 @@ public class ModItems {
             HornOfSightItem::new,
             () -> new Item.Properties().rarity(Rarity.UNCOMMON)
                     .stacksTo(1)
-                    .component(DataComponents.INSTRUMENT, new InstrumentComponent(ModRegistry.REVEAL_INSTRUMENT)));
+                    .delayedComponent(DataComponents.INSTRUMENT, (HolderLookup.Provider context) -> {
+                        return new InstrumentComponent(context.getOrThrow(ModRegistry.REVEAL_INSTRUMENT));
+                    }));
     public static final Holder.Reference<Item> HALLOWED_GEM_ITEM = ModRegistry.REGISTRIES.registerItem("hallowed_gem",
             () -> new Item.Properties().rarity(Rarity.UNCOMMON));
     public static final Holder.Reference<Item> PRIMAL_ESSENCE_ITEM = ModRegistry.REGISTRIES.registerItem(

@@ -95,7 +95,7 @@ abstract class IllusionerMixin extends SpellcasterIllager {
     }
 
     @Inject(method = "performRangedAttack", at = @At("HEAD"), cancellable = true)
-    public void performRangedAttack(LivingEntity target, float velocity, CallbackInfo callback) {
+    public void performRangedAttack(LivingEntity target, float power, CallbackInfo callback) {
         if (this.getRandom().nextInt(3) == 0
                 && this.level().getNearestPlayer(this.getX(), this.getY(), this.getZ(), 4.0, true) == null) {
             if (FireworksShootingHelper.performShooting(this, target)) callback.cancel();

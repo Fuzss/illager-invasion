@@ -6,8 +6,11 @@ import fuzs.illagerinvasion.client.model.geom.ModModelLayers;
 import fuzs.illagerinvasion.client.render.entity.*;
 import fuzs.illagerinvasion.init.ModEntityTypes;
 import fuzs.illagerinvasion.init.ModRegistry;
-import fuzs.puzzleslib.api.client.core.v1.ClientModConstructor;
-import fuzs.puzzleslib.api.client.core.v1.context.*;
+import fuzs.puzzleslib.common.api.client.core.v1.ClientModConstructor;
+import fuzs.puzzleslib.common.api.client.core.v1.context.EntityRenderersContext;
+import fuzs.puzzleslib.common.api.client.core.v1.context.LayerDefinitionsContext;
+import fuzs.puzzleslib.common.api.client.core.v1.context.MenuScreensContext;
+import fuzs.puzzleslib.common.api.client.core.v1.context.ParticleProvidersContext;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.LayerDefinitions;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
@@ -19,9 +22,7 @@ import net.minecraft.client.model.monster.skeleton.SkeletonModel;
 import net.minecraft.client.model.object.book.BookModel;
 import net.minecraft.client.particle.FlameParticle;
 import net.minecraft.client.particle.HeartParticle;
-import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.minecraft.client.renderer.entity.WitherSkullRenderer;
-import net.minecraft.world.level.block.Block;
 
 public class IllagerInvasionClient implements ClientModConstructor {
 
@@ -100,10 +101,5 @@ public class IllagerInvasionClient implements ClientModConstructor {
             return IllagerModel.createBodyLayer().apply(CustomIllagerModel.SCALE_TRANSFORMER);
         });
         context.registerLayerDefinition(ModModelLayers.SKULL_BOLT, WitherSkullRenderer::createSkullLayer);
-    }
-
-    @Override
-    public void onRegisterBlockRenderTypes(RenderTypesContext<Block> context) {
-        context.registerChunkRenderType(ModRegistry.MAGIC_FIRE_BLOCK.value(), ChunkSectionLayer.CUTOUT);
     }
 }

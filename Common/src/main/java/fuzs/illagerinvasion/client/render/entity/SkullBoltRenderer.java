@@ -17,7 +17,7 @@ public class SkullBoltRenderer extends WitherSkullRenderer {
     }
 
     @Override
-    protected Identifier getTextureLocation(WitherSkullRenderState renderState) {
+    public Identifier getTextureLocation(WitherSkullRenderState renderState) {
         return TEXTURE_LOCATION;
     }
 }

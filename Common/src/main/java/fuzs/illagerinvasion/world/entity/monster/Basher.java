@@ -1,8 +1,8 @@
 package fuzs.illagerinvasion.world.entity.monster;
 
 import fuzs.illagerinvasion.init.ModSoundEvents;
-import fuzs.puzzleslib.api.item.v2.EnchantingHelper;
-import fuzs.puzzleslib.api.item.v2.ToolTypeHelper;
+import fuzs.puzzleslib.common.api.item.v2.EnchantingHelper;
+import fuzs.puzzleslib.common.api.item.v2.ToolTypeHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ItemParticleOption;
@@ -33,6 +33,7 @@ import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
 import net.minecraft.world.entity.raid.Raid;
 import net.minecraft.world.entity.raid.Raider;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -164,7 +165,15 @@ public class Basher extends AbstractIllager implements Stunnable {
                     this.playSound(SoundEvents.SHIELD_BREAK.value(), 1.0F, 1.0F);
                     this.setStunTicks(60);
                     serverLevel.sendParticles((ParticleOptions) new ItemParticleOption(ParticleTypes.ITEM,
-                            basherMainHand), this.getX(), this.getY() + 1.5, this.getZ(), 30, 0.3, 0.2, 0.3, 0.003);
+                                    ItemStackTemplate.fromNonEmptyStack(basherMainHand)),
+                            this.getX(),
+                            this.getY() + 1.5,
+                            this.getZ(),
+                            30,
+                            0.3,
+                            0.2,
+                            0.3,
+                            0.003);
                     this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.STONE_AXE));
                     return super.hurtServer(serverLevel, damageSource, damageAmount);
                 }

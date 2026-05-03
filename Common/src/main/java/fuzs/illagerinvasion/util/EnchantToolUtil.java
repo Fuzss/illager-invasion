@@ -1,6 +1,6 @@
 package fuzs.illagerinvasion.util;
 
-import fuzs.puzzleslib.api.item.v2.ToolTypeHelper;
+import fuzs.puzzleslib.common.api.item.v2.ToolTypeHelper;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.util.RandomSource;

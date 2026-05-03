@@ -1,6 +1,5 @@
 package fuzs.illagerinvasion.world.item;
 
-import fuzs.puzzleslib.api.util.v1.InteractionResultHelper;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -36,6 +35,6 @@ public class IllusionaryDustItem extends Item {
                 itemInHand.shrink(1);
             }
         }
-        return InteractionResultHelper.success(itemInHand);
+        return InteractionResult.SUCCESS.heldItemTransformedTo(itemInHand);
     }
 }

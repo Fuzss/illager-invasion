@@ -2,8 +2,8 @@ package fuzs.illagerinvasion.data.loot;
 
 import fuzs.illagerinvasion.init.ModEntityTypes;
 import fuzs.illagerinvasion.init.ModItems;
-import fuzs.puzzleslib.api.data.v2.AbstractLootProvider;
-import fuzs.puzzleslib.api.data.v2.core.DataProviderContext;
+import fuzs.puzzleslib.common.api.data.v2.AbstractLootProvider;
+import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
 import net.minecraft.advancements.criterion.EntityPredicate;
 import net.minecraft.advancements.criterion.RaiderPredicate;
 import net.minecraft.world.item.Items;

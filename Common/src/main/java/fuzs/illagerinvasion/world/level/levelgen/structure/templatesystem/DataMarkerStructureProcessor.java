@@ -4,7 +4,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import fuzs.illagerinvasion.init.ModRegistry;
-import fuzs.puzzleslib.api.util.v1.CodecExtras;
+import fuzs.puzzleslib.common.api.util.v1.CodecExtras;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.RandomSource;

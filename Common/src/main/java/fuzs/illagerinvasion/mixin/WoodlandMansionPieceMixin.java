@@ -16,8 +16,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 abstract class WoodlandMansionPieceMixin {
 
     @Inject(method = "handleDataMarker", at = @At("HEAD"), cancellable = true)
-    public void handleDataMarker(String name, BlockPos pos, ServerLevelAccessor level, RandomSource random, BoundingBox box, CallbackInfo callback) {
-        if (WoodlandMansionPieceHelper.createIllagerType(name, pos, level, random)) {
+    public void handleDataMarker(String markerId, BlockPos pos, ServerLevelAccessor level, RandomSource random, BoundingBox chunkBB, CallbackInfo callback) {
+        if (WoodlandMansionPieceHelper.createIllagerType(markerId, pos, level, random)) {
             callback.cancel();
         }
     }

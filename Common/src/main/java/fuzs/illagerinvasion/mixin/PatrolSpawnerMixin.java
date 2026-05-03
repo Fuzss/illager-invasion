@@ -15,9 +15,8 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 abstract class PatrolSpawnerMixin {
 
     @ModifyVariable(method = "spawnPatrolMember", at = @At("STORE"), ordinal = 0)
-    private PatrollingMonster spawnPatrolMember(PatrollingMonster patrollingMonster, ServerLevel serverLevel, BlockPos pos, RandomSource random, boolean leader) {
+    private PatrollingMonster spawnPatrolMember(PatrollingMonster mob, ServerLevel level, BlockPos pos, RandomSource random, boolean isLeader) {
         return random.nextInt(2) == 0 ?
-                ModEntityTypes.MARAUDER_ENTITY_TYPE.value().create(serverLevel, EntitySpawnReason.PATROL) :
-                patrollingMonster;
+                ModEntityTypes.MARAUDER_ENTITY_TYPE.value().create(level, EntitySpawnReason.PATROL) : mob;
     }
 }

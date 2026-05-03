@@ -2,7 +2,7 @@ package fuzs.illagerinvasion.client.gui.screens.inventory;
 
 import fuzs.illagerinvasion.IllagerInvasion;
 import fuzs.illagerinvasion.world.inventory.ImbuingMenu;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.screens.inventory.CyclingSlotBackground;
 import net.minecraft.client.renderer.RenderPipelines;
@@ -13,24 +13,16 @@ import net.minecraft.world.entity.player.Inventory;
 import java.util.List;
 
 public class ImbuingScreen extends AbstractContainerScreen<ImbuingMenu> {
-    private static final Identifier TEXTURE_LOCATION = IllagerInvasion.id(
-            "textures/gui/container/imbuing_table.png");
-    private static final Identifier EMPTY_SLOT_HELMET = Identifier.withDefaultNamespace(
-            "container/slot/helmet");
-    private static final Identifier EMPTY_SLOT_CHESTPLATE = Identifier.withDefaultNamespace(
-            "container/slot/chestplate");
-    private static final Identifier EMPTY_SLOT_LEGGINGS = Identifier.withDefaultNamespace(
-            "container/slot/leggings");
-    private static final Identifier EMPTY_SLOT_BOOTS = Identifier.withDefaultNamespace(
-            "container/slot/boots");
+    private static final Identifier TEXTURE_LOCATION = IllagerInvasion.id("textures/gui/container/imbuing_table.png");
+    private static final Identifier EMPTY_SLOT_HELMET = Identifier.withDefaultNamespace("container/slot/helmet");
+    private static final Identifier EMPTY_SLOT_CHESTPLATE = Identifier.withDefaultNamespace("container/slot/chestplate");
+    private static final Identifier EMPTY_SLOT_LEGGINGS = Identifier.withDefaultNamespace("container/slot/leggings");
+    private static final Identifier EMPTY_SLOT_BOOTS = Identifier.withDefaultNamespace("container/slot/boots");
     private static final Identifier EMPTY_SLOT_HOE = Identifier.withDefaultNamespace("container/slot/hoe");
     private static final Identifier EMPTY_SLOT_AXE = Identifier.withDefaultNamespace("container/slot/axe");
-    private static final Identifier EMPTY_SLOT_SWORD = Identifier.withDefaultNamespace(
-            "container/slot/sword");
-    private static final Identifier EMPTY_SLOT_SHOVEL = Identifier.withDefaultNamespace(
-            "container/slot/shovel");
-    private static final Identifier EMPTY_SLOT_PICKAXE = Identifier.withDefaultNamespace(
-            "container/slot/pickaxe");
+    private static final Identifier EMPTY_SLOT_SWORD = Identifier.withDefaultNamespace("container/slot/sword");
+    private static final Identifier EMPTY_SLOT_SHOVEL = Identifier.withDefaultNamespace("container/slot/shovel");
+    private static final Identifier EMPTY_SLOT_PICKAXE = Identifier.withDefaultNamespace("container/slot/pickaxe");
     private static final Identifier EMPTY_SLOT_BOOK = IllagerInvasion.id("container/slot/book");
     private static final Identifier EMPTY_SLOT_GEM = IllagerInvasion.id("container/slot/ruby");
     private static final List<Identifier> EMPTY_SLOT_BOOK_ICONS = List.of(EMPTY_SLOT_BOOK);
@@ -62,9 +54,8 @@ public class ImbuingScreen extends AbstractContainerScreen<ImbuingMenu> {
     }
 
     @Override
-    public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float delta) {
-        super.render(guiGraphics, mouseX, mouseY, delta);
-        this.renderTooltip(guiGraphics, mouseX, mouseY);
+    public void extractRenderState(GuiGraphicsExtractor guiGraphics, int mouseX, int mouseY, float delta) {
+        super.extractRenderState(guiGraphics, mouseX, mouseY, delta);
         if (this.menu.getImbuingState().showTooltip()) {
             if (this.isHovering(74, 32, 28, 20, mouseX, mouseY)) {
                 guiGraphics.setTooltipForNextFrame(this.menu.getImbuingState().getComponent(), mouseX, mouseY);
@@ -73,7 +64,8 @@ public class ImbuingScreen extends AbstractContainerScreen<ImbuingMenu> {
     }
 
     @Override
-    protected void renderBg(GuiGraphics guiGraphics, float partialTick, int mouseX, int mouseY) {
+    public void extractBackground(GuiGraphicsExtractor guiGraphics, int mouseX, int mouseY, float partialTick) {
+        super.extractBackground(guiGraphics, mouseX, mouseY, partialTick);
         guiGraphics.blit(RenderPipelines.GUI_TEXTURED,
                 TEXTURE_LOCATION,
                 this.leftPos,
@@ -84,9 +76,9 @@ public class ImbuingScreen extends AbstractContainerScreen<ImbuingMenu> {
                 this.imageHeight,
                 256,
                 256);
-        this.bookIcon.render(this.menu, guiGraphics, partialTick, this.leftPos, this.topPos);
-        this.toolIcon.render(this.menu, guiGraphics, partialTick, this.leftPos, this.topPos);
-        this.gemIcon.render(this.menu, guiGraphics, partialTick, this.leftPos, this.topPos);
+        this.bookIcon.extractRenderState(this.menu, guiGraphics, partialTick, this.leftPos, this.topPos);
+        this.toolIcon.extractRenderState(this.menu, guiGraphics, partialTick, this.leftPos, this.topPos);
+        this.gemIcon.extractRenderState(this.menu, guiGraphics, partialTick, this.leftPos, this.topPos);
         if (this.menu.getImbuingState().showTooltip()) {
             guiGraphics.blit(RenderPipelines.GUI_TEXTURED,
                     TEXTURE_LOCATION,

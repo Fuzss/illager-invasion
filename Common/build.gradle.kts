@@ -4,7 +4,7 @@ plugins {
 
 dependencies {
     modCompileOnlyApi(sharedLibs.puzzleslib.common)
-    modCompileOnlyApi(sharedLibs.neoforgedatapackextensions.common)
+    modCompileOnlyApi(sharedLibs.multiloaderdataextensions.common)
 }
 
 multiloader {

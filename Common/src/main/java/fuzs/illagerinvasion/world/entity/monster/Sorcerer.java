@@ -4,7 +4,7 @@ import fuzs.illagerinvasion.init.ModRegistry;
 import fuzs.illagerinvasion.init.ModSoundEvents;
 import fuzs.illagerinvasion.init.ModTags;
 import fuzs.illagerinvasion.util.TeleportUtil;
-import fuzs.puzzleslib.api.util.v1.EntityHelper;
+import fuzs.puzzleslib.common.api.util.v1.EntityHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;

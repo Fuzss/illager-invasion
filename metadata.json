@@ -1,9 +1,10 @@
 {
+    "minecraft": "26.1.2",
     "mod": {
         "id": "illagerinvasion",
         "group": "fuzs.illagerinvasion",
         "name": "Illager Invasion",
-        "version": "21.11.1",
+        "version": "26.1.0",
         "authors": [
             "Dricky",
             "Safro",
@@ -15,14 +16,7 @@
     },
     "dependencies": [
         {
-            "name": "mm",
-            "type": "embedded",
-            "platforms": [
-                "fabric"
-            ]
-        },
-        {
-            "name": "neoforgedatapackextensions",
+            "name": "multiloaderdataextensions",
             "type": "embedded",
             "platforms": [
                 "fabric",
@@ -60,7 +54,7 @@
         },
         {
             "name": "github",
-            "slug": "illagerinvasion"
+            "slug": "illager-invasion"
         },
         {
             "name": "modrinth",

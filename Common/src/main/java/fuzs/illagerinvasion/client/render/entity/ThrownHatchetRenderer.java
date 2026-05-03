@@ -10,7 +10,7 @@ import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.client.renderer.entity.state.EntityRenderState;
 import net.minecraft.client.renderer.entity.state.ThrownItemRenderState;
 import net.minecraft.client.renderer.item.ItemModelResolver;
-import net.minecraft.client.renderer.state.CameraRenderState;
+import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.ItemDisplayContext;
@@ -71,6 +71,6 @@ public class ThrownHatchetRenderer extends ThrownItemRenderer<ThrownHatchet> {
             }
         }
 
-        this.submitNameTag(renderState, poseStack, nodeCollector, cameraRenderState);
+        this.submitNameDisplay(renderState, poseStack, nodeCollector, cameraRenderState);
     }
 }

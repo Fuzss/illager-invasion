@@ -48,7 +48,7 @@ public class SkullBolt extends WitherSkull {
         if (this.level() instanceof ServerLevel serverLevel) {
             if (this.getOwner() instanceof LivingEntity owner
                     && entityHitResult.getEntity() instanceof LivingEntity target) {
-                if (target.getType().is(EntityTypeTags.UNDEAD)) {
+                if (target.is(EntityTypeTags.UNDEAD)) {
                     target.heal(5.0F);
                     target.addEffect(new MobEffectInstance(MobEffects.SPEED, 100, 2));
                 } else {

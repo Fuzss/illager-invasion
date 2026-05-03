@@ -7,9 +7,9 @@ import fuzs.illagerinvasion.init.ModRegistry;
 import fuzs.illagerinvasion.init.ModSoundEvents;
 import fuzs.illagerinvasion.world.inventory.ImbuingMenu;
 import fuzs.illagerinvasion.world.level.block.ImbuingTableBlock;
-import fuzs.puzzleslib.api.client.data.v2.AbstractLanguageProvider;
-import fuzs.puzzleslib.api.data.v2.core.DataProviderContext;
-import fuzs.puzzleslib.api.init.v3.registry.ResourceKeyHelper;
+import fuzs.puzzleslib.common.api.client.data.v2.AbstractLanguageProvider;
+import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
+import fuzs.puzzleslib.common.api.init.v3.registry.ResourceKeyHelper;
 
 public class ModLanguageProvider extends AbstractLanguageProvider {
 

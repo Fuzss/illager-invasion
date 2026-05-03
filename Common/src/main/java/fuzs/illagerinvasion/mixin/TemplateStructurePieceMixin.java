@@ -13,6 +13,8 @@ import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.levelgen.structure.structures.WoodlandMansionPieces;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
+import org.objectweb.asm.Opcodes;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -23,6 +25,7 @@ import java.util.List;
 @Mixin(TemplateStructurePiece.class)
 abstract class TemplateStructurePieceMixin extends StructurePiece {
     @Shadow
+    @Final
     protected StructurePlaceSettings placeSettings;
     @Shadow
     protected BlockPos templatePosition;
@@ -35,7 +38,8 @@ abstract class TemplateStructurePieceMixin extends StructurePiece {
                            at = @At(value = "INVOKE",
                                     target = "Lnet/minecraft/world/level/levelgen/structure/templatesystem/StructureTemplate;filterBlocks(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/levelgen/structure/templatesystem/StructurePlaceSettings;Lnet/minecraft/world/level/block/Block;)Ljava/util/List;"),
                            slice = @Slice(to = @At(value = "FIELD",
-                                                   target = "Lnet/minecraft/world/level/block/state/properties/StructureMode;DATA:Lnet/minecraft/world/level/block/state/properties/StructureMode;")))
+                                                   target = "Lnet/minecraft/world/level/block/state/properties/StructureMode;DATA:Lnet/minecraft/world/level/block/state/properties/StructureMode;",
+                                                   opcode = Opcodes.GETSTATIC)))
     public List<StructureTemplate.StructureBlockInfo> postProcess(List<StructureTemplate.StructureBlockInfo> structureBlockInfos, @Local(
             argsOnly = true) WorldGenLevel level, @Local(argsOnly = true) BlockPos pos) {
         if (WoodlandMansionPieces.WoodlandMansionPiece.class.isInstance(this)) {

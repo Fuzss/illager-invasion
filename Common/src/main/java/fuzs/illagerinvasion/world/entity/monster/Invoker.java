@@ -57,7 +57,8 @@ public class Invoker extends SpellcasterIllager {
     private static final EntityDataAccessor<Boolean> DATA_IS_SHIELDED = SynchedEntityData.defineId(Invoker.class,
             EntityDataSerializers.BOOLEAN);
 
-    private final ServerBossEvent bossBar = new ServerBossEvent(this.getDisplayName(),
+    private final ServerBossEvent bossBar = new ServerBossEvent(Mth.createInsecureUUID(this.random),
+            this.getDisplayName(),
             BossEvent.BossBarColor.YELLOW,
             BossEvent.BossBarOverlay.PROGRESS);
     public int areaDamageCooldown;
@@ -254,11 +255,11 @@ public class Invoker extends SpellcasterIllager {
     public boolean hurtServer(ServerLevel serverLevel, DamageSource damageSource, float damageAmount) {
         if (damageSource.is(DamageTypeTags.IS_PROJECTILE)) {
             Entity entity = damageSource.getDirectEntity();
-            if (entity != null && entity.getType().is(EntityTypeTags.IMPACT_PROJECTILES)) {
+            if (entity != null && entity.is(EntityTypeTags.IMPACT_PROJECTILES)) {
                 if (!this.isShielded() && this.random.nextInt(2) == 0) {
                     this.playSound(SoundEvents.SHIELD_BLOCK.value(),
                             1.0f,
-                            0.8F + serverLevel.random.nextFloat() * 0.4F);
+                            0.8F + serverLevel.getRandom().nextFloat() * 0.4F);
                     this.setShielded(true);
                 }
             }
@@ -274,7 +275,7 @@ public class Invoker extends SpellcasterIllager {
                     0.5D);
             this.playSound(ModSoundEvents.INVOKER_SHIELD_BREAK_SOUND_EVENT.value(),
                     1.0f,
-                    0.8F + serverLevel.random.nextFloat() * 0.4F);
+                    0.8F + serverLevel.getRandom().nextFloat() * 0.4F);
             this.setShielded(false);
         }
 

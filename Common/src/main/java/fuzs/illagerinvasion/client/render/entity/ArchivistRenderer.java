@@ -15,21 +15,22 @@ import net.minecraft.client.renderer.entity.layers.ItemInHandLayer;
 import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.renderer.texture.TextureAtlas;
-import net.minecraft.client.resources.model.Material;
-import net.minecraft.client.resources.model.MaterialSet;
+import net.minecraft.client.resources.model.sprite.SpriteGetter;
+import net.minecraft.client.resources.model.sprite.SpriteId;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
 
 public class ArchivistRenderer extends IllagerRenderer<Archivist, ArchivistRenderState> {
     private static final Identifier TEXTURE_LOCATION = IllagerInvasion.id("textures/entity/archivist.png");
-    private static final Material BOOK_LOCATION = new Material(TextureAtlas.LOCATION_BLOCKS,
+    private static final SpriteId BOOK_LOCATION = new SpriteId(TextureAtlas.LOCATION_BLOCKS,
             Identifier.withDefaultNamespace("entity/enchanting_table_book"));
+    public static final BookModel.State DEFAULT_BOOK_STATE = new BookModel.State(0.0F, 0.0F, 0.0F);
 
-    private final MaterialSet materials;
+    private final SpriteGetter sprites;
 
     public ArchivistRenderer(EntityRendererProvider.Context context) {
         super(context, new CustomIllagerModel<>(context.bakeLayer(ModModelLayers.ARCHIVIST)), 0.5F);
-        this.materials = context.getMaterials();
+        this.sprites = context.getSprites();
         this.addLayer(new ItemInHandLayer<>(this) {
             private final BookModel book = new BookModel(context.bakeLayer(ModModelLayers.ARCHIVIST_BOOK));
 
@@ -54,7 +55,7 @@ public class ArchivistRenderer extends IllagerRenderer<Archivist, ArchivistRende
                         renderState.lightCoords,
                         OverlayTexture.NO_OVERLAY,
                         -1,
-                        ArchivistRenderer.this.materials.get(BOOK_LOCATION),
+                        ArchivistRenderer.this.sprites.get(BOOK_LOCATION),
                         renderState.outlineColor,
                         null);
                 poseStack.popPose();
@@ -73,9 +74,12 @@ public class ArchivistRenderer extends IllagerRenderer<Archivist, ArchivistRende
         super.extractRenderState(entity, renderState, partialTick);
         renderState.isCastingSpell = entity.isCastingSpell();
         if (renderState.isCastingSpell) {
-            renderState.book = new BookModel.State(0.0F, 10.0F + Mth.cos(renderState.ageInTicks) * 0.55F, 0.0F, 1.05F);
+            renderState.book = BookModel.State.forAnimation(0.0F,
+                    10.0F + Mth.cos(renderState.ageInTicks) * 0.55F,
+                    0.0F,
+                    1.05F);
         } else {
-            renderState.book = new BookModel.State(0.0F, 0.0F, 0.0F, 0.0F);
+            renderState.book = DEFAULT_BOOK_STATE;
         }
     }
 

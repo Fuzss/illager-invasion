@@ -4,7 +4,7 @@ import fuzs.illagerinvasion.init.ModItems;
 import fuzs.illagerinvasion.init.ModRegistry;
 import fuzs.illagerinvasion.init.ModSoundEvents;
 import fuzs.illagerinvasion.world.item.enchantment.ImbuingEnchantmentLevel;
-import fuzs.puzzleslib.api.container.v1.QuickMoveRuleSet;
+import fuzs.puzzleslib.common.api.container.v1.QuickMoveRuleSet;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.CommonComponents;
@@ -21,6 +21,8 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.ItemEnchantments;
 import net.minecraft.world.level.Level;
 import org.jspecify.annotations.Nullable;
+
+import java.util.Objects;
 
 public class ImbuingMenu extends AbstractContainerMenu {
     private final Container input;
@@ -147,8 +149,8 @@ public class ImbuingMenu extends AbstractContainerMenu {
             } else {
                 Holder<Enchantment> enchantment = bookEnchantments.keySet().iterator().next();
                 int bookEnchantmentLevel = bookEnchantments.getLevel(enchantment);
-                if (!ImbuingEnchantmentLevel.isSupportedByImbuing(enchantment) ||
-                        bookEnchantmentLevel >= ImbuingEnchantmentLevel.getImbuingMaxEnchantmentLevel(enchantment)) {
+                if (!ImbuingEnchantmentLevel.isSupportedByImbuing(enchantment)
+                        || bookEnchantmentLevel >= ImbuingEnchantmentLevel.getImbuingMaxEnchantmentLevel(enchantment)) {
                     return ImbuingState.INVALID_ENCHANTMENT;
                 } else {
                     ItemEnchantments itemEnchantments = EnchantmentHelper.getEnchantmentsForCrafting(imbuingItem);
@@ -191,14 +193,18 @@ public class ImbuingMenu extends AbstractContainerMenu {
         ENCHANTED_BOOK_MISSING("container.imbue.enchantedBookMissing") {
             @Override
             public Component getComponent() {
-                return Component.translatable(this.translationKey, Items.ENCHANTED_BOOK.getName());
+                Objects.requireNonNull(this.translationKey, "translation key is null");
+                return Component.translatable(this.translationKey,
+                        Component.translatable(Items.ENCHANTED_BOOK.getDescriptionId()));
             }
         },
         ITEM_MISSING(null),
         HALLOWED_GEM_MISSING("container.imbue.hallowedGemMissing") {
             @Override
             public Component getComponent() {
-                return Component.translatable(this.translationKey, ModItems.HALLOWED_GEM_ITEM.value().getName());
+                Objects.requireNonNull(this.translationKey, "translation key is null");
+                return Component.translatable(this.translationKey,
+                        Component.translatable(ModItems.HALLOWED_GEM_ITEM.value().getDescriptionId()));
             }
         },
         TOO_MANY_ENCHANTMENTS("container.imbue.tooManyEnchantments"),

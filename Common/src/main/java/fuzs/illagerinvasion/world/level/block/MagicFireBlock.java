@@ -25,7 +25,7 @@ public class MagicFireBlock extends BaseFireBlock {
 
     @Override
     protected void entityInside(BlockState blockState, Level level, BlockPos blockPos, Entity entity, InsideBlockEffectApplier insideBlockEffectApplier, boolean intersectsPosition) {
-        if (!entity.getType().is(EntityTypeTags.ILLAGER_FRIENDS)) {
+        if (!entity.is(EntityTypeTags.ILLAGER_FRIENDS)) {
             int remainingFireTicks = entity.getRemainingFireTicks();
             super.entityInside(blockState, level, blockPos, entity, insideBlockEffectApplier, intersectsPosition);
             insideBlockEffectApplier.runAfter(InsideBlockEffectType.FIRE_IGNITE, (Entity entityX) -> {
@@ -63,7 +63,7 @@ public class MagicFireBlock extends BaseFireBlock {
 
     @Override
     public void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-        level.scheduleTick(pos, this, getFireTickDelay(level.random));
+        level.scheduleTick(pos, this, getFireTickDelay(level.getRandom()));
         if (level.canSpreadFireAround(pos)) {
             level.removeBlock(pos, false);
         }
@@ -72,7 +72,7 @@ public class MagicFireBlock extends BaseFireBlock {
     @Override
     protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean movedByPiston) {
         super.onPlace(state, level, pos, oldState, movedByPiston);
-        level.scheduleTick(pos, this, getFireTickDelay(level.random));
+        level.scheduleTick(pos, this, getFireTickDelay(level.getRandom()));
     }
 
     private static int getFireTickDelay(RandomSource random) {

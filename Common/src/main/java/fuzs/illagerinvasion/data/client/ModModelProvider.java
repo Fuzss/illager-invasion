@@ -2,9 +2,9 @@ package fuzs.illagerinvasion.data.client;
 
 import fuzs.illagerinvasion.init.ModItems;
 import fuzs.illagerinvasion.init.ModRegistry;
-import fuzs.puzzleslib.api.client.data.v2.AbstractModelProvider;
-import fuzs.puzzleslib.api.client.data.v2.models.ItemModelGenerationHelper;
-import fuzs.puzzleslib.api.data.v2.core.DataProviderContext;
+import fuzs.puzzleslib.common.api.client.data.v2.AbstractModelProvider;
+import fuzs.puzzleslib.common.api.client.data.v2.models.ItemModelGenerationHelper;
+import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.MultiVariant;
@@ -12,6 +12,7 @@ import net.minecraft.client.data.models.blockstates.MultiPartGenerator;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.client.data.models.model.TextureMapping;
 import net.minecraft.client.data.models.model.TextureSlot;
+import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Block;
 
@@ -30,9 +31,7 @@ public class ModModelProvider extends AbstractModelProvider {
     public final void createImbuingTable(Block block, BlockModelGenerators blockModelGenerators) {
         TextureMapping textureMapping = TextureMapping.craftingTable(block, block)
                 .put(TextureSlot.DOWN, TextureMapping.getBlockTexture(block, "_bottom"));
-        Identifier identifier = ModelTemplates.CUBE.create(block,
-                textureMapping,
-                blockModelGenerators.modelOutput);
+        Identifier identifier = ModelTemplates.CUBE.create(block, textureMapping, blockModelGenerators.modelOutput);
         blockModelGenerators.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(block,
                 BlockModelGenerators.plainVariant(identifier)));
     }
@@ -60,7 +59,7 @@ public class ModModelProvider extends AbstractModelProvider {
         itemModelGenerators.generateFlatItem(ModItems.PLATINUM_INFUSED_HATCHET_ITEM.value(),
                 ModelTemplates.FLAT_HANDHELD_ITEM);
         ItemModelGenerationHelper.generateFlatItem(ModItems.MAGICAL_FIRE_CHARGE_ITEM.value(),
-                ModAtlasProvider.DRAGON_FIREBALL_LOCATION.texture(),
+                new Material(ModAtlasProvider.DRAGON_FIREBALL_LOCATION.texture()),
                 ModelTemplates.FLAT_ITEM,
                 itemModelGenerators);
         itemModelGenerators.generateFlatItem(ModItems.ALCHEMIST_SPAWN_EGG_ITEM.value(), ModelTemplates.FLAT_ITEM);
