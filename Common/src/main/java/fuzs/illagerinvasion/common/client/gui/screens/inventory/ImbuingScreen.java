@@ -1,0 +1,95 @@
+package fuzs.illagerinvasion.common.client.gui.screens.inventory;
+
+import fuzs.illagerinvasion.common.IllagerInvasion;
+import fuzs.illagerinvasion.common.world.inventory.ImbuingMenu;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.gui.screens.inventory.CyclingSlotBackground;
+import net.minecraft.client.renderer.RenderPipelines;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.entity.player.Inventory;
+
+import java.util.List;
+
+public class ImbuingScreen extends AbstractContainerScreen<ImbuingMenu> {
+    private static final Identifier TEXTURE_LOCATION = IllagerInvasion.id("textures/gui/container/imbuing_table.png");
+    private static final Identifier EMPTY_SLOT_HELMET = Identifier.withDefaultNamespace("container/slot/helmet");
+    private static final Identifier EMPTY_SLOT_CHESTPLATE = Identifier.withDefaultNamespace("container/slot/chestplate");
+    private static final Identifier EMPTY_SLOT_LEGGINGS = Identifier.withDefaultNamespace("container/slot/leggings");
+    private static final Identifier EMPTY_SLOT_BOOTS = Identifier.withDefaultNamespace("container/slot/boots");
+    private static final Identifier EMPTY_SLOT_HOE = Identifier.withDefaultNamespace("container/slot/hoe");
+    private static final Identifier EMPTY_SLOT_AXE = Identifier.withDefaultNamespace("container/slot/axe");
+    private static final Identifier EMPTY_SLOT_SWORD = Identifier.withDefaultNamespace("container/slot/sword");
+    private static final Identifier EMPTY_SLOT_SHOVEL = Identifier.withDefaultNamespace("container/slot/shovel");
+    private static final Identifier EMPTY_SLOT_PICKAXE = Identifier.withDefaultNamespace("container/slot/pickaxe");
+    private static final Identifier EMPTY_SLOT_BOOK = IllagerInvasion.id("container/slot/book");
+    private static final Identifier EMPTY_SLOT_GEM = IllagerInvasion.id("container/slot/ruby");
+    private static final List<Identifier> EMPTY_SLOT_BOOK_ICONS = List.of(EMPTY_SLOT_BOOK);
+    private static final List<Identifier> EMPTY_SLOT_TOOL_ICONS = List.of(EMPTY_SLOT_HELMET,
+            EMPTY_SLOT_CHESTPLATE,
+            EMPTY_SLOT_LEGGINGS,
+            EMPTY_SLOT_BOOTS,
+            EMPTY_SLOT_HOE,
+            EMPTY_SLOT_AXE,
+            EMPTY_SLOT_SWORD,
+            EMPTY_SLOT_SHOVEL,
+            EMPTY_SLOT_PICKAXE);
+    private static final List<Identifier> EMPTY_SLOT_GEM_ICONS = List.of(EMPTY_SLOT_GEM);
+
+    private final CyclingSlotBackground bookIcon = new CyclingSlotBackground(0);
+    private final CyclingSlotBackground toolIcon = new CyclingSlotBackground(1);
+    private final CyclingSlotBackground gemIcon = new CyclingSlotBackground(2);
+
+    public ImbuingScreen(ImbuingMenu handler, Inventory inventory, Component title) {
+        super(handler, inventory, title);
+    }
+
+    @Override
+    protected void containerTick() {
+        super.containerTick();
+        this.bookIcon.tick(EMPTY_SLOT_BOOK_ICONS);
+        this.toolIcon.tick(EMPTY_SLOT_TOOL_ICONS);
+        this.gemIcon.tick(EMPTY_SLOT_GEM_ICONS);
+    }
+
+    @Override
+    public void extractRenderState(GuiGraphicsExtractor guiGraphics, int mouseX, int mouseY, float delta) {
+        super.extractRenderState(guiGraphics, mouseX, mouseY, delta);
+        if (this.menu.getImbuingState().showTooltip()) {
+            if (this.isHovering(74, 32, 28, 20, mouseX, mouseY)) {
+                guiGraphics.setTooltipForNextFrame(this.menu.getImbuingState().getComponent(), mouseX, mouseY);
+            }
+        }
+    }
+
+    @Override
+    public void extractBackground(GuiGraphicsExtractor guiGraphics, int mouseX, int mouseY, float partialTick) {
+        super.extractBackground(guiGraphics, mouseX, mouseY, partialTick);
+        guiGraphics.blit(RenderPipelines.GUI_TEXTURED,
+                TEXTURE_LOCATION,
+                this.leftPos,
+                this.topPos,
+                0,
+                0,
+                this.imageWidth,
+                this.imageHeight,
+                256,
+                256);
+        this.bookIcon.extractRenderState(this.menu, guiGraphics, partialTick, this.leftPos, this.topPos);
+        this.toolIcon.extractRenderState(this.menu, guiGraphics, partialTick, this.leftPos, this.topPos);
+        this.gemIcon.extractRenderState(this.menu, guiGraphics, partialTick, this.leftPos, this.topPos);
+        if (this.menu.getImbuingState().showTooltip()) {
+            guiGraphics.blit(RenderPipelines.GUI_TEXTURED,
+                    TEXTURE_LOCATION,
+                    this.leftPos + 74,
+                    this.topPos + 32,
+                    176,
+                    0,
+                    28,
+                    20,
+                    256,
+                    256);
+        }
+    }
+}

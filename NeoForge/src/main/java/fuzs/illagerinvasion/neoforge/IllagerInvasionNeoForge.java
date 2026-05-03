@@ -1,16 +1,16 @@
 package fuzs.illagerinvasion.neoforge;
 
-import fuzs.illagerinvasion.IllagerInvasion;
-import fuzs.illagerinvasion.data.ModRecipeProvider;
-import fuzs.illagerinvasion.data.loot.ModBlockLootProvider;
-import fuzs.illagerinvasion.data.loot.ModChestLootProvider;
-import fuzs.illagerinvasion.data.loot.ModEntityInjectionLootProvider;
-import fuzs.illagerinvasion.data.loot.ModEntityTypeLootProvider;
-import fuzs.illagerinvasion.data.tags.ModBiomeTagProvider;
-import fuzs.illagerinvasion.data.tags.ModBlockTagProvider;
-import fuzs.illagerinvasion.data.tags.ModEntityTypeTagProvider;
-import fuzs.illagerinvasion.data.tags.ModItemTagProvider;
-import fuzs.illagerinvasion.init.ModRegistry;
+import fuzs.illagerinvasion.common.IllagerInvasion;
+import fuzs.illagerinvasion.common.data.ModRecipeProvider;
+import fuzs.illagerinvasion.common.data.loot.ModBlockLootProvider;
+import fuzs.illagerinvasion.common.data.loot.ModChestLootProvider;
+import fuzs.illagerinvasion.common.data.loot.ModEntityInjectionLootProvider;
+import fuzs.illagerinvasion.common.data.loot.ModEntityTypeLootProvider;
+import fuzs.illagerinvasion.common.data.tags.ModBiomeTagProvider;
+import fuzs.illagerinvasion.common.data.tags.ModBlockTagProvider;
+import fuzs.illagerinvasion.common.data.tags.ModEntityTypeTagProvider;
+import fuzs.illagerinvasion.common.data.tags.ModItemTagProvider;
+import fuzs.illagerinvasion.common.init.ModRegistry;
 import fuzs.illagerinvasion.neoforge.data.ModDataMapProvider;
 import fuzs.puzzleslib.common.api.core.v1.ModConstructor;
 import fuzs.puzzleslib.neoforge.api.data.v2.core.DataProviderHelper;

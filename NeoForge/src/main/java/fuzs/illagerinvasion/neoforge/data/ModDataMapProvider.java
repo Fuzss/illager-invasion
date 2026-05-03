@@ -1,8 +1,8 @@
 package fuzs.illagerinvasion.neoforge.data;
 
-import fuzs.illagerinvasion.handler.VillagerGoalHandler;
-import fuzs.illagerinvasion.init.ModRegistry;
-import fuzs.illagerinvasion.world.item.enchantment.ImbuingEnchantmentLevel;
+import fuzs.illagerinvasion.common.handler.VillagerGoalHandler;
+import fuzs.illagerinvasion.common.init.ModRegistry;
+import fuzs.illagerinvasion.common.world.item.enchantment.ImbuingEnchantmentLevel;
 import fuzs.multiloaderdataextensions.neoforge.api.v2.NeoForgeDataMapToken;
 import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
 import net.minecraft.core.Holder;

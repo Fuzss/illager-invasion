@@ -1,7 +1,7 @@
 package fuzs.illagerinvasion.fabric.client;
 
-import fuzs.illagerinvasion.IllagerInvasion;
-import fuzs.illagerinvasion.client.IllagerInvasionClient;
+import fuzs.illagerinvasion.common.IllagerInvasion;
+import fuzs.illagerinvasion.common.client.IllagerInvasionClient;
 import fuzs.puzzleslib.common.api.client.core.v1.ClientModConstructor;
 import net.fabricmc.api.ClientModInitializer;
 

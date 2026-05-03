@@ -8,3 +8,9 @@ dependencies {
     modApi(sharedLibs.multiloaderdataextensions.fabric)
     include(sharedLibs.multiloaderdataextensions.fabric)
 }
+
+multiloader {
+    mixins {
+        mixin("Raid\u0024RaiderTypeFabricMixin")
+    }
+}

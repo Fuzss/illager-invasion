@@ -1,7 +1,7 @@
 package fuzs.illagerinvasion.neoforge.init;
 
-import fuzs.illagerinvasion.config.RaidWavesConfigHelper;
-import fuzs.illagerinvasion.init.ModEntityTypes;
+import fuzs.illagerinvasion.common.config.RaidWavesConfigHelper;
+import fuzs.illagerinvasion.common.init.ModEntityTypes;
 import net.minecraft.core.Holder;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.raid.Raid;
