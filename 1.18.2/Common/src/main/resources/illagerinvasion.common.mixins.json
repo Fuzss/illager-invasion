@@ -1,0 +1,22 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_17",
+  "package": "fuzs.illagerinvasion.mixin",
+  "refmap": "illagerinvasion.refmap.json",
+  "plugin": "fuzs.illagerinvasion.mixin.ModMixinConfigPlugin",
+  "mixins": [
+    "IllusionerMixin",
+    "PatrolSpawnerMixin",
+    "SpellcasterIllagerImpl$IllagerSpellMixin",
+    "SpellcasterIllagerImpl$IllagerSpellAccessor",
+    "WoodlandMansionPieceMixin",
+    "accessor.VillagerHostilesSensorAccessor"
+  ],
+  "client": [
+    "client.IllagerModelMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
