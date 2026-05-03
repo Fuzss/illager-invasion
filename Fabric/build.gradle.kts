@@ -3,12 +3,12 @@ plugins {
 }
 
 dependencies {
-    modApi(libs.fabricapi.fabric)
-    modApi(libs.puzzleslib.fabric)
-    modApi(libs.neoforgedatapackextensions.fabric)
-    include(libs.neoforgedatapackextensions.fabric)
-    modImplementation(libs.fabricasm.fabric)
-    include(libs.fabricasm.fabric)
+    modApi(sharedLibs.fabricapi.fabric)
+    modApi(sharedLibs.puzzleslib.fabric)
+    modApi(sharedLibs.neoforgedatapackextensions.fabric)
+    include(sharedLibs.neoforgedatapackextensions.fabric)
+    modImplementation(sharedLibs.fabricasm.fabric)
+    include(sharedLibs.fabricasm.fabric)
 }
 
 multiloader {

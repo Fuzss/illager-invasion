@@ -3,11 +3,11 @@ plugins {
 }
 
 dependencies {
-    modCompileOnly(libs.puzzleslib.common)
-    modApi(libs.puzzleslib.neoforge)
-    modCompileOnly(libs.neoforgedatapackextensions.common)
-    modApi(libs.neoforgedatapackextensions.neoforge)
-    include(libs.neoforgedatapackextensions.neoforge)
+    modCompileOnly(sharedLibs.puzzleslib.common)
+    modApi(sharedLibs.puzzleslib.neoforge)
+    modCompileOnly(sharedLibs.neoforgedatapackextensions.common)
+    modApi(sharedLibs.neoforgedatapackextensions.neoforge)
+    include(sharedLibs.neoforgedatapackextensions.neoforge)
 }
 
 multiloader {
