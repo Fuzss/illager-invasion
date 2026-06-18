@@ -15,10 +15,7 @@ import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.EntitySpawnReason;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.AvoidEntityGoal;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
@@ -231,10 +228,10 @@ public class Necromancer extends SpellcasterIllager {
         protected void performSpellCasting() {
             int spawnAmount = Necromancer.this.level().isDarkOutside() ? 4 : 2;
             for (int i = 0; i < spawnAmount; ++i) {
-                this.summonUndead(EntityType.ZOMBIE);
+                this.summonUndead(EntityTypes.ZOMBIE);
             }
 
-            this.summonUndead(EntityType.SKELETON);
+            this.summonUndead(EntityTypes.SKELETON);
             ++this.spellcount;
         }
 

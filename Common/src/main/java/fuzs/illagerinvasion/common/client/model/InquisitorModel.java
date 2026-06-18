@@ -8,7 +8,6 @@ import net.minecraft.client.model.monster.illager.IllagerModel;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.entity.monster.illager.AbstractIllager;
-import net.minecraft.world.item.Items;
 
 public class InquisitorModel extends CustomIllagerModel<StunnableIllagerRenderState> {
     private final ModelPart head;
@@ -44,7 +43,7 @@ public class InquisitorModel extends CustomIllagerModel<StunnableIllagerRenderSt
     public void setupAnim(StunnableIllagerRenderState renderState) {
         super.setupAnim(renderState);
         if (renderState.armPose == AbstractIllager.IllagerArmPose.ATTACKING) {
-            if (renderState.offHandItem.is(Items.SHIELD)) {
+            if (renderState.shieldInOffHand) {
                 if (renderState.mainArm == HumanoidArm.RIGHT) {
                     this.leftArm.xRot = -1.05F;
                     this.leftArm.yRot = 0.5235988F;
@@ -54,6 +53,7 @@ public class InquisitorModel extends CustomIllagerModel<StunnableIllagerRenderSt
                     this.rightArm.yRot = -0.5235988F;
                 }
             }
+
             if (renderState.isStunned) {
                 this.head.zRot = 0.3F * Mth.sin(0.45F * renderState.ageInTicks);
                 this.head.xRot = 0.4F;

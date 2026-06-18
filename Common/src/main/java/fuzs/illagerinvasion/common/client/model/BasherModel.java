@@ -5,7 +5,6 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.entity.monster.illager.AbstractIllager;
-import net.minecraft.world.item.Items;
 
 public class BasherModel extends CustomIllagerModel<StunnableIllagerRenderState> {
     private final ModelPart head;
@@ -22,7 +21,7 @@ public class BasherModel extends CustomIllagerModel<StunnableIllagerRenderState>
     @Override
     public void setupAnim(StunnableIllagerRenderState renderState) {
         super.setupAnim(renderState);
-        if (renderState.armPose == AbstractIllager.IllagerArmPose.ATTACKING && renderState.mainHandItem.is(Items.SHIELD)
+        if (renderState.armPose == AbstractIllager.IllagerArmPose.ATTACKING && renderState.shieldInMainHand
                 && !renderState.isStunned) {
             if (renderState.mainArm == HumanoidArm.RIGHT) {
                 this.rightArm.xRot = this.rightArm.xRot * 0.5F;

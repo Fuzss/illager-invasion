@@ -3,7 +3,6 @@ package fuzs.illagerinvasion.common.world.level.levelgen.structure.templatesyste
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import fuzs.illagerinvasion.common.init.ModRegistry;
 import fuzs.puzzleslib.common.api.util.v1.CodecExtras;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -18,7 +17,6 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
 import java.util.List;
@@ -28,8 +26,8 @@ import java.util.Map;
  * This allows for adding data marker structure blocks for spawning entities and chests into already existing structure
  * templates.
  */
-public class DataMarkerStructureProcessor extends StructureProcessor {
-    public static final MapCodec<DataMarkerStructureProcessor> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
+public class DataMarkerStructureProcessor implements StructureProcessor {
+    public static final MapCodec<DataMarkerStructureProcessor> MAP_CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
                     CodecExtras.mapOf(BlockPos.CODEC.fieldOf("position"), Codec.STRING.fieldOf("data_marker"))
                             .fieldOf("metadata")
                             .forGetter(DataMarkerStructureProcessor::metadata))
@@ -46,8 +44,8 @@ public class DataMarkerStructureProcessor extends StructureProcessor {
     }
 
     @Override
-    protected StructureProcessorType<?> getType() {
-        return ModRegistry.DATA_MARKER_STRUCTURE_PROCESSOR.value();
+    public MapCodec<? extends StructureProcessor> codec() {
+        return MAP_CODEC;
     }
 
     /**
@@ -69,6 +67,11 @@ public class DataMarkerStructureProcessor extends StructureProcessor {
             }
         });
 
-        return super.finalizeProcessing(serverLevel, offset, pos, originalBlockInfos, processedBlockInfos, settings);
+        return StructureProcessor.super.finalizeProcessing(serverLevel,
+                offset,
+                pos,
+                originalBlockInfos,
+                processedBlockInfos,
+                settings);
     }
 }

@@ -4,16 +4,14 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import fuzs.illagerinvasion.common.init.ModEntityTypes;
 import fuzs.illagerinvasion.common.world.entity.monster.*;
-import fuzs.puzzleslib.common.api.event.v1.core.EventResult;
 import net.minecraft.core.Holder;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.AvoidEntityGoal;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.sensing.VillagerHostilesSensor;
 import net.minecraft.world.entity.npc.villager.AbstractVillager;
+import org.jspecify.annotations.Nullable;
 
 import java.util.List;
 import java.util.function.BiConsumer;
@@ -39,15 +37,13 @@ public class VillagerGoalHandler {
         }
     }
 
-    public static EventResult onEntityLoad(Entity entity, ServerLevel serverLevel, boolean isNewlySpawned) {
+    public static void onEntityLoad(Entity entity, ServerLevel serverLevel, boolean isLoadedFromDisk, @Nullable EntitySpawnReason entitySpawnReason) {
         // do not do this for generic abstract villager, villagers that use the brain system instead of the goals seem to try to run both and flee much slower than they should
-        if (entity.getType() == EntityType.WANDERING_TRADER) {
+        if (entity.is(EntityTypeIds.WANDERING_TRADER)) {
             for (VillagerEnemy<?> villagerEnemy : VILLAGER_ENEMIES) {
                 villagerEnemy.addGoal((AbstractVillager) entity);
             }
         }
-
-        return EventResult.PASS;
     }
 
     public static void registerAcceptableDistanceFromHostiles() {

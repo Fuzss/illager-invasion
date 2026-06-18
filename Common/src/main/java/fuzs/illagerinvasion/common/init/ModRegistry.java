@@ -2,6 +2,7 @@ package fuzs.illagerinvasion.common.init;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
+import com.mojang.serialization.MapCodec;
 import fuzs.illagerinvasion.common.IllagerInvasion;
 import fuzs.illagerinvasion.common.util.WoodlandMansionPieceHelper;
 import fuzs.illagerinvasion.common.world.inventory.ImbuingMenu;
@@ -33,7 +34,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
 import net.minecraft.world.level.material.MapColor;
 
 public class ModRegistry {
@@ -48,7 +48,7 @@ public class ModRegistry {
     static final RegistryManager REGISTRIES = RegistryManager.from(IllagerInvasion.MOD_ID);
     public static final Holder.Reference<Block> IMBUING_TABLE_BLOCK = REGISTRIES.registerBlock("imbuing_table",
             ImbuingTableBlock::new,
-            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_BLOCK));
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_BLOCK.weathering().unaffected()));
     public static final Holder.Reference<Block> MAGIC_FIRE_BLOCK = REGISTRIES.registerBlock("magic_fire",
             MagicFireBlock::new,
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.SOUL_FIRE).mapColor(MapColor.COLOR_PURPLE).randomTicks());
@@ -81,10 +81,10 @@ public class ModRegistry {
             "reveal");
     public static final Holder.Reference<CreativeModeTab> CREATIVE_MODE_TAB = REGISTRIES.registerCreativeModeTab(
             ModItems.HORN_OF_SIGHT_ITEM);
-    public static final Holder.Reference<StructureProcessorType<DataMarkerStructureProcessor>> DATA_MARKER_STRUCTURE_PROCESSOR = REGISTRIES.register(
+    public static final Holder.Reference<MapCodec<DataMarkerStructureProcessor>> DATA_MARKER_STRUCTURE_PROCESSOR = REGISTRIES.register(
             Registries.STRUCTURE_PROCESSOR,
             "data_marker",
-            () -> () -> DataMarkerStructureProcessor.CODEC);
+            () -> DataMarkerStructureProcessor.MAP_CODEC);
     public static final ResourceKey<StructureProcessorList> WOODLAND_MANSION_1X2_A4_PROCESSOR_LIST = ResourceKey.create(
             Registries.PROCESSOR_LIST,
             Identifier.withDefaultNamespace("woodland_mansion/1x2_a4"));

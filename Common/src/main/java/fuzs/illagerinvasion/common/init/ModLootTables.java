@@ -4,7 +4,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.NestedLootTable;
@@ -31,11 +31,11 @@ public class ModLootTables {
             "chests/labyrinth_map");
     public static final ResourceKey<LootTable> SORCERER_HUT = ModRegistry.REGISTRIES.makeResourceKey(Registries.LOOT_TABLE,
             "chests/sorcerer_hut");
-    public static final ResourceKey<LootTable> ILLUSIONER_INJECTION = registerLootTableInjection(EntityType.ILLUSIONER.getDefaultLootTable()
+    public static final ResourceKey<LootTable> ILLUSIONER_INJECTION = registerLootTableInjection(EntityTypes.ILLUSIONER.getDefaultLootTable()
             .orElseThrow());
-    public static final ResourceKey<LootTable> PILLAGER_INJECTION = registerLootTableInjection(EntityType.PILLAGER.getDefaultLootTable()
+    public static final ResourceKey<LootTable> PILLAGER_INJECTION = registerLootTableInjection(EntityTypes.PILLAGER.getDefaultLootTable()
             .orElseThrow());
-    public static final ResourceKey<LootTable> RAVAGER_INJECTION = registerLootTableInjection(EntityType.RAVAGER.getDefaultLootTable()
+    public static final ResourceKey<LootTable> RAVAGER_INJECTION = registerLootTableInjection(EntityTypes.RAVAGER.getDefaultLootTable()
             .orElseThrow());
 
     public static void bootstrap() {

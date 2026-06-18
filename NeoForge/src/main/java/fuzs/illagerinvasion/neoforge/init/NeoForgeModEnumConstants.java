@@ -4,6 +4,7 @@ import fuzs.illagerinvasion.common.config.RaidWavesConfigHelper;
 import fuzs.illagerinvasion.common.init.ModEntityTypes;
 import net.minecraft.core.Holder;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.raid.Raid;
 import net.minecraft.world.entity.raid.Raider;
 import net.neoforged.fml.common.asm.enumextension.EnumProxy;
@@ -22,7 +23,7 @@ public class NeoForgeModEnumConstants {
             RaidWavesConfigHelper.NECROMANCER_RAID_WAVES);
     public static final EnumProxy<Raid.RaiderType> SORCERER_RAIDER_TYPE = registerRaiderType(ModEntityTypes.SORCERER_ENTITY_TYPE,
             RaidWavesConfigHelper.SORCERER_RAID_WAVES);
-    public static final EnumProxy<Raid.RaiderType> ILLUSIONER_RAIDER_TYPE = registerRaiderType(() -> EntityType.ILLUSIONER,
+    public static final EnumProxy<Raid.RaiderType> ILLUSIONER_RAIDER_TYPE = registerRaiderType(() -> EntityTypes.ILLUSIONER,
             RaidWavesConfigHelper.ILLUSIONER_RAID_WAVES);
     public static final EnumProxy<Raid.RaiderType> ARCHIVIST_RAIDER_TYPE = registerRaiderType(ModEntityTypes.ARCHIVIST_ENTITY_TYPE,
             RaidWavesConfigHelper.ARCHIVIST_RAID_WAVES);

@@ -4,8 +4,8 @@ import fuzs.illagerinvasion.common.init.ModEntityTypes;
 import fuzs.illagerinvasion.common.init.ModItems;
 import fuzs.puzzleslib.common.api.data.v2.AbstractLootProvider;
 import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
-import net.minecraft.advancements.criterion.EntityPredicate;
-import net.minecraft.advancements.criterion.RaiderPredicate;
+import net.minecraft.advancements.predicates.entity.EntityPredicate;
+import net.minecraft.advancements.predicates.entity.RaiderPredicate;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.loot.LootContext;
@@ -162,7 +162,7 @@ public class ModEntityTypeLootProvider extends AbstractLootProvider.EntityTypes 
                                                 4.0F))))
                                 .when(LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS,
                                         EntityPredicate.Builder.entity()
-                                                .subPredicate(RaiderPredicate.CAPTAIN_WITHOUT_RAID)))));
+                                                .raider(RaiderPredicate.CAPTAIN_WITHOUT_RAID)))));
         this.add(ModEntityTypes.NECROMANCER_ENTITY_TYPE.value(),
                 LootTable.lootTable()
                         .withPool(LootPool.lootPool()

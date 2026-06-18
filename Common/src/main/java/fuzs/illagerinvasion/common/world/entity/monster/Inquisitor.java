@@ -2,6 +2,7 @@ package fuzs.illagerinvasion.common.world.entity.monster;
 
 import fuzs.illagerinvasion.common.init.ModSoundEvents;
 import fuzs.puzzleslib.common.api.item.v2.EnchantingHelper;
+import fuzs.puzzleslib.common.api.item.v2.ToolTypeHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ItemParticleOption;
@@ -13,7 +14,6 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
@@ -54,6 +54,8 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
 import org.jspecify.annotations.Nullable;
+
+import java.util.function.Predicate;
 
 public class Inquisitor extends AbstractIllager implements Stunnable {
     private static final EntityDataAccessor<Boolean> STUNNED = SynchedEntityData.defineId(Inquisitor.class,
@@ -196,10 +198,10 @@ public class Inquisitor extends AbstractIllager implements Stunnable {
     }
 
     @Override
-    protected void blockedByItem(LivingEntity target) {
-        this.knockBack(target);
-        target.hurtMarked = true;
-        target.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 200, 0));
+    protected void blockedByItem(LivingEntity defender, DamageSource source, float damage) {
+        this.knockBack(defender);
+        defender.hurtMarked = true;
+        defender.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 200, 0));
     }
 
     private void knockBack(Entity entity) {
@@ -228,60 +230,60 @@ public class Inquisitor extends AbstractIllager implements Stunnable {
     }
 
     @Override
-    public boolean hurtServer(ServerLevel serverLevel, DamageSource damageSource, float damageAmount) {
-        Entity attacker = damageSource.getEntity();
-        boolean hasShield = this.getOffhandItem().is(Items.SHIELD);
+    public boolean hurtServer(ServerLevel level, DamageSource source, float damage) {
+        Entity attacker = source.getEntity();
+        boolean hasShield = ToolTypeHelper.INSTANCE.isShield(this.getOffhandItem());
         if (this.isAggressive()) {
             if (attacker instanceof LivingEntity livingEntity) {
                 ItemStack itemInHand = livingEntity.getMainHandItem();
                 ItemStack shieldItem = this.getOffhandItem();
-                if ((itemInHand.is(ItemTags.AXES) || attacker instanceof IronGolem || this.blockedCount >= 4)
-                        && shieldItem.is(Items.SHIELD)) {
+                if ((ToolTypeHelper.INSTANCE.isAxe(itemInHand) || attacker instanceof IronGolem
+                        || this.blockedCount >= 4) && ToolTypeHelper.INSTANCE.isShield(shieldItem)) {
                     this.playSound(SoundEvents.SHIELD_BREAK.value(), 1.0f, 1.0f);
                     this.setStunnedState(true);
-                    if (this.level() instanceof ServerLevel) {
-                        serverLevel.sendParticles((ParticleOptions) new ItemParticleOption(ParticleTypes.ITEM,
-                                        ItemStackTemplate.fromNonEmptyStack(shieldItem)),
-                                this.getX(),
-                                this.getY() + 1.5,
-                                this.getZ(),
-                                30,
-                                0.3,
-                                0.2,
-                                0.3,
-                                0.003);
-                        serverLevel.sendParticles((ParticleOptions) ParticleTypes.CLOUD,
-                                this.getX(),
-                                this.getY() + 1.0,
-                                this.getZ(),
-                                30,
-                                0.3,
-                                0.3,
-                                0.3,
-                                0.1);
-                        this.playSound(SoundEvents.RAVAGER_ROAR, 1.0f, 1.0f);
-                        this.setItemSlot(EquipmentSlot.OFFHAND, ItemStack.EMPTY);
-                    }
-                    this.level()
-                            .getEntitiesOfClass(LivingEntity.class,
-                                    this.getBoundingBox().inflate(8.0),
-                                    entity -> !(entity instanceof Monster))
-                            .forEach(this::blockedByItem);
-                    return super.hurtServer(serverLevel, damageSource, damageAmount);
+                    level.sendParticles((ParticleOptions) new ItemParticleOption(ParticleTypes.ITEM,
+                                    ItemStackTemplate.fromNonEmptyStack(shieldItem)),
+                            this.getX(),
+                            this.getY() + 1.5,
+                            this.getZ(),
+                            30,
+                            0.3,
+                            0.2,
+                            0.3,
+                            0.003);
+                    level.sendParticles((ParticleOptions) ParticleTypes.CLOUD,
+                            this.getX(),
+                            this.getY() + 1.0,
+                            this.getZ(),
+                            30,
+                            0.3,
+                            0.3,
+                            0.3,
+                            0.1);
+                    this.playSound(SoundEvents.RAVAGER_ROAR, 1.0f, 1.0f);
+                    this.setItemSlot(EquipmentSlot.OFFHAND, ItemStack.EMPTY);
+                    level.getEntitiesOfClass(LivingEntity.class,
+                            this.getBoundingBox().inflate(8.0),
+                            Predicate.not(Monster.class::isInstance)).forEach((LivingEntity entity) -> {
+                        this.blockedByItem(entity, source, damage);
+                    });
+                    return super.hurtServer(level, source, damage);
                 }
             }
-            if (damageSource.getDirectEntity() instanceof AbstractArrow && hasShield) {
+
+            if (source.getDirectEntity() instanceof AbstractArrow && hasShield) {
                 this.playSound(SoundEvents.SHIELD_BLOCK.value(), 1.0f, 1.0f);
                 ++this.blockedCount;
                 return false;
             }
-            if (damageSource.getDirectEntity() instanceof LivingEntity && hasShield) {
+
+            if (source.getDirectEntity() instanceof LivingEntity && hasShield) {
                 ++this.blockedCount;
                 this.playSound(SoundEvents.SHIELD_BLOCK.value(), 1.0f, 1.0f);
                 return false;
             }
         }
-        return super.hurtServer(serverLevel, damageSource, damageAmount);
+        return super.hurtServer(level, source, damage);
     }
 
     @Override

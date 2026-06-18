@@ -5,6 +5,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
@@ -72,7 +73,7 @@ public class ModItems {
             ModEntityTypes.NECROMANCER_ENTITY_TYPE);
     public static final Holder.Reference<Item> SURRENDERED_SPAWN_EGG_ITEM = ModRegistry.REGISTRIES.registerSpawnEggItem(
             ModEntityTypes.SURRENDERED_ENTITY_TYPE);
-    public static final Holder.Reference<Item> ILLUSIONER_SPAWN_EGG_ITEM = ModRegistry.REGISTRIES.registerSpawnEggItem((Holder<? extends EntityType<? extends Mob>>) (Holder<?>) EntityType.ILLUSIONER.builtInRegistryHolder());
+    public static final Holder.Reference<Item> ILLUSIONER_SPAWN_EGG_ITEM = ModRegistry.REGISTRIES.registerSpawnEggItem((Holder<? extends EntityType<? extends Mob>>) (Holder<?>) EntityTypes.ILLUSIONER.builtInRegistryHolder());
 
     public static void bootstrap() {
         // NO-OP

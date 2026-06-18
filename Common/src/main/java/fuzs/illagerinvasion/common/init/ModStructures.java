@@ -4,7 +4,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.random.WeightedList;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -50,7 +50,7 @@ public class ModStructures {
                         .getOrThrow(ModTags.HAS_ILLAGER_FORT_BIOME_TAG)).spawnOverrides(Map.of(MobCategory.MONSTER,
                                 new StructureSpawnOverride(StructureSpawnOverride.BoundingBoxType.STRUCTURE,
                                         WeightedList.<MobSpawnSettings.SpawnerData>builder()
-                                                .add(new MobSpawnSettings.SpawnerData(EntityType.PILLAGER, 1, 1), 3)
+                                                .add(new MobSpawnSettings.SpawnerData(EntityTypes.PILLAGER, 1, 1), 3)
                                                 .add(new MobSpawnSettings.SpawnerData(ModEntityTypes.MARAUDER_ENTITY_TYPE.value(),
                                                         1,
                                                         1), 3)

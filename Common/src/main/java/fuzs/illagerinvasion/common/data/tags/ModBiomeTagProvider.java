@@ -18,14 +18,14 @@ public class ModBiomeTagProvider extends AbstractTagProvider<Biome> {
     @Override
     public void addTags(HolderLookup.Provider provider) {
         this.tag(ModTags.HAS_FIRECALLER_HUT_BIOME_TAG).addTag(BiomeTags.IS_BADLANDS);
-        this.tag(ModTags.HAS_ILLAGER_FORT_BIOME_TAG).addTag(BiomeTags.IS_TAIGA).addKey(Biomes.SNOWY_PLAINS);
+        this.tag(ModTags.HAS_ILLAGER_FORT_BIOME_TAG).addTag(BiomeTags.IS_TAIGA).add(Biomes.SNOWY_PLAINS);
         this.tag(ModTags.HAS_ILLUSIONER_TOWER_BIOME_TAG)
-                .addKey(Biomes.TAIGA,
+                .add(Biomes.TAIGA,
                         Biomes.OLD_GROWTH_PINE_TAIGA,
                         Biomes.OLD_GROWTH_SPRUCE_TAIGA,
                         Biomes.DARK_FOREST,
                         Biomes.SWAMP);
-        this.tag(ModTags.HAS_SORCERER_HUT_BIOME_TAG).addKey(Biomes.DARK_FOREST);
+        this.tag(ModTags.HAS_SORCERER_HUT_BIOME_TAG).add(Biomes.DARK_FOREST);
         this.tag(ModTags.HAS_LABYRINTH_BIOME_TAG)
                 .addTag(BiomeTags.IS_TAIGA, BiomeTags.IS_JUNGLE, BiomeTags.IS_FOREST, BiomeTags.IS_SAVANNA);
     }

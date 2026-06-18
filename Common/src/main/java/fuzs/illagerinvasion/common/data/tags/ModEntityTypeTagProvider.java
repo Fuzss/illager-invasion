@@ -17,35 +17,35 @@ public class ModEntityTypeTagProvider extends AbstractTagProvider<EntityType<?>>
     @Override
     public void addTags(HolderLookup.Provider provider) {
         this.tag(EntityTypeTags.RAIDERS)
-                .add(ModEntityTypes.BASHER_ENTITY_TYPE.value(),
-                        ModEntityTypes.PROVOKER_ENTITY_TYPE.value(),
-                        ModEntityTypes.NECROMANCER_ENTITY_TYPE.value(),
-                        ModEntityTypes.SORCERER_ENTITY_TYPE.value(),
-                        ModEntityTypes.ARCHIVIST_ENTITY_TYPE.value(),
-                        ModEntityTypes.MARAUDER_ENTITY_TYPE.value(),
-                        ModEntityTypes.INQUISITOR_ENTITY_TYPE.value(),
-                        ModEntityTypes.ALCHEMIST_ENTITY_TYPE.value(),
-                        ModEntityTypes.INVOKER_ENTITY_TYPE.value());
+                .add(ModEntityTypes.BASHER_ENTITY_TYPE,
+                        ModEntityTypes.PROVOKER_ENTITY_TYPE,
+                        ModEntityTypes.NECROMANCER_ENTITY_TYPE,
+                        ModEntityTypes.SORCERER_ENTITY_TYPE,
+                        ModEntityTypes.ARCHIVIST_ENTITY_TYPE,
+                        ModEntityTypes.MARAUDER_ENTITY_TYPE,
+                        ModEntityTypes.INQUISITOR_ENTITY_TYPE,
+                        ModEntityTypes.ALCHEMIST_ENTITY_TYPE,
+                        ModEntityTypes.INVOKER_ENTITY_TYPE);
         this.tag(EntityTypeTags.ILLAGER)
-                .add(ModEntityTypes.BASHER_ENTITY_TYPE.value(),
-                        ModEntityTypes.PROVOKER_ENTITY_TYPE.value(),
-                        ModEntityTypes.NECROMANCER_ENTITY_TYPE.value(),
-                        ModEntityTypes.SORCERER_ENTITY_TYPE.value(),
-                        ModEntityTypes.ARCHIVIST_ENTITY_TYPE.value(),
-                        ModEntityTypes.MARAUDER_ENTITY_TYPE.value(),
-                        ModEntityTypes.INQUISITOR_ENTITY_TYPE.value(),
-                        ModEntityTypes.ALCHEMIST_ENTITY_TYPE.value(),
-                        ModEntityTypes.INVOKER_ENTITY_TYPE.value(),
-                        ModEntityTypes.FIRECALLER_ENTITY_TYPE.value());
-        this.tag(EntityTypeTags.FALL_DAMAGE_IMMUNE).add(ModEntityTypes.INVOKER_ENTITY_TYPE.value());
+                .add(ModEntityTypes.BASHER_ENTITY_TYPE,
+                        ModEntityTypes.PROVOKER_ENTITY_TYPE,
+                        ModEntityTypes.NECROMANCER_ENTITY_TYPE,
+                        ModEntityTypes.SORCERER_ENTITY_TYPE,
+                        ModEntityTypes.ARCHIVIST_ENTITY_TYPE,
+                        ModEntityTypes.MARAUDER_ENTITY_TYPE,
+                        ModEntityTypes.INQUISITOR_ENTITY_TYPE,
+                        ModEntityTypes.ALCHEMIST_ENTITY_TYPE,
+                        ModEntityTypes.INVOKER_ENTITY_TYPE,
+                        ModEntityTypes.FIRECALLER_ENTITY_TYPE);
+        this.tag(EntityTypeTags.FALL_DAMAGE_IMMUNE).add(ModEntityTypes.INVOKER_ENTITY_TYPE);
         this.tag("numismatic-overhaul:the_bourgeoisie")
-                .add(ModEntityTypes.BASHER_ENTITY_TYPE.value(),
-                        ModEntityTypes.PROVOKER_ENTITY_TYPE.value(),
-                        ModEntityTypes.NECROMANCER_ENTITY_TYPE.value(),
-                        ModEntityTypes.SORCERER_ENTITY_TYPE.value(),
-                        ModEntityTypes.ARCHIVIST_ENTITY_TYPE.value(),
-                        ModEntityTypes.MARAUDER_ENTITY_TYPE.value(),
-                        ModEntityTypes.INQUISITOR_ENTITY_TYPE.value(),
-                        ModEntityTypes.ALCHEMIST_ENTITY_TYPE.value());
+                .add(ModEntityTypes.BASHER_ENTITY_TYPE,
+                        ModEntityTypes.PROVOKER_ENTITY_TYPE,
+                        ModEntityTypes.NECROMANCER_ENTITY_TYPE,
+                        ModEntityTypes.SORCERER_ENTITY_TYPE,
+                        ModEntityTypes.ARCHIVIST_ENTITY_TYPE,
+                        ModEntityTypes.MARAUDER_ENTITY_TYPE,
+                        ModEntityTypes.INQUISITOR_ENTITY_TYPE,
+                        ModEntityTypes.ALCHEMIST_ENTITY_TYPE);
     }
 }

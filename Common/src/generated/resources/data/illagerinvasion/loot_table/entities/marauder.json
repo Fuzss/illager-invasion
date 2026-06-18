@@ -2,7 +2,6 @@
   "type": "minecraft:entity",
   "pools": [
     {
-      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
@@ -13,7 +12,6 @@
           ],
           "functions": [
             {
-              "add": false,
               "count": {
                 "type": "minecraft:uniform",
                 "max": 1.0,
@@ -37,14 +35,12 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "condition": "minecraft:entity_properties",
           "entity": "this",
           "predicate": {
-            "type_specific": {
-              "type": "minecraft:raider",
+            "minecraft:type_specific/raider": {
               "is_captain": true
             }
           }
@@ -55,7 +51,6 @@
           "type": "minecraft:item",
           "functions": [
             {
-              "add": false,
               "count": 1.0,
               "function": "minecraft:set_count"
             },

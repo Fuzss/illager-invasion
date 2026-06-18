@@ -10,7 +10,7 @@ import fuzs.puzzleslib.common.api.config.v3.ConfigHolder;
 import fuzs.puzzleslib.common.api.core.v1.ModConstructor;
 import fuzs.puzzleslib.common.api.core.v1.context.EntityAttributesContext;
 import fuzs.puzzleslib.common.api.core.v1.context.SpawnPlacementsContext;
-import fuzs.puzzleslib.common.api.event.v1.entity.ServerEntityLevelEvents;
+import fuzs.puzzleslib.common.api.event.v1.entity.ServerEntityEvents;
 import fuzs.puzzleslib.common.api.event.v1.server.LootTableLoadCallback;
 import fuzs.puzzleslib.common.api.event.v1.server.RegisterPotionBrewingMixesCallback;
 import net.minecraft.resources.Identifier;
@@ -43,7 +43,7 @@ public class IllagerInvasion implements ModConstructor {
     }
 
     private static void registerEventHandlers() {
-        ServerEntityLevelEvents.LOAD.register(VillagerGoalHandler::onEntityLoad);
+        ServerEntityEvents.LOAD.register(VillagerGoalHandler::onEntityLoad);
         LootTableLoadCallback.EVENT.register(ModLootTables::onLootTableLoad);
         RegisterPotionBrewingMixesCallback.EVENT.register(IllagerInvasion::registerPotionRecipes);
     }

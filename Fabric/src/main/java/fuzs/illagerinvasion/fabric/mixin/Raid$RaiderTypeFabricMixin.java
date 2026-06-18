@@ -3,6 +3,7 @@ package fuzs.illagerinvasion.fabric.mixin;
 import fuzs.illagerinvasion.common.config.RaidWavesConfigHelper;
 import fuzs.illagerinvasion.common.init.ModEntityTypes;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.raid.Raid;
 import net.minecraft.world.entity.raid.Raider;
 import org.spongepowered.asm.mixin.Mixin;
@@ -15,7 +16,7 @@ enum Raid$RaiderTypeFabricMixin {
     ILLAGERINVASION_NECROMANCER(ModEntityTypes.NECROMANCER_ENTITY_TYPE.value(),
             RaidWavesConfigHelper.NECROMANCER_RAID_WAVES),
     ILLAGERINVASION_SORCERER(ModEntityTypes.SORCERER_ENTITY_TYPE.value(), RaidWavesConfigHelper.SORCERER_RAID_WAVES),
-    ILLAGERINVASION_ILLUSIONER(EntityType.ILLUSIONER, RaidWavesConfigHelper.ILLUSIONER_RAID_WAVES),
+    ILLAGERINVASION_ILLUSIONER(EntityTypes.ILLUSIONER, RaidWavesConfigHelper.ILLUSIONER_RAID_WAVES),
     ILLAGERINVASION_ARCHIVIST(ModEntityTypes.ARCHIVIST_ENTITY_TYPE.value(), RaidWavesConfigHelper.ARCHIVIST_RAID_WAVES),
     ILLAGERINVASION_MARAUDER(ModEntityTypes.MARAUDER_ENTITY_TYPE.value(), RaidWavesConfigHelper.MARAUDER_RAID_WAVES),
     ILLAGERINVASION_INQUISITOR(ModEntityTypes.INQUISITOR_ENTITY_TYPE.value(),

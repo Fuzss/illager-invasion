@@ -8,6 +8,7 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 
 public class ModRecipeProvider extends AbstractRecipeProvider {
 
@@ -31,7 +32,9 @@ public class ModRecipeProvider extends AbstractRecipeProvider {
                         this.has(ModItems.ILLUSIONARY_DUST_ITEM.value()))
                 .save(recipeOutput);
         ShapedRecipeBuilder.shaped(this.items(), RecipeCategory.DECORATIONS, ModItems.IMBUING_TABLE_ITEM.value())
-                .define('#', Items.COPPER_BLOCK)
+                .define('#',
+                        Ingredient.of(Items.COPPER_BLOCK.weathering().unaffected(),
+                                Items.COPPER_BLOCK.waxed().unaffected()))
                 .define('P', Items.PAPER)
                 .define('O', Items.DARK_OAK_LOG)
                 .define('S', ModItems.PRIMAL_ESSENCE_ITEM.value())
