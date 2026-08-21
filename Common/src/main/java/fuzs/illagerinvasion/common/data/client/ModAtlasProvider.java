@@ -1,7 +1,7 @@
 package fuzs.illagerinvasion.common.data.client;
 
+import com.google.common.base.Preconditions;
 import fuzs.illagerinvasion.common.IllagerInvasion;
-import fuzs.illagerinvasion.common.init.ModRegistry;
 import fuzs.puzzleslib.common.api.client.data.v2.AbstractAtlasProvider;
 import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
 import net.minecraft.client.data.AtlasProvider;
@@ -26,10 +26,6 @@ import java.util.*;
 public class ModAtlasProvider extends AbstractAtlasProvider {
     public static final SpriteId DRAGON_FIREBALL_LOCATION = new SpriteId(TextureAtlas.LOCATION_ITEMS,
             Identifier.withDefaultNamespace("entity/enderdragon/dragon_fireball"));
-    public static final MaterialAssetGroup PLATINUM_GROUP = MaterialAssetGroup.create("platinum");
-    public static final List<ItemModelGenerators.TrimMaterialData> TRIM_MATERIAL_MODELS = List.of(new ItemModelGenerators.TrimMaterialData(
-            PLATINUM_GROUP,
-            ModRegistry.PLATINUM_TRIM_MATERIAL));
 
     public ModAtlasProvider(DataProviderContext context) {
         super(context);
@@ -39,41 +35,38 @@ public class ModAtlasProvider extends AbstractAtlasProvider {
      * @see AtlasProvider#armorTrims()
      */
     public static TrimPatternBuilder armorTrims() {
-        return armorTrims(null, true);
+        return new TrimPatternBuilder();
     }
 
     /**
      * @see AtlasProvider#armorTrims()
      */
-    public static TrimPatternBuilder armorTrims(@Nullable String fallbackNamespace, boolean defaultPermutations) {
-        return new TrimPatternBuilder(fallbackNamespace,
-                defaultPermutations ? new ArrayList<>(AtlasProvider.VANILLA_PATTERNS) : new ArrayList<>(),
-                defaultPermutations ? new ArrayList<>(AtlasProvider.HUMANOID_LAYERS) : new ArrayList<>(),
-                defaultPermutations ? new TreeMap<>(AtlasProvider.TRIM_PALETTE_VALUES) : new TreeMap<>());
+    public static TrimPatternBuilder armorTrimPatterns() {
+        return armorTrims().addVanillaLayers().addVanillaPermutations();
+    }
+
+    /**
+     * @see AtlasProvider#armorTrims()
+     */
+    public static TrimPatternBuilder armorTrimPermutations() {
+        return armorTrims().addVanillaPatterns().addVanillaLayers();
     }
 
     @Override
     public void addAtlases() {
         this.addMaterial(DRAGON_FIREBALL_LOCATION);
-        this.add(AtlasIds.ARMOR_TRIMS,
-                armorTrims(IllagerInvasion.MOD_ID, true).addPermutation(IllagerInvasion.id("platinum"))
-                        .addPermutation(PLATINUM_GROUP)
-                        .addPermutations(TRIM_MATERIAL_MODELS)
-                        .build());
+        this.add(AtlasIds.ARMOR_TRIMS, armorTrimPermutations().addPermutation(IllagerInvasion.id("platinum")).build());
     }
 
     public static class TrimPatternBuilder {
-        private final @Nullable String fallbackNamespace;
-        private final List<ResourceKey<TrimPattern>> patterns;
-        private final List<EquipmentClientInfo.LayerType> layers;
-        private final Map<String, Identifier> permutations;
+        private final List<ResourceKey<TrimPattern>> patterns = new ArrayList<>();
+        private final List<EquipmentClientInfo.LayerType> layers = new ArrayList<>();
+        private final Map<String, Identifier> permutations = new TreeMap<>();
         private Identifier palette = AtlasProvider.TRIM_PALETTE_KEY;
+        private @Nullable String namespaceOverride;
 
-        TrimPatternBuilder(@Nullable String fallbackNamespace, List<ResourceKey<TrimPattern>> patterns, List<EquipmentClientInfo.LayerType> layers, Map<String, Identifier> permutations) {
-            this.fallbackNamespace = fallbackNamespace;
-            this.patterns = patterns;
-            this.layers = layers;
-            this.permutations = permutations;
+        TrimPatternBuilder() {
+            // NO-OP
         }
 
         public TrimPatternBuilder addPattern(ResourceKey<TrimPattern> pattern) {
@@ -86,6 +79,10 @@ public class ModAtlasProvider extends AbstractAtlasProvider {
             return this;
         }
 
+        public TrimPatternBuilder addVanillaPatterns() {
+            return this.addPatterns(AtlasProvider.VANILLA_PATTERNS);
+        }
+
         public TrimPatternBuilder addLayer(EquipmentClientInfo.LayerType layer) {
             this.layers.add(layer);
             return this;
@@ -94,6 +91,10 @@ public class ModAtlasProvider extends AbstractAtlasProvider {
         public TrimPatternBuilder addLayers(List<EquipmentClientInfo.LayerType> layers) {
             this.layers.addAll(layers);
             return this;
+        }
+
+        public TrimPatternBuilder addVanillaLayers() {
+            return this.addLayers(AtlasProvider.HUMANOID_LAYERS);
         }
 
         public TrimPatternBuilder addPermutation(ItemModelGenerators.TrimMaterialData data) {
@@ -114,8 +115,8 @@ public class ModAtlasProvider extends AbstractAtlasProvider {
         }
 
         public TrimPatternBuilder addPermutation(MaterialAssetGroup.AssetInfo asset) {
-            Objects.requireNonNull(this.fallbackNamespace, "namespace is null");
-            return this.addPermutation(Identifier.fromNamespaceAndPath(this.fallbackNamespace, asset.suffix()));
+            Objects.requireNonNull(this.namespaceOverride, "namespace is null");
+            return this.addPermutation(Identifier.fromNamespaceAndPath(this.namespaceOverride, asset.suffix()));
         }
 
         public TrimPatternBuilder addPermutation(Identifier base, Map<ResourceKey<EquipmentAsset>, Identifier> overrides) {
@@ -141,8 +142,18 @@ public class ModAtlasProvider extends AbstractAtlasProvider {
             return this;
         }
 
+        public TrimPatternBuilder addVanillaPermutations() {
+            return this.addPermutations(AtlasProvider.TRIM_PALETTE_VALUES);
+        }
+
         public TrimPatternBuilder setPalette(Identifier palette) {
+            Objects.requireNonNull(palette, "palette is null");
             this.palette = palette;
+            return this;
+        }
+
+        public TrimPatternBuilder setNamespaceOverride(@Nullable String namespaceOverride) {
+            this.namespaceOverride = namespaceOverride;
             return this;
         }
 
@@ -150,9 +161,11 @@ public class ModAtlasProvider extends AbstractAtlasProvider {
          * @see AtlasProvider#armorTrims()
          */
         public List<SpriteSource> build() {
-            return List.of(new PalettedPermutations(patternTextures(this.patterns, this.layers),
-                    this.palette,
-                    this.permutations));
+            Preconditions.checkArgument(!this.patterns.isEmpty(), "patterns is empty");
+            Preconditions.checkArgument(!this.layers.isEmpty(), "layers is empty");
+            Preconditions.checkArgument(!this.permutations.isEmpty(), "permutations is empty");
+            List<Identifier> textures = patternTextures(this.patterns, this.layers);
+            return List.of(new PalettedPermutations(textures, this.palette, this.permutations));
         }
 
         /**
