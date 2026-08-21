@@ -16,14 +16,6 @@
     },
     "dependencies": [
         {
-            "name": "multiloaderdataextensions",
-            "type": "embedded",
-            "platforms": [
-                "fabric",
-                "neoforge"
-            ]
-        },
-        {
             "name": "fabricapi",
             "type": "required",
             "platforms": [
@@ -35,6 +27,14 @@
             "type": "required",
             "platforms": [
                 "fabric"
+            ]
+        },
+        {
+            "name": "multiloaderdataextensions",
+            "type": "embedded",
+            "platforms": [
+                "fabric",
+                "neoforge"
             ]
         },
         {

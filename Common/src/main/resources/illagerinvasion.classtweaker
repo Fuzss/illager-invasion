@@ -16,3 +16,7 @@ extendable  method  net/minecraft/world/entity/projectile/hurtingprojectile/Abst
 accessible  field   net/minecraft/client/renderer/entity/WitherSkullRenderer    model   Lnet/minecraft/client/model/object/skull/SkullModel;
 mutable field   net/minecraft/client/renderer/entity/WitherSkullRenderer    model   Lnet/minecraft/client/model/object/skull/SkullModel;
 extendable  method  net/minecraft/client/renderer/entity/WitherSkullRenderer    getTextureLocation  (Lnet/minecraft/client/renderer/entity/state/WitherSkullRenderState;)Lnet/minecraft/resources/Identifier;
+transitive-accessible   field   net/minecraft/client/data/AtlasProvider TRIM_PALETTE_KEY    Lnet/minecraft/resources/Identifier;
+transitive-accessible   field   net/minecraft/client/data/AtlasProvider TRIM_PALETTE_VALUES Ljava/util/Map;
+transitive-accessible   field   net/minecraft/client/data/AtlasProvider VANILLA_PATTERNS    Ljava/util/List;
+transitive-accessible   field   net/minecraft/client/data/AtlasProvider HUMANOID_LAYERS Ljava/util/List;
