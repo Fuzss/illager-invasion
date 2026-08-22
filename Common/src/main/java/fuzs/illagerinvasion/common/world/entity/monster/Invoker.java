@@ -352,7 +352,7 @@ public class Invoker extends SpellcasterIllager {
             for (int i = 0; i < 4; ++i) {
                 BlockPos blockPos = Invoker.this.blockPosition()
                         .offset(-2 + Invoker.this.random.nextInt(5), 1, -2 + Invoker.this.random.nextInt(5));
-                Surrendered surrendered = ModEntityTypes.SURRENDERED_ENTITY_TYPE.value()
+                Surrendered surrendered = ModEntityTypes.SURRENDERED.value()
                         .create(serverLevel, EntitySpawnReason.MOB_SUMMONED);
                 if (surrendered != null) {
                     surrendered.snapTo(blockPos, 0.0f, 0.0f);

@@ -2,10 +2,7 @@ package fuzs.illagerinvasion.common;
 
 import fuzs.illagerinvasion.common.config.ServerConfig;
 import fuzs.illagerinvasion.common.handler.VillagerGoalHandler;
-import fuzs.illagerinvasion.common.init.ModEntityTypes;
-import fuzs.illagerinvasion.common.init.ModEnumConstants;
-import fuzs.illagerinvasion.common.init.ModLootTables;
-import fuzs.illagerinvasion.common.init.ModRegistry;
+import fuzs.illagerinvasion.common.init.*;
 import fuzs.puzzleslib.common.api.config.v3.ConfigHolder;
 import fuzs.puzzleslib.common.api.core.v1.ModConstructor;
 import fuzs.puzzleslib.common.api.core.v1.context.EntityAttributesContext;
@@ -49,61 +46,61 @@ public class IllagerInvasion implements ModConstructor {
     }
 
     private static void registerPotionRecipes(RegisterPotionBrewingMixesCallback.Builder builder) {
-        builder.registerPotionRecipe(Potions.AWKWARD, Items.GOAT_HORN, ModRegistry.BERSERKING_POTION);
-        builder.registerPotionRecipe(ModRegistry.BERSERKING_POTION, Items.REDSTONE, ModRegistry.LONG_BERSERKING_POTION);
-        builder.registerPotionRecipe(ModRegistry.BERSERKING_POTION,
+        builder.registerPotionRecipe(Potions.AWKWARD, Items.GOAT_HORN, ModPotions.BERSERKING);
+        builder.registerPotionRecipe(ModPotions.BERSERKING, Items.REDSTONE, ModPotions.LONG_BERSERKING);
+        builder.registerPotionRecipe(ModPotions.BERSERKING,
                 Items.GLOWSTONE_DUST,
-                ModRegistry.STRONG_BERSERKING_POTION);
+                ModPotions.STRONG_BERSERKING);
     }
 
     @Override
     public void onRegisterEntityAttributes(EntityAttributesContext context) {
-        context.registerAttributes(ModEntityTypes.ALCHEMIST_ENTITY_TYPE.value(),
+        context.registerAttributes(ModEntityTypes.ALCHEMIST.value(),
                 Monster.createMonsterAttributes()
                         .add(Attributes.MAX_HEALTH, 24.0)
                         .add(Attributes.MOVEMENT_SPEED, 0.38));
-        context.registerAttributes(ModEntityTypes.ARCHIVIST_ENTITY_TYPE.value(),
+        context.registerAttributes(ModEntityTypes.ARCHIVIST.value(),
                 Monster.createMonsterAttributes()
                         .add(Attributes.MAX_HEALTH, 24.0)
                         .add(Attributes.MOVEMENT_SPEED, 0.36));
-        context.registerAttributes(ModEntityTypes.BASHER_ENTITY_TYPE.value(),
+        context.registerAttributes(ModEntityTypes.BASHER.value(),
                 Monster.createMonsterAttributes()
                         .add(Attributes.MAX_HEALTH, 32.0)
                         .add(Attributes.MOVEMENT_SPEED, 0.31)
                         .add(Attributes.ATTACK_DAMAGE, 3.0)
                         .add(Attributes.ATTACK_KNOCKBACK, 0.2));
-        context.registerAttributes(ModEntityTypes.FIRECALLER_ENTITY_TYPE.value(),
+        context.registerAttributes(ModEntityTypes.FIRECALLER.value(),
                 Monster.createMonsterAttributes()
                         .add(Attributes.MAX_HEALTH, 32.0)
                         .add(Attributes.MOVEMENT_SPEED, 0.38));
-        context.registerAttributes(ModEntityTypes.INQUISITOR_ENTITY_TYPE.value(),
+        context.registerAttributes(ModEntityTypes.INQUISITOR.value(),
                 Monster.createMonsterAttributes()
                         .add(Attributes.MAX_HEALTH, 80.0)
                         .add(Attributes.MOVEMENT_SPEED, 0.33)
                         .add(Attributes.ATTACK_DAMAGE, 10.0)
                         .add(Attributes.ATTACK_KNOCKBACK, 1.6)
                         .add(Attributes.KNOCKBACK_RESISTANCE, 0.8));
-        context.registerAttributes(ModEntityTypes.INVOKER_ENTITY_TYPE.value(),
+        context.registerAttributes(ModEntityTypes.INVOKER.value(),
                 Monster.createMonsterAttributes()
                         .add(Attributes.MAX_HEALTH, 250.0)
                         .add(Attributes.MOVEMENT_SPEED, 0.36)
                         .add(Attributes.KNOCKBACK_RESISTANCE, 0.3)
                         .add(Attributes.ATTACK_DAMAGE, 8.0));
-        context.registerAttributes(ModEntityTypes.MARAUDER_ENTITY_TYPE.value(),
+        context.registerAttributes(ModEntityTypes.MARAUDER.value(),
                 Monster.createMonsterAttributes()
                         .add(Attributes.MAX_HEALTH, 24.0)
                         .add(Attributes.MOVEMENT_SPEED, 0.30));
-        context.registerAttributes(ModEntityTypes.PROVOKER_ENTITY_TYPE.value(),
+        context.registerAttributes(ModEntityTypes.PROVOKER.value(),
                 Monster.createMonsterAttributes()
                         .add(Attributes.MAX_HEALTH, 24.0)
                         .add(Attributes.MOVEMENT_SPEED, 0.38));
-        context.registerAttributes(ModEntityTypes.SORCERER_ENTITY_TYPE.value(),
+        context.registerAttributes(ModEntityTypes.SORCERER.value(),
                 Monster.createMonsterAttributes()
                         .add(Attributes.MAX_HEALTH, 32.0)
                         .add(Attributes.MOVEMENT_SPEED, 0.38));
-        context.registerAttributes(ModEntityTypes.SURRENDERED_ENTITY_TYPE.value(),
+        context.registerAttributes(ModEntityTypes.SURRENDERED.value(),
                 Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, 14.0).add(Attributes.ATTACK_DAMAGE, 5.0));
-        context.registerAttributes(ModEntityTypes.NECROMANCER_ENTITY_TYPE.value(),
+        context.registerAttributes(ModEntityTypes.NECROMANCER.value(),
                 Monster.createMonsterAttributes()
                         .add(Attributes.MAX_HEALTH, 32.0)
                         .add(Attributes.MOVEMENT_SPEED, 0.38));
@@ -111,47 +108,47 @@ public class IllagerInvasion implements ModConstructor {
 
     @Override
     public void onRegisterSpawnPlacements(SpawnPlacementsContext context) {
-        context.registerSpawnPlacement(ModEntityTypes.ALCHEMIST_ENTITY_TYPE.value(),
+        context.registerSpawnPlacement(ModEntityTypes.ALCHEMIST.value(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 PatrollingMonster::checkPatrollingMonsterSpawnRules);
-        context.registerSpawnPlacement(ModEntityTypes.ARCHIVIST_ENTITY_TYPE.value(),
+        context.registerSpawnPlacement(ModEntityTypes.ARCHIVIST.value(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 PatrollingMonster::checkPatrollingMonsterSpawnRules);
-        context.registerSpawnPlacement(ModEntityTypes.BASHER_ENTITY_TYPE.value(),
+        context.registerSpawnPlacement(ModEntityTypes.BASHER.value(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 PatrollingMonster::checkPatrollingMonsterSpawnRules);
-        context.registerSpawnPlacement(ModEntityTypes.FIRECALLER_ENTITY_TYPE.value(),
+        context.registerSpawnPlacement(ModEntityTypes.FIRECALLER.value(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 PatrollingMonster::checkPatrollingMonsterSpawnRules);
-        context.registerSpawnPlacement(ModEntityTypes.INQUISITOR_ENTITY_TYPE.value(),
+        context.registerSpawnPlacement(ModEntityTypes.INQUISITOR.value(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 PatrollingMonster::checkPatrollingMonsterSpawnRules);
-        context.registerSpawnPlacement(ModEntityTypes.INVOKER_ENTITY_TYPE.value(),
+        context.registerSpawnPlacement(ModEntityTypes.INVOKER.value(),
                 SpawnPlacementTypes.NO_RESTRICTIONS,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Monster::checkMonsterSpawnRules);
-        context.registerSpawnPlacement(ModEntityTypes.MARAUDER_ENTITY_TYPE.value(),
+        context.registerSpawnPlacement(ModEntityTypes.MARAUDER.value(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 PatrollingMonster::checkPatrollingMonsterSpawnRules);
-        context.registerSpawnPlacement(ModEntityTypes.PROVOKER_ENTITY_TYPE.value(),
+        context.registerSpawnPlacement(ModEntityTypes.PROVOKER.value(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 PatrollingMonster::checkPatrollingMonsterSpawnRules);
-        context.registerSpawnPlacement(ModEntityTypes.SORCERER_ENTITY_TYPE.value(),
+        context.registerSpawnPlacement(ModEntityTypes.SORCERER.value(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 PatrollingMonster::checkPatrollingMonsterSpawnRules);
-        context.registerSpawnPlacement(ModEntityTypes.SURRENDERED_ENTITY_TYPE.value(),
+        context.registerSpawnPlacement(ModEntityTypes.SURRENDERED.value(),
                 SpawnPlacementTypes.NO_RESTRICTIONS,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Monster::checkMonsterSpawnRules);
-        context.registerSpawnPlacement(ModEntityTypes.NECROMANCER_ENTITY_TYPE.value(),
+        context.registerSpawnPlacement(ModEntityTypes.NECROMANCER.value(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 PatrollingMonster::checkPatrollingMonsterSpawnRules);

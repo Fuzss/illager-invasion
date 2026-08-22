@@ -29,7 +29,7 @@ public class SkullBolt extends WitherSkull {
     }
 
     public SkullBolt(Level level, LivingEntity owner, Vec3 movement) {
-        this(ModEntityTypes.SKULL_BOLT_ENTITY_TYPE.value(), level);
+        this(ModEntityTypes.SKULL_BOLT.value(), level);
         this.setOwner(owner);
         this.setRot(owner.getYRot(), owner.getXRot());
         this.snapTo(owner.getX(), owner.getY(), owner.getZ(), this.getYRot(), this.getXRot());

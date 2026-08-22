@@ -103,14 +103,14 @@ public class Marauder extends AbstractIllager implements RangedAttackMob {
     @Override
     protected void populateDefaultEquipmentSlots(RandomSource random, DifficultyInstance difficulty) {
         super.populateDefaultEquipmentSlots(random, difficulty);
-        this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(ModItems.PLATINUM_INFUSED_HATCHET_ITEM));
+        this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(ModItems.PLATINUM_INFUSED_HATCHET));
     }
 
     @Override
     public void performRangedAttack(LivingEntity target, float pullProgress) {
         ItemStack itemInHand = this.getMainHandItem();
-        ItemStack itemStack = itemInHand.is(ModItems.PLATINUM_INFUSED_HATCHET_ITEM) ? itemInHand :
-                new ItemStack(ModItems.PLATINUM_INFUSED_HATCHET_ITEM);
+        ItemStack itemStack = itemInHand.is(ModItems.PLATINUM_INFUSED_HATCHET) ? itemInHand :
+                new ItemStack(ModItems.PLATINUM_INFUSED_HATCHET);
         ThrownHatchet thrownHatchet = new ThrownHatchet(this.level(), this, itemStack);
         double d = target.getX() - this.getX();
         double e = target.getY(0.3333333333333333) - thrownHatchet.getY();
@@ -188,7 +188,7 @@ public class Marauder extends AbstractIllager implements RangedAttackMob {
 
         @Override
         public boolean canUse() {
-            return super.canUse() && Marauder.this.getMainHandItem().is(ModItems.PLATINUM_INFUSED_HATCHET_ITEM);
+            return super.canUse() && Marauder.this.getMainHandItem().is(ModItems.PLATINUM_INFUSED_HATCHET);
         }
 
         @Override

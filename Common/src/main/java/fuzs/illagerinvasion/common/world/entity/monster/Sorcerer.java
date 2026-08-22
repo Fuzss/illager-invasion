@@ -1,8 +1,6 @@
 package fuzs.illagerinvasion.common.world.entity.monster;
 
-import fuzs.illagerinvasion.common.init.ModRegistry;
-import fuzs.illagerinvasion.common.init.ModSoundEvents;
-import fuzs.illagerinvasion.common.init.ModTags;
+import fuzs.illagerinvasion.common.init.*;
 import fuzs.illagerinvasion.common.util.TeleportUtil;
 import fuzs.puzzleslib.common.api.util.v1.EntityHelper;
 import net.minecraft.core.BlockPos;
@@ -184,7 +182,7 @@ public class Sorcerer extends SpellcasterIllager {
             target.hurtServer((ServerLevel) Sorcerer.this.level(),
                     Sorcerer.this.damageSources().indirectMagic(Sorcerer.this, Sorcerer.this),
                     3.0F);
-            ((ServerLevel) Sorcerer.this.level()).sendParticles(ModRegistry.MAGIC_FLAME_PARTICLE_TYPE.value(),
+            ((ServerLevel) Sorcerer.this.level()).sendParticles(ModParticleTypes.MAGIC_FLAME.value(),
                     target.getX(),
                     target.getY() + 1,
                     target.getZ(),
@@ -197,12 +195,12 @@ public class Sorcerer extends SpellcasterIllager {
 
         private void placeMagicFire(BlockPos blockPos) {
             BlockState blockState = Sorcerer.this.level().getBlockState(blockPos.below());
-            if (!blockState.is(ModTags.MAGIC_FIRE_REPLACEABLE_BLOCK_TAG)) {
+            if (!blockState.is(ModTags.Blocks.MAGIC_FIRE_REPLACEABLE)) {
                 for (BlockPos offset : BlockPos.withinManhattan(blockPos, 1, 1, 1)) {
                     blockState = Sorcerer.this.level().getBlockState(offset);
-                    if (blockState.is(ModTags.MAGIC_FIRE_REPLACEABLE_BLOCK_TAG)) {
+                    if (blockState.is(ModTags.Blocks.MAGIC_FIRE_REPLACEABLE)) {
                         Sorcerer.this.level()
-                                .setBlockAndUpdate(offset, ModRegistry.MAGIC_FIRE_BLOCK.value().defaultBlockState());
+                                .setBlockAndUpdate(offset, ModBlocks.MAGIC_FIRE.value().defaultBlockState());
                     }
                 }
             }

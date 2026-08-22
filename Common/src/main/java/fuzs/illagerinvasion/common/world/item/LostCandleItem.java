@@ -26,7 +26,7 @@ public class LostCandleItem extends Item {
         if (level.isClientSide()) {
             for (BlockPos blockPos : BlockPos.withinManhattan(player.blockPosition(), 8, 8, 8)) {
                 BlockState blockState = level.getBlockState(blockPos);
-                if (blockState.is(ModTags.ORES_BLOCK_TAG)) {
+                if (blockState.is(ModTags.Blocks.ORES_BLOCK_TAG)) {
                     level.playSound(player,
                             player.blockPosition(),
                             ModSoundEvents.LOST_CANDLE_FIND_ORE_SOUND_EVENT.value(),

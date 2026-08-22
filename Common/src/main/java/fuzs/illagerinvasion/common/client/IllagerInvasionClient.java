@@ -5,6 +5,7 @@ import fuzs.illagerinvasion.common.client.model.*;
 import fuzs.illagerinvasion.common.client.model.geom.ModModelLayers;
 import fuzs.illagerinvasion.common.client.render.entity.*;
 import fuzs.illagerinvasion.common.init.ModEntityTypes;
+import fuzs.illagerinvasion.common.init.ModParticleTypes;
 import fuzs.illagerinvasion.common.init.ModRegistry;
 import fuzs.puzzleslib.common.api.client.core.v1.ClientModConstructor;
 import fuzs.puzzleslib.common.api.client.core.v1.context.EntityRenderersContext;
@@ -33,28 +34,28 @@ public class IllagerInvasionClient implements ClientModConstructor {
 
     @Override
     public void onRegisterEntityRenderers(EntityRenderersContext context) {
-        context.registerEntityRenderer(ModEntityTypes.PROVOKER_ENTITY_TYPE.value(), ProvokerRenderer::new);
-        context.registerEntityRenderer(ModEntityTypes.INVOKER_ENTITY_TYPE.value(), InvokerRenderer::new);
-        context.registerEntityRenderer(ModEntityTypes.SURRENDERED_ENTITY_TYPE.value(), SurrenderedRenderer::new);
-        context.registerEntityRenderer(ModEntityTypes.NECROMANCER_ENTITY_TYPE.value(), NecromancerRenderer::new);
-        context.registerEntityRenderer(ModEntityTypes.SKULL_BOLT_ENTITY_TYPE.value(), SkullBoltRenderer::new);
-        context.registerEntityRenderer(ModEntityTypes.BASHER_ENTITY_TYPE.value(), BasherRenderer::new);
-        context.registerEntityRenderer(ModEntityTypes.SORCERER_ENTITY_TYPE.value(), SorcererRenderer::new);
-        context.registerEntityRenderer(ModEntityTypes.ARCHIVIST_ENTITY_TYPE.value(), ArchivistRenderer::new);
-        context.registerEntityRenderer(ModEntityTypes.INQUISITOR_ENTITY_TYPE.value(), InquisitorRenderer::new);
-        context.registerEntityRenderer(ModEntityTypes.MARAUDER_ENTITY_TYPE.value(), MarauderRenderer::new);
-        context.registerEntityRenderer(ModEntityTypes.ALCHEMIST_ENTITY_TYPE.value(), AlchemistRenderer::new);
-        context.registerEntityRenderer(ModEntityTypes.FIRECALLER_ENTITY_TYPE.value(), FirecallerRenderer::new);
-        context.registerEntityRenderer(ModEntityTypes.INVOKER_FANGS_ENTITY_TYPE.value(), InvokerFangsRenderer::new);
-        context.registerEntityRenderer(ModEntityTypes.HATCHET_ENTITY_TYPE.value(), ThrownHatchetRenderer::new);
-        context.registerEntityRenderer(ModEntityTypes.FLYING_MAGMA_ENTITY_TYPE.value(), FlyingMagmaRenderer::new);
+        context.registerEntityRenderer(ModEntityTypes.PROVOKER.value(), ProvokerRenderer::new);
+        context.registerEntityRenderer(ModEntityTypes.INVOKER.value(), InvokerRenderer::new);
+        context.registerEntityRenderer(ModEntityTypes.SURRENDERED.value(), SurrenderedRenderer::new);
+        context.registerEntityRenderer(ModEntityTypes.NECROMANCER.value(), NecromancerRenderer::new);
+        context.registerEntityRenderer(ModEntityTypes.SKULL_BOLT.value(), SkullBoltRenderer::new);
+        context.registerEntityRenderer(ModEntityTypes.BASHER.value(), BasherRenderer::new);
+        context.registerEntityRenderer(ModEntityTypes.SORCERER.value(), SorcererRenderer::new);
+        context.registerEntityRenderer(ModEntityTypes.ARCHIVIST.value(), ArchivistRenderer::new);
+        context.registerEntityRenderer(ModEntityTypes.INQUISITOR.value(), InquisitorRenderer::new);
+        context.registerEntityRenderer(ModEntityTypes.MARAUDER.value(), MarauderRenderer::new);
+        context.registerEntityRenderer(ModEntityTypes.ALCHEMIST.value(), AlchemistRenderer::new);
+        context.registerEntityRenderer(ModEntityTypes.FIRECALLER.value(), FirecallerRenderer::new);
+        context.registerEntityRenderer(ModEntityTypes.INVOKER_FANGS.value(), InvokerFangsRenderer::new);
+        context.registerEntityRenderer(ModEntityTypes.HATCHET.value(), ThrownHatchetRenderer::new);
+        context.registerEntityRenderer(ModEntityTypes.FLYING_MAGMA.value(), FlyingMagmaRenderer::new);
     }
 
     @Override
     public void onRegisterParticleProviders(ParticleProvidersContext context) {
-        context.registerParticleProvider(ModRegistry.MAGIC_FLAME_PARTICLE_TYPE.value(), FlameParticle.Provider::new);
-        context.registerParticleProvider(ModRegistry.NECROMANCER_BUFF_PARTICLE_TYPE.value(),
-                HeartParticle.Provider::new);
+        context.registerParticleProvider(ModParticleTypes.MAGIC_FLAME.value(), FlameParticle.Provider::new);
+        context.registerParticleProvider(ModParticleTypes.PLATINUM_FIRE_FLAME.value(), FlameParticle.Provider::new);
+        context.registerParticleProvider(ModParticleTypes.NECROMANCER_BUFF.value(), HeartParticle.Provider::new);
     }
 
     @Override

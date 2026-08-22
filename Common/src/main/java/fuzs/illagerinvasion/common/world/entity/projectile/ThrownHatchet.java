@@ -24,7 +24,7 @@ public class ThrownHatchet extends ThrownTrident implements ItemSupplier {
     }
 
     public ThrownHatchet(Level level, double x, double y, double z, ItemStack pickupItemStack) {
-        this(ModEntityTypes.HATCHET_ENTITY_TYPE.value(), level);
+        this(ModEntityTypes.HATCHET.value(), level);
         this.setPickupItemStack(pickupItemStack.copy());
         this.setCustomName(pickupItemStack.get(DataComponents.CUSTOM_NAME));
         if (pickupItemStack.remove(DataComponents.INTANGIBLE_PROJECTILE) != null) {
@@ -36,7 +36,7 @@ public class ThrownHatchet extends ThrownTrident implements ItemSupplier {
 
     @Override
     protected ItemStack getDefaultPickupItem() {
-        return new ItemStack(ModItems.PLATINUM_INFUSED_HATCHET_ITEM.value());
+        return new ItemStack(ModItems.PLATINUM_INFUSED_HATCHET.value());
     }
 
     @Override

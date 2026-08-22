@@ -1,7 +1,7 @@
 package fuzs.illagerinvasion.common.data.client;
 
+import fuzs.illagerinvasion.common.init.ModBlocks;
 import fuzs.illagerinvasion.common.init.ModItems;
-import fuzs.illagerinvasion.common.init.ModRegistry;
 import fuzs.puzzleslib.common.api.client.data.v2.AbstractModelProvider;
 import fuzs.puzzleslib.common.api.client.data.v2.models.ItemModelGenerationHelper;
 import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
@@ -23,23 +23,23 @@ public class ModModelProvider extends AbstractModelProvider {
     }
 
     @Override
-    public void addBlockModels(BlockModelGenerators blockModelGenerators) {
-        this.createImbuingTable(ModRegistry.IMBUING_TABLE_BLOCK.value(), blockModelGenerators);
-        this.createSimpleFire(ModRegistry.MAGIC_FIRE_BLOCK.value(), blockModelGenerators);
+    public void addBlockModels(BlockModelGenerators generator) {
+        this.createImbuingTable(ModBlocks.IMBUING_TABLE.value(), generator);
+        this.createSimpleFire(ModBlocks.MAGIC_FIRE.value(), generator);
     }
 
-    public final void createImbuingTable(Block block, BlockModelGenerators blockModelGenerators) {
+    public final void createImbuingTable(Block block, BlockModelGenerators generator) {
         TextureMapping textureMapping = TextureMapping.craftingTable(block, block)
                 .put(TextureSlot.DOWN, TextureMapping.getBlockTexture(block, "_bottom"));
-        Identifier identifier = ModelTemplates.CUBE.create(block, textureMapping, blockModelGenerators.modelOutput);
-        blockModelGenerators.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(block,
+        Identifier identifier = ModelTemplates.CUBE.create(block, textureMapping, generator.modelOutput);
+        generator.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(block,
                 BlockModelGenerators.plainVariant(identifier)));
     }
 
-    public final void createSimpleFire(Block block, BlockModelGenerators blockModelGenerators) {
-        MultiVariant multiVariant = blockModelGenerators.createFloorFireModels(block);
-        MultiVariant multiVariant2 = blockModelGenerators.createSideFireModels(block);
-        blockModelGenerators.blockStateOutput.accept(MultiPartGenerator.multiPart(block)
+    public final void createSimpleFire(Block block, BlockModelGenerators generator) {
+        MultiVariant multiVariant = generator.createFloorFireModels(block);
+        MultiVariant multiVariant2 = generator.createSideFireModels(block);
+        generator.blockStateOutput.accept(MultiPartGenerator.multiPart(block)
                 .with(multiVariant)
                 .with(multiVariant2)
                 .with(multiVariant2.with(BlockModelGenerators.Y_ROT_90))
@@ -48,32 +48,31 @@ public class ModModelProvider extends AbstractModelProvider {
     }
 
     @Override
-    public void addItemModels(ItemModelGenerators itemModelGenerators) {
-        itemModelGenerators.generateFlatItem(ModItems.HALLOWED_GEM_ITEM.value(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.ILLUSIONARY_DUST_ITEM.value(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.PLATINUM_CHUNK_ITEM.value(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.PLATINUM_SHEET_ITEM.value(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.PRIMAL_ESSENCE_ITEM.value(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.UNUSUAL_DUST_ITEM.value(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.LOST_CANDLE_ITEM.value(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.PLATINUM_INFUSED_HATCHET_ITEM.value(),
-                ModelTemplates.FLAT_HANDHELD_ITEM);
-        ItemModelGenerationHelper.generateFlatItem(ModItems.MAGICAL_FIRE_CHARGE_ITEM.value(),
+    public void addItemModels(ItemModelGenerators generator) {
+        generator.generateFlatItem(ModItems.HALLOWED_GEM.value(), ModelTemplates.FLAT_ITEM);
+        generator.generateFlatItem(ModItems.ILLUSIONARY_DUST.value(), ModelTemplates.FLAT_ITEM);
+        generator.generateFlatItem(ModItems.PLATINUM_NUGGET.value(), ModelTemplates.FLAT_ITEM);
+        generator.generateFlatItem(ModItems.PLATINUM_INGOT.value(), ModelTemplates.FLAT_ITEM);
+        generator.generateFlatItem(ModItems.PRIMAL_ESSENCE.value(), ModelTemplates.FLAT_ITEM);
+        generator.generateFlatItem(ModItems.UNUSUAL_DUST.value(), ModelTemplates.FLAT_ITEM);
+        generator.generateFlatItem(ModItems.LOST_CANDLE.value(), ModelTemplates.FLAT_ITEM);
+        generator.generateFlatItem(ModItems.PLATINUM_INFUSED_HATCHET.value(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        ItemModelGenerationHelper.generateFlatItem(ModItems.MAGICAL_FIRE_CHARGE.value(),
                 new Material(ModAtlasProvider.DRAGON_FIREBALL_LOCATION.texture()),
                 ModelTemplates.FLAT_ITEM,
-                itemModelGenerators);
-        itemModelGenerators.generateFlatItem(ModItems.ALCHEMIST_SPAWN_EGG_ITEM.value(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.ARCHIVIST_SPAWN_EGG_ITEM.value(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.BASHER_SPAWN_EGG_ITEM.value(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.FIRECALLER_SPAWN_EGG_ITEM.value(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.INQUISITOR_SPAWN_EGG_ITEM.value(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.MARAUDER_SPAWN_EGG_ITEM.value(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.INVOKER_SPAWN_EGG_ITEM.value(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.NECROMANCER_SPAWN_EGG_ITEM.value(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.PROVOKER_SPAWN_EGG_ITEM.value(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.SORCERER_SPAWN_EGG_ITEM.value(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.SURRENDERED_SPAWN_EGG_ITEM.value(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.ILLUSIONER_SPAWN_EGG_ITEM.value(), ModelTemplates.FLAT_ITEM);
-        ItemModelGenerationHelper.generateHorn(ModItems.HORN_OF_SIGHT_ITEM.value(), itemModelGenerators);
+                generator);
+        generator.generateFlatItem(ModItems.ALCHEMIST_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        generator.generateFlatItem(ModItems.ARCHIVIST_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        generator.generateFlatItem(ModItems.BASHER_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        generator.generateFlatItem(ModItems.FIRECALLER_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        generator.generateFlatItem(ModItems.INQUISITOR_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        generator.generateFlatItem(ModItems.MARAUDER_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        generator.generateFlatItem(ModItems.INVOKER_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        generator.generateFlatItem(ModItems.NECROMANCER_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        generator.generateFlatItem(ModItems.PROVOKER_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        generator.generateFlatItem(ModItems.SORCERER_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        generator.generateFlatItem(ModItems.SURRENDERED_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        generator.generateFlatItem(ModItems.ILLUSIONER_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        ItemModelGenerationHelper.generateHorn(ModItems.HORN_OF_SIGHT.value(), generator);
     }
 }

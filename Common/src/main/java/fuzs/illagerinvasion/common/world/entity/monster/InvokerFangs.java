@@ -18,7 +18,7 @@ public class InvokerFangs extends EvokerFangs {
     }
 
     public InvokerFangs(Level level, double x, double y, double z, float yRot, int warmupDelay, LivingEntity owner) {
-        this(ModEntityTypes.INVOKER_FANGS_ENTITY_TYPE.value(), level);
+        this(ModEntityTypes.INVOKER_FANGS.value(), level);
         // copied from super, only changing yRot value
         this.warmupDelayTicks = warmupDelay;
         this.setOwner(owner);

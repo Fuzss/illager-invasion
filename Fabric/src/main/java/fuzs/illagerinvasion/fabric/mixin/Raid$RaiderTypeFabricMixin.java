@@ -11,18 +11,18 @@ import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(Raid.RaiderType.class)
 enum Raid$RaiderTypeFabricMixin {
-    ILLAGERINVASION_BASHER(ModEntityTypes.BASHER_ENTITY_TYPE.value(), RaidWavesConfigHelper.BASHER_RAID_WAVES),
-    ILLAGERINVASION_PROVOKER(ModEntityTypes.PROVOKER_ENTITY_TYPE.value(), RaidWavesConfigHelper.PROVOKER_RAID_WAVES),
-    ILLAGERINVASION_NECROMANCER(ModEntityTypes.NECROMANCER_ENTITY_TYPE.value(),
+    ILLAGERINVASION_BASHER(ModEntityTypes.BASHER.value(), RaidWavesConfigHelper.BASHER_RAID_WAVES),
+    ILLAGERINVASION_PROVOKER(ModEntityTypes.PROVOKER.value(), RaidWavesConfigHelper.PROVOKER_RAID_WAVES),
+    ILLAGERINVASION_NECROMANCER(ModEntityTypes.NECROMANCER.value(),
             RaidWavesConfigHelper.NECROMANCER_RAID_WAVES),
-    ILLAGERINVASION_SORCERER(ModEntityTypes.SORCERER_ENTITY_TYPE.value(), RaidWavesConfigHelper.SORCERER_RAID_WAVES),
+    ILLAGERINVASION_SORCERER(ModEntityTypes.SORCERER.value(), RaidWavesConfigHelper.SORCERER_RAID_WAVES),
     ILLAGERINVASION_ILLUSIONER(EntityTypes.ILLUSIONER, RaidWavesConfigHelper.ILLUSIONER_RAID_WAVES),
-    ILLAGERINVASION_ARCHIVIST(ModEntityTypes.ARCHIVIST_ENTITY_TYPE.value(), RaidWavesConfigHelper.ARCHIVIST_RAID_WAVES),
-    ILLAGERINVASION_MARAUDER(ModEntityTypes.MARAUDER_ENTITY_TYPE.value(), RaidWavesConfigHelper.MARAUDER_RAID_WAVES),
-    ILLAGERINVASION_INQUISITOR(ModEntityTypes.INQUISITOR_ENTITY_TYPE.value(),
+    ILLAGERINVASION_ARCHIVIST(ModEntityTypes.ARCHIVIST.value(), RaidWavesConfigHelper.ARCHIVIST_RAID_WAVES),
+    ILLAGERINVASION_MARAUDER(ModEntityTypes.MARAUDER.value(), RaidWavesConfigHelper.MARAUDER_RAID_WAVES),
+    ILLAGERINVASION_INQUISITOR(ModEntityTypes.INQUISITOR.value(),
             RaidWavesConfigHelper.INQUISITOR_RAID_WAVES),
-    ILLAGERINVASION_ALCHEMIST(ModEntityTypes.ALCHEMIST_ENTITY_TYPE.value(), RaidWavesConfigHelper.ALCHEMIST_RAID_WAVES),
-    ILLAGERINVASION_INVOKER(ModEntityTypes.INVOKER_ENTITY_TYPE.value(), RaidWavesConfigHelper.INVOKER_RAID_WAVES);
+    ILLAGERINVASION_ALCHEMIST(ModEntityTypes.ALCHEMIST.value(), RaidWavesConfigHelper.ALCHEMIST_RAID_WAVES),
+    ILLAGERINVASION_INVOKER(ModEntityTypes.INVOKER.value(), RaidWavesConfigHelper.INVOKER_RAID_WAVES);
 
     @Shadow
     Raid$RaiderTypeFabricMixin(final EntityType<? extends Raider> entityType, final int[] spawnsPerWaveBeforeBonus) {

@@ -32,10 +32,10 @@ public class WoodlandMansionPieceHelper {
     public static final String INVOKER_DATA_MARKER = IllagerInvasion.id("invoker").toString();
     public static final String PROVOKER_DATA_MARKER = IllagerInvasion.id("provoker").toString();
     private static final Map<String, Holder<? extends EntityType<? extends Mob>>> DATA_MARKER_TYPES = ImmutableMap.<String, Holder<? extends EntityType<? extends Mob>>>builder()
-            .put(ARCHIVIST_DATA_MARKER, ModEntityTypes.ARCHIVIST_ENTITY_TYPE)
-            .put(BASHER_DATA_MARKER, ModEntityTypes.BASHER_ENTITY_TYPE)
-            .put(INVOKER_DATA_MARKER, ModEntityTypes.INVOKER_ENTITY_TYPE)
-            .put(PROVOKER_DATA_MARKER, ModEntityTypes.PROVOKER_ENTITY_TYPE)
+            .put(ARCHIVIST_DATA_MARKER, ModEntityTypes.ARCHIVIST)
+            .put(BASHER_DATA_MARKER, ModEntityTypes.BASHER)
+            .put(INVOKER_DATA_MARKER, ModEntityTypes.INVOKER)
+            .put(PROVOKER_DATA_MARKER, ModEntityTypes.PROVOKER)
             .build();
 
     /**

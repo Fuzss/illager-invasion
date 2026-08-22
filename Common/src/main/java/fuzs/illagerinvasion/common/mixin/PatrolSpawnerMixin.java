@@ -17,6 +17,6 @@ abstract class PatrolSpawnerMixin {
     @ModifyVariable(method = "spawnPatrolMember", at = @At("STORE"), ordinal = 0)
     private PatrollingMonster spawnPatrolMember(PatrollingMonster mob, ServerLevel level, BlockPos pos, RandomSource random, boolean isLeader) {
         return random.nextInt(2) == 0 ?
-                ModEntityTypes.MARAUDER_ENTITY_TYPE.value().create(level, EntitySpawnReason.PATROL) : mob;
+                ModEntityTypes.MARAUDER.value().create(level, EntitySpawnReason.PATROL) : mob;
     }
 }

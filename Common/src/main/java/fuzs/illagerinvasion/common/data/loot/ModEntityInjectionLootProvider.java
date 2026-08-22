@@ -41,7 +41,7 @@ public class ModEntityInjectionLootProvider extends AbstractLootProvider.Simple 
                                                 UniformGenerator.between(0.0F, 1.0F)))))
                         .withPool(LootPool.lootPool()
                                 .setRolls(ConstantValue.exactly(1.0F))
-                                .add(LootItem.lootTableItem(ModItems.ILLUSIONARY_DUST_ITEM.value()))
+                                .add(LootItem.lootTableItem(ModItems.ILLUSIONARY_DUST.value()))
                                 .when(LootItemRandomChanceWithEnchantedBonusCondition.randomChanceAndLootingBoost(this.registries(),
                                         0.4F,
                                         0.2F))
@@ -50,7 +50,7 @@ public class ModEntityInjectionLootProvider extends AbstractLootProvider.Simple 
                 LootTable.lootTable()
                         .withPool(LootPool.lootPool()
                                 .setRolls(ConstantValue.exactly(1.0F))
-                                .add(LootItem.lootTableItem(ModItems.PLATINUM_CHUNK_ITEM.value())
+                                .add(LootItem.lootTableItem(ModItems.PLATINUM_NUGGET.value())
                                         .when(LootItemRandomChanceWithEnchantedBonusCondition.randomChanceAndLootingBoost(
                                                 this.registries(),
                                                 0.5F,
@@ -67,7 +67,7 @@ public class ModEntityInjectionLootProvider extends AbstractLootProvider.Simple 
                 LootTable.lootTable()
                         .withPool(LootPool.lootPool()
                                 .setRolls(ConstantValue.exactly(1.0F))
-                                .add(LootItem.lootTableItem(ModItems.PLATINUM_CHUNK_ITEM.value())
+                                .add(LootItem.lootTableItem(ModItems.PLATINUM_NUGGET.value())
                                         .when(LootItemRandomChanceWithEnchantedBonusCondition.randomChanceAndLootingBoost(
                                                 this.registries(),
                                                 0.5F,

@@ -1,6 +1,6 @@
 package fuzs.illagerinvasion.common.world.item;
 
-import fuzs.illagerinvasion.common.init.ModRegistry;
+import fuzs.illagerinvasion.common.init.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -22,10 +22,10 @@ public class MagicalFireChargeItem extends FireChargeItem {
     public InteractionResult useOn(UseOnContext context) {
         Level level = context.getLevel();
         BlockPos blockPos = context.getClickedPos().relative(context.getClickedFace());
-        if (ModRegistry.MAGIC_FIRE_BLOCK.value().defaultBlockState().canSurvive(level, blockPos)
+        if (ModBlocks.MAGIC_FIRE.value().defaultBlockState().canSurvive(level, blockPos)
                 && BaseFireBlock.canBePlacedAt(level, blockPos, context.getHorizontalDirection())) {
             this.playSound(level, blockPos);
-            level.setBlockAndUpdate(blockPos, ModRegistry.MAGIC_FIRE_BLOCK.value().defaultBlockState());
+            level.setBlockAndUpdate(blockPos, ModBlocks.MAGIC_FIRE.value().defaultBlockState());
             level.gameEvent(context.getPlayer(), GameEvent.BLOCK_PLACE, blockPos);
             context.getItemInHand().consume(1, context.getPlayer());
             return InteractionResult.SUCCESS;

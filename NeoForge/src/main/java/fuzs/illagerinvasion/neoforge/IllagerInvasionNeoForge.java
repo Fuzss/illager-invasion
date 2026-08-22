@@ -22,7 +22,7 @@ public class IllagerInvasionNeoForge {
     public IllagerInvasionNeoForge() {
         ModConstructor.construct(IllagerInvasion.MOD_ID, IllagerInvasion::new);
         DataProviderHelper.registerDataProviders(IllagerInvasion.MOD_ID,
-                ModRegistry.REGISTRY_SET_BUILDER,
+                ModRegistry.REGISTRIES_BUILDER,
                 ModBiomeTagProvider::new,
                 ModBlockTagProvider::new,
                 ModEntityTypeTagProvider::new,

@@ -16,8 +16,9 @@ public class ModItemTagProvider extends AbstractTagProvider<Item> {
 
     @Override
     public void addTags(HolderLookup.Provider provider) {
-        this.tag(ItemTags.TRIM_MATERIALS).add(ModItems.PLATINUM_SHEET_ITEM);
-        this.tag(ItemTags.DURABILITY_ENCHANTABLE).add(ModItems.PLATINUM_INFUSED_HATCHET_ITEM);
-        this.tag(ItemTags.SHARP_WEAPON_ENCHANTABLE).add(ModItems.PLATINUM_INFUSED_HATCHET_ITEM);
+        this.tag(ItemTags.TRIM_MATERIALS).add(ModItems.PLATINUM_INGOT);
+        this.tag(ItemTags.DURABILITY_ENCHANTABLE).add(ModItems.PLATINUM_INFUSED_HATCHET);
+        this.tag(ItemTags.SHARP_WEAPON_ENCHANTABLE).add(ModItems.PLATINUM_INFUSED_HATCHET);
+        this.tag(ItemTags.METAL_NUGGETS).add(ModItems.PLATINUM_NUGGET);
     }
 }

@@ -1,6 +1,6 @@
 package fuzs.illagerinvasion.common.world.entity.monster;
 
-import fuzs.illagerinvasion.common.init.ModRegistry;
+import fuzs.illagerinvasion.common.init.ModParticleTypes;
 import fuzs.illagerinvasion.common.init.ModSoundEvents;
 import fuzs.illagerinvasion.common.world.entity.projectile.SkullBolt;
 import net.minecraft.core.BlockPos;
@@ -135,7 +135,7 @@ public class Necromancer extends SpellcasterIllager {
             double x = entity.getX();
             double y = entity.getY();
             double z = entity.getZ();
-            serverLevel.sendParticles(ModRegistry.NECROMANCER_BUFF_PARTICLE_TYPE.value(),
+            serverLevel.sendParticles(ModParticleTypes.NECROMANCER_BUFF.value(),
                     x,
                     y + 1.0,
                     z,
@@ -144,7 +144,7 @@ public class Necromancer extends SpellcasterIllager {
                     0.5,
                     0.4,
                     0.015);
-            serverLevel.sendParticles(ModRegistry.NECROMANCER_BUFF_PARTICLE_TYPE.value(),
+            serverLevel.sendParticles(ModParticleTypes.NECROMANCER_BUFF.value(),
                     this.getX(),
                     this.getY() + 1.0,
                     this.getZ(),

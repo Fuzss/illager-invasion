@@ -36,7 +36,7 @@ public class ModStructures {
     public static void bootstrap(BootstrapContext<Structure> context) {
         context.register(FIRECALLER_HUT,
                 new JigsawStructure(new Structure.StructureSettings.Builder(context.lookup(Registries.BIOME)
-                        .getOrThrow(ModTags.HAS_FIRECALLER_HUT_BIOME_TAG)).generationStep(GenerationStep.Decoration.SURFACE_STRUCTURES)
+                        .getOrThrow(ModTags.Biomes.HAS_FIRECALLER_HUT_BIOME_TAG)).generationStep(GenerationStep.Decoration.SURFACE_STRUCTURES)
                         .terrainAdapation(TerrainAdjustment.BEARD_THIN)
                         .build(),
                         context.lookup(Registries.TEMPLATE_POOL)
@@ -47,17 +47,17 @@ public class ModStructures {
                         Heightmap.Types.WORLD_SURFACE_WG));
         context.register(ILLAGER_FORT,
                 new JigsawStructure(new Structure.StructureSettings.Builder(context.lookup(Registries.BIOME)
-                        .getOrThrow(ModTags.HAS_ILLAGER_FORT_BIOME_TAG)).spawnOverrides(Map.of(MobCategory.MONSTER,
+                        .getOrThrow(ModTags.Biomes.HAS_ILLAGER_FORT_BIOME_TAG)).spawnOverrides(Map.of(MobCategory.MONSTER,
                                 new StructureSpawnOverride(StructureSpawnOverride.BoundingBoxType.STRUCTURE,
                                         WeightedList.<MobSpawnSettings.SpawnerData>builder()
                                                 .add(new MobSpawnSettings.SpawnerData(EntityTypes.PILLAGER, 1, 1), 3)
-                                                .add(new MobSpawnSettings.SpawnerData(ModEntityTypes.MARAUDER_ENTITY_TYPE.value(),
+                                                .add(new MobSpawnSettings.SpawnerData(ModEntityTypes.MARAUDER.value(),
                                                         1,
                                                         1), 3)
-                                                .add(new MobSpawnSettings.SpawnerData(ModEntityTypes.BASHER_ENTITY_TYPE.value(),
+                                                .add(new MobSpawnSettings.SpawnerData(ModEntityTypes.BASHER.value(),
                                                         1,
                                                         1), 1)
-                                                .add(new MobSpawnSettings.SpawnerData(ModEntityTypes.PROVOKER_ENTITY_TYPE.value(),
+                                                .add(new MobSpawnSettings.SpawnerData(ModEntityTypes.PROVOKER.value(),
                                                         1,
                                                         1), 3)
                                                 .build())))
@@ -71,7 +71,7 @@ public class ModStructures {
                         Heightmap.Types.WORLD_SURFACE_WG));
         context.register(ILLUSIONER_TOWER,
                 new JigsawStructure(new Structure.StructureSettings.Builder(context.lookup(Registries.BIOME)
-                        .getOrThrow(ModTags.HAS_ILLUSIONER_TOWER_BIOME_TAG)).generationStep(GenerationStep.Decoration.SURFACE_STRUCTURES)
+                        .getOrThrow(ModTags.Biomes.HAS_ILLUSIONER_TOWER_BIOME_TAG)).generationStep(GenerationStep.Decoration.SURFACE_STRUCTURES)
                         .terrainAdapation(TerrainAdjustment.BEARD_THIN)
                         .build(),
                         context.lookup(Registries.TEMPLATE_POOL).getOrThrow(ModTemplatePools.ILLUSIONER_TOWER),
@@ -81,7 +81,7 @@ public class ModStructures {
                         Heightmap.Types.WORLD_SURFACE_WG));
         context.register(LABYRINTH,
                 new JigsawStructure(new Structure.StructureSettings.Builder(context.lookup(Registries.BIOME)
-                        .getOrThrow(ModTags.HAS_LABYRINTH_BIOME_TAG)).generationStep(GenerationStep.Decoration.SURFACE_STRUCTURES)
+                        .getOrThrow(ModTags.Biomes.HAS_LABYRINTH_BIOME_TAG)).generationStep(GenerationStep.Decoration.SURFACE_STRUCTURES)
                         .terrainAdapation(TerrainAdjustment.BURY)
                         .build(),
                         context.lookup(Registries.TEMPLATE_POOL).getOrThrow(ModTemplatePools.LABYRINTH_TOWERS),
@@ -96,7 +96,7 @@ public class ModStructures {
                         LiquidSettings.IGNORE_WATERLOGGING));
         context.register(SORCERER_HUT,
                 new JigsawStructure(new Structure.StructureSettings.Builder(context.lookup(Registries.BIOME)
-                        .getOrThrow(ModTags.HAS_SORCERER_HUT_BIOME_TAG)).generationStep(GenerationStep.Decoration.SURFACE_STRUCTURES)
+                        .getOrThrow(ModTags.Biomes.HAS_SORCERER_HUT_BIOME_TAG)).generationStep(GenerationStep.Decoration.SURFACE_STRUCTURES)
                         .terrainAdapation(TerrainAdjustment.BEARD_THIN)
                         .build(),
                         context.lookup(Registries.TEMPLATE_POOL).getOrThrow(ModTemplatePools.SORCERER_HUT),

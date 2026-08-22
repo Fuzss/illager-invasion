@@ -18,17 +18,17 @@ import java.util.function.BiConsumer;
 
 public class VillagerGoalHandler {
     private static final List<VillagerEnemy<?>> VILLAGER_ENEMIES = ImmutableList.<VillagerEnemy<?>>builder()
-            .add(new VillagerEnemy<>(Alchemist.class, ModEntityTypes.ALCHEMIST_ENTITY_TYPE, 12.0F))
-            .add(new VillagerEnemy<>(Archivist.class, ModEntityTypes.ARCHIVIST_ENTITY_TYPE, 12.0F))
-            .add(new VillagerEnemy<>(Basher.class, ModEntityTypes.BASHER_ENTITY_TYPE, 8.0F))
-            .add(new VillagerEnemy<>(Firecaller.class, ModEntityTypes.FIRECALLER_ENTITY_TYPE, 12.0F))
-            .add(new VillagerEnemy<>(Inquisitor.class, ModEntityTypes.INQUISITOR_ENTITY_TYPE, 15.0F))
-            .add(new VillagerEnemy<>(Invoker.class, ModEntityTypes.INVOKER_ENTITY_TYPE, 15.0F))
-            .add(new VillagerEnemy<>(Marauder.class, ModEntityTypes.MARAUDER_ENTITY_TYPE, 12.0F))
-            .add(new VillagerEnemy<>(Necromancer.class, ModEntityTypes.NECROMANCER_ENTITY_TYPE, 15.0F))
-            .add(new VillagerEnemy<>(Provoker.class, ModEntityTypes.PROVOKER_ENTITY_TYPE, 12.0F))
-            .add(new VillagerEnemy<>(Sorcerer.class, ModEntityTypes.SORCERER_ENTITY_TYPE, 12.0F))
-            .add(new VillagerEnemy<>(Surrendered.class, ModEntityTypes.SURRENDERED_ENTITY_TYPE, 8.0F))
+            .add(new VillagerEnemy<>(Alchemist.class, ModEntityTypes.ALCHEMIST, 12.0F))
+            .add(new VillagerEnemy<>(Archivist.class, ModEntityTypes.ARCHIVIST, 12.0F))
+            .add(new VillagerEnemy<>(Basher.class, ModEntityTypes.BASHER, 8.0F))
+            .add(new VillagerEnemy<>(Firecaller.class, ModEntityTypes.FIRECALLER, 12.0F))
+            .add(new VillagerEnemy<>(Inquisitor.class, ModEntityTypes.INQUISITOR, 15.0F))
+            .add(new VillagerEnemy<>(Invoker.class, ModEntityTypes.INVOKER, 15.0F))
+            .add(new VillagerEnemy<>(Marauder.class, ModEntityTypes.MARAUDER, 12.0F))
+            .add(new VillagerEnemy<>(Necromancer.class, ModEntityTypes.NECROMANCER, 15.0F))
+            .add(new VillagerEnemy<>(Provoker.class, ModEntityTypes.PROVOKER, 12.0F))
+            .add(new VillagerEnemy<>(Sorcerer.class, ModEntityTypes.SORCERER, 12.0F))
+            .add(new VillagerEnemy<>(Surrendered.class, ModEntityTypes.SURRENDERED, 8.0F))
             .build();
 
     public static void forEach(BiConsumer<Holder<? extends EntityType<?>>, Float> consumer) {

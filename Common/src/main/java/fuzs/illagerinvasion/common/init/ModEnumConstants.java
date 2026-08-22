@@ -11,16 +11,16 @@ import java.util.Locale;
 import java.util.function.Function;
 
 public class ModEnumConstants {
-    public static final Raid.RaiderType BASHER_RAIDER_TYPE = getRaiderType(ModEntityTypes.BASHER_ENTITY_TYPE);
-    public static final Raid.RaiderType PROVOKER_RAIDER_TYPE = getRaiderType(ModEntityTypes.PROVOKER_ENTITY_TYPE);
-    public static final Raid.RaiderType NECROMANCER_RAIDER_TYPE = getRaiderType(ModEntityTypes.NECROMANCER_ENTITY_TYPE);
-    public static final Raid.RaiderType SORCERER_RAIDER_TYPE = getRaiderType(ModEntityTypes.SORCERER_ENTITY_TYPE);
+    public static final Raid.RaiderType BASHER_RAIDER_TYPE = getRaiderType(ModEntityTypes.BASHER);
+    public static final Raid.RaiderType PROVOKER_RAIDER_TYPE = getRaiderType(ModEntityTypes.PROVOKER);
+    public static final Raid.RaiderType NECROMANCER_RAIDER_TYPE = getRaiderType(ModEntityTypes.NECROMANCER);
+    public static final Raid.RaiderType SORCERER_RAIDER_TYPE = getRaiderType(ModEntityTypes.SORCERER);
     public static final Raid.RaiderType ILLUSIONER_RAIDER_TYPE = getRaiderType(EntityTypes.ILLUSIONER.builtInRegistryHolder());
-    public static final Raid.RaiderType ARCHIVIST_RAIDER_TYPE = getRaiderType(ModEntityTypes.ARCHIVIST_ENTITY_TYPE);
-    public static final Raid.RaiderType MARAUDER_RAIDER_TYPE = getRaiderType(ModEntityTypes.MARAUDER_ENTITY_TYPE);
-    public static final Raid.RaiderType INQUISITOR_RAIDER_TYPE = getRaiderType(ModEntityTypes.INQUISITOR_ENTITY_TYPE);
-    public static final Raid.RaiderType ALCHEMIST_RAIDER_TYPE = getRaiderType(ModEntityTypes.ALCHEMIST_ENTITY_TYPE);
-    public static final Raid.RaiderType INVOKER_RAIDER_TYPE = getRaiderType(ModEntityTypes.INVOKER_ENTITY_TYPE);
+    public static final Raid.RaiderType ARCHIVIST_RAIDER_TYPE = getRaiderType(ModEntityTypes.ARCHIVIST);
+    public static final Raid.RaiderType MARAUDER_RAIDER_TYPE = getRaiderType(ModEntityTypes.MARAUDER);
+    public static final Raid.RaiderType INQUISITOR_RAIDER_TYPE = getRaiderType(ModEntityTypes.INQUISITOR);
+    public static final Raid.RaiderType ALCHEMIST_RAIDER_TYPE = getRaiderType(ModEntityTypes.ALCHEMIST);
+    public static final Raid.RaiderType INVOKER_RAIDER_TYPE = getRaiderType(ModEntityTypes.INVOKER);
 
     public static void bootstrap() {
         // NO-OP

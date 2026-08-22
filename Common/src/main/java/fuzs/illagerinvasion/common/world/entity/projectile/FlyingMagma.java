@@ -21,7 +21,7 @@ public class FlyingMagma extends AbstractHurtingProjectile {
     }
 
     public FlyingMagma(Level level, LivingEntity owner, double directionX, double directionY, double directionZ) {
-        super(ModEntityTypes.FLYING_MAGMA_ENTITY_TYPE.value(),
+        super(ModEntityTypes.FLYING_MAGMA.value(),
                 owner,
                 new Vec3(directionX, directionY, directionZ),
                 level);

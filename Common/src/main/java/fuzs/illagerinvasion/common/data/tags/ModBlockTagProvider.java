@@ -1,6 +1,6 @@
 package fuzs.illagerinvasion.common.data.tags;
 
-import fuzs.illagerinvasion.common.init.ModRegistry;
+import fuzs.illagerinvasion.common.init.ModBlocks;
 import fuzs.illagerinvasion.common.init.ModTags;
 import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
 import fuzs.puzzleslib.common.api.data.v2.tags.AbstractTagProvider;
@@ -18,9 +18,9 @@ public class ModBlockTagProvider extends AbstractTagProvider<Block> {
 
     @Override
     public void addTags(HolderLookup.Provider provider) {
-        this.tag(BlockTags.MINEABLE_WITH_AXE).add(ModRegistry.IMBUING_TABLE_BLOCK);
-        this.tag(BlockTags.FIRE).add(ModRegistry.MAGIC_FIRE_BLOCK);
-        this.tag(ModTags.MAGIC_FIRE_REPLACEABLE_BLOCK_TAG)
+        this.tag(BlockTags.MINEABLE_WITH_AXE).add(ModBlocks.IMBUING_TABLE);
+        this.tag(BlockTags.FIRE).add(ModBlocks.MAGIC_FIRE);
+        this.tag(ModTags.Blocks.MAGIC_FIRE_REPLACEABLE)
                 .add(BlockItemIds.AIR.block(),
                         BlockItemIds.SHORT_GRASS.block(),
                         BlockItemIds.FERN.block(),

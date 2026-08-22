@@ -1,5 +1,6 @@
 package fuzs.illagerinvasion.common.world.inventory;
 
+import fuzs.illagerinvasion.common.init.ModBlocks;
 import fuzs.illagerinvasion.common.init.ModItems;
 import fuzs.illagerinvasion.common.init.ModRegistry;
 import fuzs.illagerinvasion.common.init.ModSoundEvents;
@@ -64,7 +65,7 @@ public class ImbuingMenu extends AbstractContainerMenu {
 
             @Override
             public boolean mayPlace(ItemStack itemStack) {
-                return itemStack.is(ModItems.HALLOWED_GEM_ITEM);
+                return itemStack.is(ModItems.HALLOWED_GEM);
             }
         });
         this.addSlot(new Slot(this.output, 3, 80, 14) {
@@ -103,7 +104,7 @@ public class ImbuingMenu extends AbstractContainerMenu {
 
     @Override
     public boolean stillValid(Player player) {
-        return stillValid(this.access, player, ModRegistry.IMBUING_TABLE_BLOCK.value());
+        return stillValid(this.access, player, ModBlocks.IMBUING_TABLE.value());
     }
 
     @Override
@@ -204,7 +205,7 @@ public class ImbuingMenu extends AbstractContainerMenu {
             public Component getComponent() {
                 Objects.requireNonNull(this.translationKey, "translation key is null");
                 return Component.translatable(this.translationKey,
-                        Component.translatable(ModItems.HALLOWED_GEM_ITEM.value().getDescriptionId()));
+                        Component.translatable(ModItems.HALLOWED_GEM.value().getDescriptionId()));
             }
         },
         TOO_MANY_ENCHANTMENTS("container.imbue.tooManyEnchantments"),
