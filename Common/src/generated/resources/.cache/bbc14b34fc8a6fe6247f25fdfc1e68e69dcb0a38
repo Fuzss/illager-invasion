@@ -1,0 +1,4 @@
+// 26.2	2026-08-22T18:20:55.68151	Mod Entity Additions Loot Provider
+aa597bb2454f2328279458dbdca0c502bb49230c data/illagerinvasion/loot_table/inject/entities/illusioner.json
+817a57d6b7ae1ca6adfe56b7b8bbb51e09c2e78d data/illagerinvasion/loot_table/inject/entities/pillager.json
+44b6b74595377620e9bd2298cbfb8a8118c26369 data/illagerinvasion/loot_table/inject/entities/ravager.json

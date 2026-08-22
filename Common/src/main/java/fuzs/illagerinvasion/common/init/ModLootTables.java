@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ModLootTables {
-    static final Map<Identifier, ResourceKey<LootTable>> LOOT_TABLE_INJECTIONS = new HashMap<>();
+    private static final Map<Identifier, ResourceKey<LootTable>> LOOT_TABLE_ADDITIONS = new HashMap<>();
     public static final ResourceKey<LootTable> ILLAGER_FORT_TOWER = ModRegistry.REGISTRIES.makeResourceKey(Registries.LOOT_TABLE,
             "chests/illager_fort_tower");
     public static final ResourceKey<LootTable> ILLAGER_FORT_GROUND = ModRegistry.REGISTRIES.makeResourceKey(Registries.LOOT_TABLE,
@@ -31,29 +31,29 @@ public class ModLootTables {
             "chests/labyrinth_map");
     public static final ResourceKey<LootTable> SORCERER_HUT = ModRegistry.REGISTRIES.makeResourceKey(Registries.LOOT_TABLE,
             "chests/sorcerer_hut");
-    public static final ResourceKey<LootTable> ILLUSIONER_INJECTION = registerLootTableInjection(EntityTypes.ILLUSIONER.getDefaultLootTable()
+    public static final ResourceKey<LootTable> ILLUSIONER = registerLootTableAddition(EntityTypes.ILLUSIONER.getDefaultLootTable()
             .orElseThrow());
-    public static final ResourceKey<LootTable> PILLAGER_INJECTION = registerLootTableInjection(EntityTypes.PILLAGER.getDefaultLootTable()
+    public static final ResourceKey<LootTable> PILLAGER = registerLootTableAddition(EntityTypes.PILLAGER.getDefaultLootTable()
             .orElseThrow());
-    public static final ResourceKey<LootTable> RAVAGER_INJECTION = registerLootTableInjection(EntityTypes.RAVAGER.getDefaultLootTable()
+    public static final ResourceKey<LootTable> RAVAGER = registerLootTableAddition(EntityTypes.RAVAGER.getDefaultLootTable()
             .orElseThrow());
 
     public static void bootstrap() {
         // NO-OP
     }
 
-    static ResourceKey<LootTable> registerLootTableInjection(ResourceKey<LootTable> resourceKey) {
+    private static ResourceKey<LootTable> registerLootTableAddition(ResourceKey<LootTable> resourceKey) {
         ResourceKey<LootTable> newResourceKey = ModRegistry.REGISTRIES.makeResourceKey(Registries.LOOT_TABLE,
                 "inject/" + resourceKey.identifier().getPath());
-        LOOT_TABLE_INJECTIONS.put(resourceKey.identifier(), newResourceKey);
+        LOOT_TABLE_ADDITIONS.put(resourceKey.identifier(), newResourceKey);
         return newResourceKey;
     }
 
     public static void onLootTableLoad(Identifier identifier, LootTable.Builder lootTable, HolderLookup.Provider registries) {
-        if (LOOT_TABLE_INJECTIONS.containsKey(identifier)) {
+        if (LOOT_TABLE_ADDITIONS.containsKey(identifier)) {
             lootTable.withPool(LootPool.lootPool()
                     .setRolls(ConstantValue.exactly(1.0F))
-                    .add(NestedLootTable.lootTableReference(LOOT_TABLE_INJECTIONS.get(identifier))));
+                    .add(NestedLootTable.lootTableReference(LOOT_TABLE_ADDITIONS.get(identifier))));
         }
     }
 }

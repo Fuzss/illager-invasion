@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:platinum_ingot_from_platinum_nugget"
+        "recipe": "illagerinvasion:platinum_ingot_from_platinum_nugget"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:platinum_ingot_from_platinum_nugget"
+      "illagerinvasion:platinum_ingot_from_platinum_nugget"
     ]
   }
 }

@@ -1,5 +1,6 @@
 package fuzs.illagerinvasion.common.data;
 
+import fuzs.illagerinvasion.common.IllagerInvasion;
 import fuzs.illagerinvasion.common.init.ModItems;
 import fuzs.puzzleslib.common.api.data.v2.AbstractRecipeProvider;
 import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
@@ -45,8 +46,9 @@ public class ModRecipeProvider extends AbstractRecipeProvider {
                 ModItems.PLATINUM_NUGGET.value(),
                 RecipeCategory.MISC,
                 ModItems.PLATINUM_INGOT.value(),
-                getConversionRecipeName(ModItems.PLATINUM_INGOT.value(), ModItems.PLATINUM_NUGGET.value()),
-                getItemName(ModItems.PLATINUM_INGOT.value()));
+                IllagerInvasion.id(getConversionRecipeName(ModItems.PLATINUM_INGOT.value(),
+                        ModItems.PLATINUM_NUGGET.value())).toString(),
+                IllagerInvasion.id(getItemName(ModItems.PLATINUM_INGOT.value())).toString());
         ShapedRecipeBuilder.shaped(this.items(), RecipeCategory.TOOLS, ModItems.HORN_OF_SIGHT.value())
                 .define('#', Items.GOLD_INGOT)
                 .define('H', Items.GOAT_HORN)

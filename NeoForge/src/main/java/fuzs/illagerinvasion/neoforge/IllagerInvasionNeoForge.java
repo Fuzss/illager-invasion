@@ -4,8 +4,8 @@ import fuzs.illagerinvasion.common.IllagerInvasion;
 import fuzs.illagerinvasion.common.data.ModRecipeProvider;
 import fuzs.illagerinvasion.common.data.loot.ModBlockLootProvider;
 import fuzs.illagerinvasion.common.data.loot.ModChestLootProvider;
-import fuzs.illagerinvasion.common.data.loot.ModEntityInjectionLootProvider;
-import fuzs.illagerinvasion.common.data.loot.ModEntityTypeLootProvider;
+import fuzs.illagerinvasion.common.data.loot.ModEntityAdditionsLootProvider;
+import fuzs.illagerinvasion.common.data.loot.ModEntityLootProvider;
 import fuzs.illagerinvasion.common.data.tags.ModBiomeTagProvider;
 import fuzs.illagerinvasion.common.data.tags.ModBlockTagProvider;
 import fuzs.illagerinvasion.common.data.tags.ModEntityTypeTagProvider;
@@ -29,8 +29,8 @@ public class IllagerInvasionNeoForge {
                 ModItemTagProvider::new,
                 ModBlockLootProvider::new,
                 ModChestLootProvider::new,
-                ModEntityInjectionLootProvider::new,
-                ModEntityTypeLootProvider::new,
+                ModEntityAdditionsLootProvider::new,
+                ModEntityLootProvider::new,
                 ModRecipeProvider::new,
                 ModDataMapProvider::new);
     }
