@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_platinum_nugget": {
+      "conditions": {
+        "items": [
+          {
+            "items": "illagerinvasion:platinum_nugget"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "illagerinvasion:platinum_torch"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_platinum_nugget"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "illagerinvasion:platinum_torch"
+    ]
+  }
+}

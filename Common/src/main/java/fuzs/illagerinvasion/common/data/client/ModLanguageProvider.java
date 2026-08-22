@@ -6,7 +6,6 @@ import fuzs.illagerinvasion.common.world.inventory.ImbuingMenu;
 import fuzs.illagerinvasion.common.world.level.block.ImbuingTableBlock;
 import fuzs.puzzleslib.common.api.client.data.v2.AbstractLanguageProvider;
 import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
-import fuzs.puzzleslib.common.api.init.v3.registry.ResourceKeyHelper;
 
 public class ModLanguageProvider extends AbstractLanguageProvider {
 
@@ -21,7 +20,13 @@ public class ModLanguageProvider extends AbstractLanguageProvider {
         builder.add(ImbuingTableBlock.CONTAINER_IMBUE, "Imbue");
         builder.add(ModTrimMaterials.PLATINUM, "Platinum Material");
         builder.add(ModInstruments.REVEAL, "Reveal");
-        builder.add(ModBlocks.PLATINUM_BLOCK.value(), "Platinum Block");
+        builder.add(ModBlocks.PLATINUM_BLOCK.value(), "Block of Platinum");
+        builder.add(ModBlocks.PLATED_PLATINUM.value(), "Plated Platinum");
+        builder.add(ModBlocks.PLATINUM_BARS.value(), "Platinum Bars");
+        builder.add(ModBlocks.PLATINUM_CHAIN.value(), "Platinum Chain");
+        builder.add(ModBlocks.PLATINUM_LANTERN.value(), "Platinum Lantern");
+        builder.add(ModBlocks.PLATINUM_TORCH.value(), "Platinum Torch");
+        builder.add(ModBlocks.PLATINUM_JACK_O_LANTERN.value(), "Platinum Jack o'Lantern");
         builder.add(ModBlocks.IMBUING_TABLE.value(), "Imbuing Table");
         builder.add(ModBlocks.MAGIC_FIRE.value(), "Magic Fire");
         builder.add(ModItems.UNUSUAL_DUST.value(), "Unusual Dust");

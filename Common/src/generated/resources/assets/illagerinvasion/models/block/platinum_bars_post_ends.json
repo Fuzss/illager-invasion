@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_bars_post_ends",
+  "textures": {
+    "bars": "illagerinvasion:block/platinum_bars",
+    "edge": "illagerinvasion:block/platinum_bars"
+  }
+}

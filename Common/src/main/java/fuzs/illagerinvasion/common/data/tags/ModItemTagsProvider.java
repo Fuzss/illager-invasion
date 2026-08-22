@@ -22,5 +22,8 @@ public class ModItemTagsProvider extends AbstractTagProvider<Item> {
         this.tag(ItemTags.DURABILITY_ENCHANTABLE).add(ModItems.PLATINUM_INFUSED_HATCHET);
         this.tag(ItemTags.SHARP_WEAPON_ENCHANTABLE).add(ModItems.PLATINUM_INFUSED_HATCHET);
         this.tag(ItemTags.METAL_NUGGETS).add(ModItems.PLATINUM_NUGGET);
+        this.tag("c:bars").add(ModItems.PLATINUM_BARS);
+        this.tag("c:chains").add(ModItems.PLATINUM_CHAIN);
+        this.tag("c:pumpkins/jack_o_lanterns").add(ModItems.PLATINUM_JACK_O_LANTERN);
     }
 }

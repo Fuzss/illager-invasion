@@ -1,0 +1,7 @@
+{
+  "parent": "illagerinvasion:block/template_lantern",
+  "textures": {
+    "end": "illagerinvasion:block/platinum_block",
+    "lantern": "illagerinvasion:block/platinum_lantern"
+  }
+}

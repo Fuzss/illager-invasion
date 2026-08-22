@@ -27,5 +27,8 @@ public class ModBlockTagsProvider extends AbstractTagProvider<Block> {
                         BlockItemIds.SHORT_GRASS.block(),
                         BlockItemIds.FERN.block(),
                         BlockItemIds.TALL_GRASS.block());
+        this.tag("c:bars").add(ModBlocks.PLATINUM_BARS);
+        this.tag("c:chains").add(ModBlocks.PLATINUM_CHAIN);
+        this.tag("c:pumpkins/jack_o_lanterns").add(ModBlocks.PLATINUM_JACK_O_LANTERN);
     }
 }

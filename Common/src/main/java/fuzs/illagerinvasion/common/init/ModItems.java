@@ -1,6 +1,7 @@
 package fuzs.illagerinvasion.common.init;
 
 import fuzs.illagerinvasion.common.world.item.*;
+import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponents;
@@ -9,10 +10,23 @@ import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.StandingAndWallBlockItem;
 import net.minecraft.world.item.component.InstrumentComponent;
+import net.minecraft.world.level.block.Block;
 
 public class ModItems {
     public static final Holder.Reference<Item> PLATINUM_BLOCK = ModRegistry.REGISTRIES.registerBlockItem(ModBlocks.PLATINUM_BLOCK);
+    public static final Holder.Reference<Item> PLATED_PLATINUM = ModRegistry.REGISTRIES.registerBlockItem(ModBlocks.PLATED_PLATINUM);
+    public static final Holder.Reference<Item> PLATINUM_CHAIN = ModRegistry.REGISTRIES.registerBlockItem(ModBlocks.PLATINUM_CHAIN);
+    public static final Holder.Reference<Item> PLATINUM_BARS = ModRegistry.REGISTRIES.registerBlockItem(ModBlocks.PLATINUM_BARS);
+    public static final Holder.Reference<Item> PLATINUM_LANTERN = ModRegistry.REGISTRIES.registerBlockItem(ModBlocks.PLATINUM_LANTERN);
+    public static final Holder.Reference<Item> PLATINUM_TORCH = ModRegistry.REGISTRIES.registerBlockItem(ModBlocks.PLATINUM_TORCH,
+            (Block block, Item.Properties properties) -> new StandingAndWallBlockItem(block,
+                    ModBlocks.PLATINUM_WALL_TORCH.value(),
+                    Direction.DOWN,
+                    properties));
+    public static final Holder.Reference<Item> PLATINUM_JACK_O_LANTERN = ModRegistry.REGISTRIES.registerBlockItem(
+            ModBlocks.PLATINUM_JACK_O_LANTERN);
     public static final Holder.Reference<Item> IMBUING_TABLE = ModRegistry.REGISTRIES.registerBlockItem(ModBlocks.IMBUING_TABLE);
     public static final Holder.Reference<Item> UNUSUAL_DUST = ModRegistry.REGISTRIES.registerItem("unusual_dust");
     public static final Holder.Reference<Item> MAGICAL_FIRE_CHARGE = ModRegistry.REGISTRIES.registerItem(

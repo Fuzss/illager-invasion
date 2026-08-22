@@ -1,0 +1,69 @@
+{
+	"format_version": "1.21.11",
+	"credit": "Made with Blockbench",
+	"parent": "minecraft:block/block",
+	"textures": {
+		"particle": "#end"
+	},
+	"elements": [
+		{
+			"name": "bottom",
+			"from": [3, 0, 3],
+			"to": [13, 2, 13],
+			"faces": {
+				"north": {"uv": [3, 13, 13, 15], "texture": "#lantern"},
+				"east": {"uv": [3, 13, 13, 15], "texture": "#lantern"},
+				"south": {"uv": [3, 13, 13, 15], "texture": "#lantern"},
+				"west": {"uv": [3, 13, 13, 15], "texture": "#lantern"},
+				"up": {"uv": [3, 3, 13, 13], "texture": "#end"},
+				"down": {"uv": [3, 3, 13, 13], "texture": "#end"}
+			}
+		},
+		{
+			"name": "middle",
+			"from": [4, 2, 4],
+			"to": [12, 8, 12],
+			"faces": {
+				"north": {"uv": [4, 7, 12, 13], "texture": "#lantern"},
+				"east": {"uv": [4, 7, 12, 13], "texture": "#lantern"},
+				"south": {"uv": [4, 7, 12, 13], "texture": "#lantern"},
+				"west": {"uv": [4, 7, 12, 13], "texture": "#lantern"}
+			}
+		},
+		{
+			"name": "top",
+			"from": [3, 8, 3],
+			"to": [13, 10, 13],
+			"faces": {
+				"north": {"uv": [3, 5, 13, 7], "texture": "#lantern"},
+				"east": {"uv": [3, 5, 13, 7], "texture": "#lantern"},
+				"south": {"uv": [3, 5, 13, 7], "texture": "#lantern"},
+				"west": {"uv": [3, 5, 13, 7], "texture": "#lantern"},
+				"up": {"uv": [3, 3, 13, 13], "texture": "#end"},
+				"down": {"uv": [3, 3, 13, 13], "texture": "#end"}
+			}
+		},
+		{
+			"name": "chain_0",
+			"from": [5, 10, 8],
+			"to": [11, 13, 8],
+			"shade": false,
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [11, 2, 5, 5], "texture": "#lantern"},
+				"south": {"uv": [5, 2, 11, 5], "texture": "#lantern"}
+			}
+		},
+		{
+			"name": "chain_1",
+			"from": [8, 10, 5],
+			"to": [8, 13, 11],
+			"shade": false,
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"east": {"uv": [5, 2, 11, 5], "texture": "#lantern"},
+				"west": {"uv": [11, 2, 5, 5], "texture": "#lantern"}
+			}
+		}
+	]
+}

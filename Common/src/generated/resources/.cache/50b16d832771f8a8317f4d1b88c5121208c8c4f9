@@ -1,4 +1,7 @@
-// 26.2	2026-08-22T18:45:05.879604	Tags for minecraft:block mod id vanilla
+// 26.2	2026-08-22T20:05:49.647085	Tags for minecraft:block mod id vanilla
+4dc41807ffabe77f9e5f7cca81a0b251a18b95d5 data/c/tags/block/bars.json
+50328cd1c3c650d6e369b0accdedafe3baf5e219 data/c/tags/block/chains.json
+29931a5c8bfc3aafb4c68b8d235ebf4035da7c62 data/c/tags/block/pumpkins/jack_o_lanterns.json
 eced346f282bb9a18f8a02f6b1c5cf9e865cf9a8 data/illagerinvasion/tags/block/magic_fire_replaceable.json
 511738c6ccb2359506ab070a827e4fa1ca234967 data/minecraft/tags/block/doors.json
 cf7012f8b0b6b356d855352f42b4c8fb8ca2c821 data/minecraft/tags/block/fire.json

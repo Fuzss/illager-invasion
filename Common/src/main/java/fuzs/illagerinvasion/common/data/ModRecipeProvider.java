@@ -10,6 +10,7 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Blocks;
 
 public class ModRecipeProvider extends AbstractRecipeProvider {
 
@@ -58,6 +59,56 @@ public class ModRecipeProvider extends AbstractRecipeProvider {
                 IllagerInvasion.id(getConversionRecipeName(ModItems.PLATINUM_INGOT.value(),
                         ModItems.PLATINUM_NUGGET.value())).toString(),
                 IllagerInvasion.id(getItemName(ModItems.PLATINUM_INGOT.value())).toString());
+        this.shaped(RecipeCategory.DECORATIONS, ModItems.PLATED_PLATINUM.value(), 4)
+                .define('#', ModItems.PLATINUM_BLOCK.value())
+                .pattern(" # ")
+                .pattern("# #")
+                .pattern(" # ")
+                .unlockedBy(getHasName(ModItems.PLATINUM_BLOCK.value()), this.has(ModItems.PLATINUM_BLOCK.value()))
+                .save(recipeOutput);
+        this.stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS,
+                ModItems.PLATED_PLATINUM.value(),
+                ModItems.PLATINUM_BLOCK.value());
+        this.shaped(RecipeCategory.DECORATIONS, ModItems.PLATINUM_BARS.value(), 16)
+                .define('#', ModItems.PLATINUM_INGOT.value())
+                .pattern("###")
+                .pattern("###")
+                .unlockedBy(getHasName(ModItems.PLATINUM_INGOT.value()), this.has(ModItems.PLATINUM_INGOT.value()))
+                .save(recipeOutput);
+        this.shaped(RecipeCategory.DECORATIONS, ModItems.PLATINUM_CHAIN.value())
+                .define('I', ModItems.PLATINUM_INGOT.value())
+                .define('N', ModItems.PLATINUM_NUGGET.value())
+                .pattern("N")
+                .pattern("I")
+                .pattern("N")
+                .unlockedBy(getHasName(ModItems.PLATINUM_NUGGET.value()), this.has(ModItems.PLATINUM_NUGGET.value()))
+                .unlockedBy(getHasName(ModItems.PLATINUM_INGOT.value()), this.has(ModItems.PLATINUM_INGOT.value()))
+                .save(recipeOutput);
+        this.shaped(RecipeCategory.DECORATIONS, ModItems.PLATINUM_TORCH.value(), 4)
+                .define('X', Ingredient.of(Items.COAL, Items.CHARCOAL))
+                .define('#', Items.STICK)
+                .define('C', ModItems.PLATINUM_NUGGET.value())
+                .pattern("C")
+                .pattern("X")
+                .pattern("#")
+                .unlockedBy(getHasName(ModItems.PLATINUM_NUGGET.value()), this.has(ModItems.PLATINUM_NUGGET.value()))
+                .save(recipeOutput);
+        this.shaped(RecipeCategory.DECORATIONS, ModItems.PLATINUM_LANTERN.value())
+                .define('#', Items.TORCH)
+                .define('X', ModItems.PLATINUM_NUGGET.value())
+                .pattern("XXX")
+                .pattern("X#X")
+                .pattern("XXX")
+                .unlockedBy(getHasName(ModItems.PLATINUM_NUGGET.value()), this.has(ModItems.PLATINUM_NUGGET.value()))
+                .unlockedBy(getHasName(ModItems.PLATINUM_INGOT.value()), this.has(ModItems.PLATINUM_INGOT.value()))
+                .save(recipeOutput);
+        this.shaped(RecipeCategory.BUILDING_BLOCKS, ModItems.PLATINUM_JACK_O_LANTERN.value())
+                .define('A', Blocks.CARVED_PUMPKIN)
+                .define('B', ModItems.PLATINUM_TORCH.value())
+                .pattern("A")
+                .pattern("B")
+                .unlockedBy(getHasName(Blocks.CARVED_PUMPKIN), this.has(Blocks.CARVED_PUMPKIN))
+                .save(recipeOutput);
         ShapedRecipeBuilder.shaped(this.items(), RecipeCategory.TOOLS, ModItems.HORN_OF_SIGHT.value())
                 .define('#', Items.GOLD_INGOT)
                 .define('H', Items.GOAT_HORN)

@@ -1,0 +1,6 @@
+{
+  "parent": "illagerinvasion:block/template_chain",
+  "textures": {
+    "texture": "illagerinvasion:block/platinum_chain"
+  }
+}

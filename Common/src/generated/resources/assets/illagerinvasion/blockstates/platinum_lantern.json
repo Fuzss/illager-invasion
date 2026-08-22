@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "illagerinvasion:block/platinum_lantern"
+    },
+    "hanging=true": {
+      "model": "illagerinvasion:block/platinum_lantern_hanging"
+    }
+  }
+}
