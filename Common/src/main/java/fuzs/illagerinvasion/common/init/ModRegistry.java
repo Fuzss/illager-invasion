@@ -7,6 +7,7 @@ import fuzs.illagerinvasion.common.world.item.enchantment.ImbuingEnchantmentLeve
 import fuzs.illagerinvasion.common.world.level.levelgen.structure.templatesystem.DataMarkerStructureProcessor;
 import fuzs.multiloaderdataextensions.common.api.v2.DataMapRegistrar;
 import fuzs.multiloaderdataextensions.common.api.v2.DataMapToken;
+import fuzs.puzzleslib.common.api.init.v3.family.BlockSetFamily;
 import fuzs.puzzleslib.common.api.init.v3.registry.RegistryManager;
 import net.minecraft.core.Holder;
 import net.minecraft.core.RegistrySetBuilder;
@@ -15,6 +16,9 @@ import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
+
+import java.util.Collection;
+import java.util.Map;
 
 public class ModRegistry {
     public static final RegistrySetBuilder REGISTRIES_BUILDER = new RegistrySetBuilder().add(Registries.TRIM_MATERIAL,
@@ -32,9 +36,10 @@ public class ModRegistry {
             ModItems.HORN_OF_SIGHT), (CreativeModeTab.DisplayItemsGenerator generator) -> {
         return (CreativeModeTab.ItemDisplayParameters parameters, CreativeModeTab.Output output) -> {
             output.accept(ModItems.PLATINUM_BLOCK.value());
-            ModBlockFamilies.PLATINUM.getItemVariants()
-                    .values()
-                    .stream()
+            ModBlockFamilies.getAllBlockSetFamilies()
+                    .map(BlockSetFamily::getItemVariants)
+                    .map(Map::values)
+                    .flatMap(Collection::stream)
                     .map(Holder.Reference::value)
                     .forEach(output::accept);
             generator.accept(parameters, output);

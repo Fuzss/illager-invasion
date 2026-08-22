@@ -2,13 +2,13 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": "illagerinvasion:platinum_block"
+    "#": "illagerinvasion:cut_platinum"
   },
   "pattern": [
     "###"
   ],
   "result": {
     "count": 6,
-    "id": "illagerinvasion:platinum_slab"
+    "id": "illagerinvasion:cut_platinum_slab"
   }
 }

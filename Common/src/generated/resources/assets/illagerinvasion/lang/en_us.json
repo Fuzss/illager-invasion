@@ -1,6 +1,8 @@
 {
   "block.illagerinvasion.chiseled_platinum": "Chiseled Platinum",
   "block.illagerinvasion.cut_platinum": "Cut Platinum",
+  "block.illagerinvasion.cut_platinum_slab": "Cut Platinum Slab",
+  "block.illagerinvasion.cut_platinum_stairs": "Cut Platinum Stairs",
   "block.illagerinvasion.imbuing_table": "Imbuing Table",
   "block.illagerinvasion.magic_fire": "Magic Fire",
   "block.illagerinvasion.plated_platinum": "Plated Platinum",
@@ -10,9 +12,6 @@
   "block.illagerinvasion.platinum_door": "Platinum Door",
   "block.illagerinvasion.platinum_jack_o_lantern": "Platinum Jack o'Lantern",
   "block.illagerinvasion.platinum_lantern": "Platinum Lantern",
-  "block.illagerinvasion.platinum_pressure_plate": "Platinum Pressure Plate",
-  "block.illagerinvasion.platinum_slab": "Platinum Slab",
-  "block.illagerinvasion.platinum_stairs": "Platinum Stairs",
   "block.illagerinvasion.platinum_torch": "Platinum Torch",
   "block.illagerinvasion.platinum_trapdoor": "Platinum Trapdoor",
   "container.imbue": "Imbue",

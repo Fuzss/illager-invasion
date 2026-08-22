@@ -2,6 +2,7 @@
   "type": "minecraft:stonecutting",
   "ingredient": "illagerinvasion:platinum_block",
   "result": {
-    "id": "illagerinvasion:platinum_stairs"
+    "count": 2,
+    "id": "illagerinvasion:cut_platinum_slab"
   }
 }

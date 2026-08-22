@@ -5,6 +5,7 @@ import fuzs.illagerinvasion.common.init.ModBlocks;
 import fuzs.illagerinvasion.common.init.ModTags;
 import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
 import fuzs.puzzleslib.common.api.data.v2.tags.AbstractTagProvider;
+import fuzs.puzzleslib.common.api.init.v3.family.BlockSetFamily;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.references.BlockItemIds;
@@ -19,7 +20,9 @@ public class ModBlockTagsProvider extends AbstractTagProvider<Block> {
 
     @Override
     public void addTags(HolderLookup.Provider provider) {
-        this.generateFor(ModBlockFamilies.PLATINUM.getBlockVariants(), VARIANT_BLOCK_TAGS);
+        ModBlockFamilies.getAllBlockSetFamilies().forEach((BlockSetFamily family) -> {
+            this.generateFor(family.getBlockVariants(), VARIANT_BLOCK_TAGS);
+        });
         this.tag(BlockTags.MINEABLE_WITH_AXE).add(ModBlocks.IMBUING_TABLE);
         this.tag(BlockTags.FIRE).add(ModBlocks.MAGIC_FIRE);
         this.tag(ModTags.Blocks.MAGIC_FIRE_REPLACEABLE)

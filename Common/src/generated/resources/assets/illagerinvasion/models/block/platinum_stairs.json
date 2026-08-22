@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "illagerinvasion:block/platinum_block",
-    "side": "illagerinvasion:block/platinum_block",
-    "top": "illagerinvasion:block/platinum_block"
-  }
-}

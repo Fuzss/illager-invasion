@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "illagerinvasion:block/cut_platinum",
+    "side": "illagerinvasion:block/cut_platinum",
+    "top": "illagerinvasion:block/cut_platinum"
+  }
+}

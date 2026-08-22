@@ -4,6 +4,7 @@ import fuzs.illagerinvasion.common.init.ModBlockFamilies;
 import fuzs.illagerinvasion.common.init.ModEntityTypes;
 import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
 import fuzs.puzzleslib.common.api.data.v2.tags.AbstractTagProvider;
+import fuzs.puzzleslib.common.api.init.v3.family.BlockSetFamily;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.EntityTypeTags;
@@ -17,7 +18,9 @@ public class ModEntityTagsProvider extends AbstractTagProvider<EntityType<?>> {
 
     @Override
     public void addTags(HolderLookup.Provider provider) {
-        this.generateFor(ModBlockFamilies.PLATINUM.getEntityVariants(), VARIANT_ENTITY_TYPE_TAGS);
+        ModBlockFamilies.getAllBlockSetFamilies().forEach((BlockSetFamily family) -> {
+            this.generateFor(family.getEntityVariants(), VARIANT_ENTITY_TYPE_TAGS);
+        });
         this.tag(EntityTypeTags.RAIDERS)
                 .add(ModEntityTypes.BASHER,
                         ModEntityTypes.PROVOKER,

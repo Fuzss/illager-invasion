@@ -4,6 +4,7 @@ import fuzs.illagerinvasion.common.init.ModBlockFamilies;
 import fuzs.illagerinvasion.common.init.ModBlocks;
 import fuzs.puzzleslib.common.api.data.v2.AbstractLootProvider;
 import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
+import fuzs.puzzleslib.common.api.init.v3.family.BlockSetFamily;
 
 public class ModBlockLootProvider extends AbstractLootProvider.Blocks {
 
@@ -13,7 +14,7 @@ public class ModBlockLootProvider extends AbstractLootProvider.Blocks {
 
     @Override
     public void addLootTables() {
-        this.generateFor(ModBlockFamilies.PLATINUM, VARIANT_PROVIDERS);
+        ModBlockFamilies.getAllBlockSetFamilies().forEach(this::_generateFor);
         this.dropSelf(ModBlocks.PLATINUM_BLOCK.value());
         this.dropSelf(ModBlocks.PLATED_PLATINUM.value());
         this.dropSelf(ModBlocks.PLATINUM_BARS.value());
@@ -23,5 +24,10 @@ public class ModBlockLootProvider extends AbstractLootProvider.Blocks {
         this.dropSelf(ModBlocks.PLATINUM_JACK_O_LANTERN.value());
         this.dropSelf(ModBlocks.IMBUING_TABLE.value());
         this.dropNothing(ModBlocks.MAGIC_FIRE.value());
+    }
+
+    @Deprecated
+    public final void _generateFor(BlockSetFamily blockSetFamily) {
+        this.generateFor(blockSetFamily, VARIANT_PROVIDERS);
     }
 }

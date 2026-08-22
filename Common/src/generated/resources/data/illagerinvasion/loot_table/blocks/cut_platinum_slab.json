@@ -9,7 +9,7 @@
             {
               "conditions": [
                 {
-                  "block": "illagerinvasion:platinum_slab",
+                  "block": "illagerinvasion:cut_platinum_slab",
                   "condition": "minecraft:block_state_property",
                   "properties": {
                     "type": "double"
@@ -23,11 +23,11 @@
               "function": "minecraft:explosion_decay"
             }
           ],
-          "name": "illagerinvasion:platinum_slab"
+          "name": "illagerinvasion:cut_platinum_slab"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "illagerinvasion:blocks/platinum_slab"
+  "random_sequence": "illagerinvasion:blocks/cut_platinum_slab"
 }

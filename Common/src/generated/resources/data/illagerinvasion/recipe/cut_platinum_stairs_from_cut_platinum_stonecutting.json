@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "illagerinvasion:cut_platinum",
+  "result": {
+    "id": "illagerinvasion:cut_platinum_stairs"
+  }
+}

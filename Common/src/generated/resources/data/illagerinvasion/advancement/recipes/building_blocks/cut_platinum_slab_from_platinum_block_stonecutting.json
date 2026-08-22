@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_slab": {
+    "has_platinum_block": {
       "conditions": {
         "items": [
           {
-            "items": "illagerinvasion:cut_platinum_slab"
+            "items": "illagerinvasion:platinum_block"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "illagerinvasion:chiseled_platinum"
+        "recipe": "minecraft:cut_platinum_slab_from_platinum_block_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_slab"
+      "has_platinum_block"
     ]
   ],
   "rewards": {
     "recipes": [
-      "illagerinvasion:chiseled_platinum"
+      "minecraft:cut_platinum_slab_from_platinum_block_stonecutting"
     ]
   }
 }

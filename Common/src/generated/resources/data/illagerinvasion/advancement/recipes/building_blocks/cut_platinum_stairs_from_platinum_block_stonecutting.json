@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "illagerinvasion:platinum_slab"
+        "recipe": "minecraft:cut_platinum_stairs_from_platinum_block_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "illagerinvasion:platinum_slab"
+      "minecraft:cut_platinum_stairs_from_platinum_block_stonecutting"
     ]
   }
 }

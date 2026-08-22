@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_platinum_block": {
+    "has_cut_platinum": {
       "conditions": {
         "items": [
           {
-            "items": "illagerinvasion:platinum_block"
+            "items": "illagerinvasion:cut_platinum"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "illagerinvasion:platinum_stairs"
+        "recipe": "illagerinvasion:cut_platinum_stairs"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_platinum_block"
+      "has_cut_platinum"
     ]
   ],
   "rewards": {
     "recipes": [
-      "illagerinvasion:platinum_stairs"
+      "illagerinvasion:cut_platinum_stairs"
     ]
   }
 }

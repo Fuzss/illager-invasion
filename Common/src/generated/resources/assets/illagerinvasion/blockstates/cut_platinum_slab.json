@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "illagerinvasion:block/cut_platinum_slab"
+    },
+    "type=double": {
+      "model": "illagerinvasion:block/cut_platinum"
+    },
+    "type=top": {
+      "model": "illagerinvasion:block/cut_platinum_slab_top"
+    }
+  }
+}

@@ -1,4 +1,4 @@
-// 26.2	2026-08-22T20:05:49.648497	Tags for minecraft:item mod id vanilla
+// 26.2	2026-08-22T20:42:16.062711	Tags for minecraft:item mod id vanilla
 4dc41807ffabe77f9e5f7cca81a0b251a18b95d5 data/c/tags/item/bars.json
 50328cd1c3c650d6e369b0accdedafe3baf5e219 data/c/tags/item/chains.json
 29931a5c8bfc3aafb4c68b8d235ebf4035da7c62 data/c/tags/item/pumpkins/jack_o_lanterns.json
@@ -6,7 +6,7 @@
 f567686c4abca196b656a69259ae387827bfecef data/minecraft/tags/item/enchantable/durability.json
 f567686c4abca196b656a69259ae387827bfecef data/minecraft/tags/item/enchantable/sharp_weapon.json
 b5e7f7488b17b4590573b52a5bb428ba7ccd90a1 data/minecraft/tags/item/metal_nuggets.json
-50dcf66cb270aec7a0afc441cc809add3e1ea63c data/minecraft/tags/item/slabs.json
-52a0136189a9aa873bbe0115daf14a68a27541a2 data/minecraft/tags/item/stairs.json
+c4401ec31571c30e8ca6a620d7f886c20ab988e0 data/minecraft/tags/item/slabs.json
+ddc0101694c4f03f8a84fb8ea2dfd17ccfa48aec data/minecraft/tags/item/stairs.json
 f8c069bd62566284a7cc1a1785676bc175ebbbe4 data/minecraft/tags/item/trapdoors.json
 b615e5f45d76743441fadcb6f64a050f8cbfd6a3 data/minecraft/tags/item/trim_materials.json

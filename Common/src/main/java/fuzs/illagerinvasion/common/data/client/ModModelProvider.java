@@ -10,6 +10,7 @@ import fuzs.puzzleslib.common.api.client.data.v2.models.ItemModelGenerationHelpe
 import fuzs.puzzleslib.common.api.client.data.v2.models.ModelLocationHelper;
 import fuzs.puzzleslib.common.api.client.data.v2.models.ModelTemplateHelper;
 import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
+import fuzs.puzzleslib.common.api.init.v3.family.BlockSetFamily;
 import fuzs.puzzleslib.common.api.init.v3.family.BlockSetVariant;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
@@ -27,6 +28,9 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.function.BiConsumer;
 
+/**
+ * TODO cut platinum side texture is not correct, also stairs and slabs should probably use a separate texture
+ */
 public class ModModelProvider extends AbstractModelProvider {
     public static final Map<BlockSetVariant, BiConsumer<BlockModelGenerators, Block>> VARIANT_BLOCK_PROVIDERS = ImmutableMap.<BlockSetVariant, BiConsumer<BlockModelGenerators, Block>>builder()
             .put(BlockSetVariant.CUT, BlockModelGenerators::createTrivialCube)
@@ -50,6 +54,9 @@ public class ModModelProvider extends AbstractModelProvider {
     @Override
     public void addBlockModels(BlockModelGenerators generators) {
         generators.createTrivialCube(ModBlocks.PLATINUM_BLOCK.value());
+        ModBlockFamilies.getAllBlockSetFamilies().forEach((BlockSetFamily family) -> {
+            this.generateForBlocks(generators, family, VARIANT_BLOCK_PROVIDERS);
+        });
         generators.createTrivialCube(ModBlocks.PLATED_PLATINUM.value());
         generators.createBarsAndItem(ModBlocks.PLATINUM_BARS.value());
         generators.registerSimpleFlatItemModel(ModBlocks.PLATINUM_CHAIN.value());
@@ -60,7 +67,6 @@ public class ModModelProvider extends AbstractModelProvider {
         generators.createNormalTorch(ModBlocks.PLATINUM_TORCH.value(), ModBlocks.PLATINUM_WALL_TORCH.value());
         generators.createPumpkinVariant(ModBlocks.PLATINUM_JACK_O_LANTERN.value(),
                 TextureMapping.column(Blocks.PUMPKIN));
-        this.generateForBlocks(generators, ModBlockFamilies.PLATINUM, VARIANT_BLOCK_PROVIDERS);
         this.createImbuingTable(ModBlocks.IMBUING_TABLE.value(), generators);
         this.createSimpleFire(ModBlocks.MAGIC_FIRE.value(), generators);
     }

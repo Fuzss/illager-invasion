@@ -5,6 +5,7 @@ import fuzs.illagerinvasion.common.init.ModBlockFamilies;
 import fuzs.illagerinvasion.common.init.ModItems;
 import fuzs.puzzleslib.common.api.data.v2.AbstractRecipeProvider;
 import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
+import fuzs.puzzleslib.common.api.init.v3.family.BlockSetVariant;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
@@ -20,7 +21,8 @@ public class ModRecipeProvider extends AbstractRecipeProvider {
 
     @Override
     public void addRecipes(RecipeOutput recipeOutput) {
-        this.generateFor(ModBlockFamilies.PLATINUM);
+        // We deliberately do not generate the default platinum family, as most recipes use ingots, not full blocks for crafting.
+        this.generateFor(ModBlockFamilies.CUT_PLATINUM);
         ShapedRecipeBuilder.shaped(this.items(), RecipeCategory.MISC, ModItems.HALLOWED_GEM.value())
                 .define('#', Items.AMETHYST_SHARD)
                 .define('B', ModItems.UNUSUAL_DUST.value())
@@ -59,6 +61,29 @@ public class ModRecipeProvider extends AbstractRecipeProvider {
                 IllagerInvasion.id(getConversionRecipeName(ModItems.PLATINUM_INGOT.value(),
                         ModItems.PLATINUM_NUGGET.value())).toString(),
                 IllagerInvasion.id(getItemName(ModItems.PLATINUM_INGOT.value())).toString());
+        this.cut(RecipeCategory.BUILDING_BLOCKS,
+                ModBlockFamilies.PLATINUM.getItem(BlockSetVariant.CUT).value(),
+                ModItems.PLATINUM_BLOCK.value());
+        this.stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS,
+                ModBlockFamilies.PLATINUM.getItem(BlockSetVariant.CUT).value(),
+                ModItems.PLATINUM_BLOCK.value());
+        this.doorBuilder(ModBlockFamilies.PLATINUM.getItem(BlockSetVariant.DOOR).value(),
+                        Ingredient.of(ModItems.PLATINUM_INGOT.value()))
+                .unlockedBy(getHasName(ModItems.PLATINUM_INGOT.value()), this.has(ModItems.PLATINUM_INGOT.value()))
+                .save(recipeOutput);
+        this.twoByTwoPacker(RecipeCategory.REDSTONE,
+                ModBlockFamilies.PLATINUM.getItem(BlockSetVariant.TRAPDOOR).value(),
+                ModItems.PLATINUM_INGOT.value());
+        this.stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS,
+                ModBlockFamilies.CUT_PLATINUM.getItem(BlockSetVariant.CHISELED).value(),
+                ModItems.PLATINUM_BLOCK.value());
+        this.stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS,
+                ModBlockFamilies.CUT_PLATINUM.getItem(BlockSetVariant.SLAB).value(),
+                ModItems.PLATINUM_BLOCK.value(),
+                2);
+        this.stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS,
+                ModBlockFamilies.CUT_PLATINUM.getItem(BlockSetVariant.STAIRS).value(),
+                ModItems.PLATINUM_BLOCK.value());
         this.shaped(RecipeCategory.DECORATIONS, ModItems.PLATED_PLATINUM.value(), 4)
                 .define('#', ModItems.PLATINUM_BLOCK.value())
                 .pattern(" # ")

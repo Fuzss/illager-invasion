@@ -10,11 +10,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "illagerinvasion:platinum_pressure_plate"
+          "name": "illagerinvasion:cut_platinum_stairs"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "illagerinvasion:blocks/platinum_pressure_plate"
+  "random_sequence": "illagerinvasion:blocks/cut_platinum_stairs"
 }

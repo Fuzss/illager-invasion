@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_platinum_block": {
+    "has_platinum_ingot": {
       "conditions": {
         "items": [
           {
-            "items": "illagerinvasion:platinum_block"
+            "items": "illagerinvasion:platinum_ingot"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_platinum_block"
+      "has_platinum_ingot"
     ]
   ],
   "rewards": {

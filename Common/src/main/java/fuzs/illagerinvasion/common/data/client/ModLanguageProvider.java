@@ -1,11 +1,17 @@
 package fuzs.illagerinvasion.common.data.client;
 
+import com.google.common.collect.ImmutableMap;
 import fuzs.illagerinvasion.common.IllagerInvasion;
 import fuzs.illagerinvasion.common.init.*;
 import fuzs.illagerinvasion.common.world.inventory.ImbuingMenu;
 import fuzs.illagerinvasion.common.world.level.block.ImbuingTableBlock;
 import fuzs.puzzleslib.common.api.client.data.v2.AbstractLanguageProvider;
 import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
+import fuzs.puzzleslib.common.api.init.v3.family.BlockSetFamily;
+import fuzs.puzzleslib.common.api.init.v3.family.BlockSetVariant;
+
+import java.util.Map;
+import java.util.function.UnaryOperator;
 
 public class ModLanguageProvider extends AbstractLanguageProvider {
 
@@ -17,6 +23,13 @@ public class ModLanguageProvider extends AbstractLanguageProvider {
     public void addTranslations(TranslationBuilder builder) {
         builder.addCreativeModeTab(ModRegistry.CREATIVE_MODE_TAB, IllagerInvasion.MOD_NAME);
         this.generateFor(builder, ModBlockFamilies.PLATINUM, "Platinum");
+        this.generateFor(builder,
+                ModBlockFamilies.CUT_PLATINUM,
+                "Cut Platinum",
+                ImmutableMap.<BlockSetVariant, UnaryOperator<String>>builder()
+                        .putAll(VARIANT_BLOCK_NAMES)
+                        .put(BlockSetVariant.CHISELED, (String baseName) -> "Chiseled Platinum")
+                        .buildKeepingLast());
         builder.add(ImbuingTableBlock.CONTAINER_IMBUE, "Imbue");
         builder.add(ModTrimMaterials.PLATINUM, "Platinum Material");
         builder.add(ModInstruments.REVEAL, "Reveal");
@@ -116,5 +129,14 @@ public class ModLanguageProvider extends AbstractLanguageProvider {
         builder.add(ImbuingMenu.ImbuingState.ENCHANTMENTS_NOT_MATCHING.getComponent(), "Enchantments do not match!");
         builder.add(ImbuingMenu.ImbuingState.LEVELS_NOT_EQUAL.getComponent(), "Enchantment levels are not equal!");
         builder.add(ModItems.LOST_CANDLE.value().getDescriptionId() + ".foundNearby", "%s found nearby");
+    }
+
+    /**
+     * @see AbstractLanguageProvider#generateFor(TranslationBuilder, BlockSetFamily, String)
+     */
+    public void generateFor(TranslationBuilder builder, BlockSetFamily family, String baseName, Map<BlockSetVariant, UnaryOperator<String>> variantBlockNames) {
+        this.generateFor(builder::add, family.getBlockVariants(), variantBlockNames, baseName);
+        this.generateFor(builder::add, family.getItemVariants(), VARIANT_ITEM_NAMES, baseName);
+        this.generateFor(builder::add, family.getEntityVariants(), VARIANT_ENTITY_NAMES, baseName);
     }
 }

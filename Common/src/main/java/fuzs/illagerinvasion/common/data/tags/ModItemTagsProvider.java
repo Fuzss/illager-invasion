@@ -4,6 +4,7 @@ import fuzs.illagerinvasion.common.init.ModBlockFamilies;
 import fuzs.illagerinvasion.common.init.ModItems;
 import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
 import fuzs.puzzleslib.common.api.data.v2.tags.AbstractTagProvider;
+import fuzs.puzzleslib.common.api.init.v3.family.BlockSetFamily;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.ItemTags;
@@ -17,7 +18,9 @@ public class ModItemTagsProvider extends AbstractTagProvider<Item> {
 
     @Override
     public void addTags(HolderLookup.Provider provider) {
-        this.generateFor(ModBlockFamilies.PLATINUM.getItemVariants(), VARIANT_ITEM_TAGS);
+        ModBlockFamilies.getAllBlockSetFamilies().forEach((BlockSetFamily family) -> {
+            this.generateFor(family.getItemVariants(), VARIANT_ITEM_TAGS);
+        });
         this.tag(ItemTags.TRIM_MATERIALS).add(ModItems.PLATINUM_INGOT);
         this.tag(ItemTags.DURABILITY_ENCHANTABLE).add(ModItems.PLATINUM_INFUSED_HATCHET);
         this.tag(ItemTags.SHARP_WEAPON_ENCHANTABLE).add(ModItems.PLATINUM_INFUSED_HATCHET);
