@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "illagerinvasion:block/platinum_pressure_plate"
+    },
+    "powered=true": {
+      "model": "illagerinvasion:block/platinum_pressure_plate_down"
+    }
+  }
+}

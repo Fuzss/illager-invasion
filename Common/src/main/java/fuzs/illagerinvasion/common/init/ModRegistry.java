@@ -13,6 +13,7 @@ import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 
 public class ModRegistry {
@@ -27,8 +28,18 @@ public class ModRegistry {
     public static final Holder.Reference<MenuType<ImbuingMenu>> IMBUING_MENU_TYPE = REGISTRIES.registerMenuType(
             "imbuing",
             ImbuingMenu::new);
-    public static final Holder.Reference<CreativeModeTab> CREATIVE_MODE_TAB = REGISTRIES.registerCreativeModeTab(
-            ModItems.HORN_OF_SIGHT);
+    public static final Holder.Reference<CreativeModeTab> CREATIVE_MODE_TAB = REGISTRIES.registerCreativeModeTab(() -> new ItemStack(
+            ModItems.HORN_OF_SIGHT), (CreativeModeTab.DisplayItemsGenerator generator) -> {
+        return (CreativeModeTab.ItemDisplayParameters parameters, CreativeModeTab.Output output) -> {
+            output.accept(ModItems.PLATINUM_BLOCK.value());
+            ModBlockFamilies.PLATINUM.getItemVariants()
+                    .values()
+                    .stream()
+                    .map(Holder.Reference::value)
+                    .forEach(output::accept);
+            generator.accept(parameters, output);
+        };
+    });
     public static final Holder.Reference<MapCodec<DataMarkerStructureProcessor>> DATA_MARKER_STRUCTURE_PROCESSOR = REGISTRIES.register(
             Registries.STRUCTURE_PROCESSOR,
             "data_marker",
@@ -45,6 +56,7 @@ public class ModRegistry {
         ModBlocks.bootstrap();
         ModItems.bootstrap();
         ModEntityTypes.bootstrap();
+        ModBlockFamilies.bootstrap();
         ModPotions.bootstrap();
         ModParticleTypes.bootstrap();
         ModSoundEvents.bootstrap();

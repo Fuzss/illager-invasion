@@ -12,6 +12,7 @@ import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.component.InstrumentComponent;
 
 public class ModItems {
+    public static final Holder.Reference<Item> PLATINUM_BLOCK = ModRegistry.REGISTRIES.registerBlockItem(ModBlocks.PLATINUM_BLOCK);
     public static final Holder.Reference<Item> IMBUING_TABLE = ModRegistry.REGISTRIES.registerBlockItem(ModBlocks.IMBUING_TABLE);
     public static final Holder.Reference<Item> UNUSUAL_DUST = ModRegistry.REGISTRIES.registerItem("unusual_dust");
     public static final Holder.Reference<Item> MAGICAL_FIRE_CHARGE = ModRegistry.REGISTRIES.registerItem(

@@ -9,9 +9,9 @@ import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 
-public class ModBiomeTagProvider extends AbstractTagProvider<Biome> {
+public class ModBiomeTagsProvider extends AbstractTagProvider<Biome> {
 
-    public ModBiomeTagProvider(DataProviderContext context) {
+    public ModBiomeTagsProvider(DataProviderContext context) {
         super(Registries.BIOME, context);
     }
 

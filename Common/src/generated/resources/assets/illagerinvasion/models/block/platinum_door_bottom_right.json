@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_right",
+  "textures": {
+    "bottom": "illagerinvasion:block/platinum_door_bottom",
+    "top": "illagerinvasion:block/platinum_door_top"
+  }
+}

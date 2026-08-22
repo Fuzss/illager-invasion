@@ -17,16 +17,13 @@ public class ModLanguageProvider extends AbstractLanguageProvider {
     @Override
     public void addTranslations(TranslationBuilder builder) {
         builder.addCreativeModeTab(ModRegistry.CREATIVE_MODE_TAB, IllagerInvasion.MOD_NAME);
+        this.generateFor(builder, ModBlockFamilies.PLATINUM, "Platinum");
         builder.add(ImbuingTableBlock.CONTAINER_IMBUE, "Imbue");
-        builder.add(ImbuingMenu.ImbuingState.ENCHANTED_BOOK_MISSING.getComponent(), "%s is missing!");
-        builder.add(ImbuingMenu.ImbuingState.HALLOWED_GEM_MISSING.getComponent(), "%s is missing!");
-        builder.add(ImbuingMenu.ImbuingState.TOO_MANY_ENCHANTMENTS.getComponent(), "Book has too many enchantments!");
-        builder.add(ImbuingMenu.ImbuingState.INVALID_ENCHANTMENT.getComponent(), "Book enchantment cannot be imbued!");
-        builder.add(ImbuingMenu.ImbuingState.ENCHANTMENTS_NOT_MATCHING.getComponent(), "Enchantments do not match!");
-        builder.add(ImbuingMenu.ImbuingState.LEVELS_NOT_EQUAL.getComponent(), "Enchantment levels are not equal!");
-        builder.add(ModItems.LOST_CANDLE.value().getDescriptionId() + ".foundNearby", "%s found nearby");
-        builder.add(ResourceKeyHelper.getTranslationKey(ModInstruments.REVEAL), "Reveal");
-        builder.add(ResourceKeyHelper.getTranslationKey(ModTrimMaterials.PLATINUM), "Platinum Material");
+        builder.add(ModTrimMaterials.PLATINUM, "Platinum Material");
+        builder.add(ModInstruments.REVEAL, "Reveal");
+        builder.add(ModBlocks.PLATINUM_BLOCK.value(), "Platinum Block");
+        builder.add(ModBlocks.IMBUING_TABLE.value(), "Imbuing Table");
+        builder.add(ModBlocks.MAGIC_FIRE.value(), "Magic Fire");
         builder.add(ModItems.UNUSUAL_DUST.value(), "Unusual Dust");
         builder.add(ModItems.MAGICAL_FIRE_CHARGE.value(), "Magical Fire Charge");
         builder.add(ModItems.ILLUSIONARY_DUST.value(), "Illusionary Dust");
@@ -50,8 +47,6 @@ public class ModLanguageProvider extends AbstractLanguageProvider {
         builder.add(ModItems.INVOKER_SPAWN_EGG.value(), "Invoker Spawn Egg");
         builder.add(ModItems.ALCHEMIST_SPAWN_EGG.value(), "Alchemist Spawn Egg");
         builder.add(ModItems.FIRECALLER_SPAWN_EGG.value(), "Firecaller Spawn Egg");
-        builder.add(ModBlocks.IMBUING_TABLE.value(), "Imbuing Table");
-        builder.add(ModBlocks.MAGIC_FIRE.value(), "Magic Fire");
         builder.add(ModEntityTypes.PROVOKER.value(), "Provoker");
         builder.add(ModEntityTypes.INVOKER.value(), "Invoker");
         builder.add(ModEntityTypes.SURRENDERED.value(), "Surrendered");
@@ -109,5 +104,12 @@ public class ModLanguageProvider extends AbstractLanguageProvider {
         builder.add(ModSoundEvents.SORCERER_DEATH_SOUND_EVENT.value(), "Sorcerer dies");
         builder.add(ModSoundEvents.SORCERER_AMBIENT_SOUND_EVENT.value(), "Sorcerer murmurs");
         builder.add(ModSoundEvents.SORCERER_CELEBRATE_SOUND_EVENT.value(), "Sorcerer celebrates");
+        builder.add(ImbuingMenu.ImbuingState.ENCHANTED_BOOK_MISSING.getComponent(), "%s is missing!");
+        builder.add(ImbuingMenu.ImbuingState.HALLOWED_GEM_MISSING.getComponent(), "%s is missing!");
+        builder.add(ImbuingMenu.ImbuingState.TOO_MANY_ENCHANTMENTS.getComponent(), "Book has too many enchantments!");
+        builder.add(ImbuingMenu.ImbuingState.INVALID_ENCHANTMENT.getComponent(), "Book enchantment cannot be imbued!");
+        builder.add(ImbuingMenu.ImbuingState.ENCHANTMENTS_NOT_MATCHING.getComponent(), "Enchantments do not match!");
+        builder.add(ImbuingMenu.ImbuingState.LEVELS_NOT_EQUAL.getComponent(), "Enchantment levels are not equal!");
+        builder.add(ModItems.LOST_CANDLE.value().getDescriptionId() + ".foundNearby", "%s found nearby");
     }
 }

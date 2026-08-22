@@ -9,6 +9,8 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 
 public class ModBlocks {
+    public static final Holder.Reference<Block> PLATINUM_BLOCK = ModRegistry.REGISTRIES.registerBlock("platinum_block",
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
     public static final Holder.Reference<Block> IMBUING_TABLE = ModRegistry.REGISTRIES.registerBlock("imbuing_table",
             ImbuingTableBlock::new,
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_BLOCK.weathering().unaffected()));

@@ -1,6 +1,7 @@
 package fuzs.illagerinvasion.common.data;
 
 import fuzs.illagerinvasion.common.IllagerInvasion;
+import fuzs.illagerinvasion.common.init.ModBlockFamilies;
 import fuzs.illagerinvasion.common.init.ModItems;
 import fuzs.puzzleslib.common.api.data.v2.AbstractRecipeProvider;
 import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
@@ -18,6 +19,7 @@ public class ModRecipeProvider extends AbstractRecipeProvider {
 
     @Override
     public void addRecipes(RecipeOutput recipeOutput) {
+        this.generateFor(ModBlockFamilies.PLATINUM);
         ShapedRecipeBuilder.shaped(this.items(), RecipeCategory.MISC, ModItems.HALLOWED_GEM.value())
                 .define('#', Items.AMETHYST_SHARD)
                 .define('B', ModItems.UNUSUAL_DUST.value())
@@ -42,6 +44,13 @@ public class ModRecipeProvider extends AbstractRecipeProvider {
                 .pattern("#E#")
                 .unlockedBy(getHasName(ModItems.PRIMAL_ESSENCE.value()), this.has(ModItems.PRIMAL_ESSENCE.value()))
                 .save(recipeOutput);
+        this.nineBlockStorageRecipesRecipesWithCustomUnpacking(RecipeCategory.MISC,
+                ModItems.PLATINUM_INGOT.value(),
+                RecipeCategory.BUILDING_BLOCKS,
+                ModItems.PLATINUM_BLOCK.value(),
+                IllagerInvasion.id(getConversionRecipeName(ModItems.PLATINUM_BLOCK.value(),
+                        ModItems.PLATINUM_INGOT.value())).toString(),
+                IllagerInvasion.id(getItemName(ModItems.PLATINUM_BLOCK.value())).toString());
         this.nineBlockStorageRecipesWithCustomPacking(RecipeCategory.MISC,
                 ModItems.PLATINUM_NUGGET.value(),
                 RecipeCategory.MISC,

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "illagerinvasion:block/cut_platinum"
+  }
+}

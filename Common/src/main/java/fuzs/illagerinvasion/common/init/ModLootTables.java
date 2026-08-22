@@ -42,11 +42,11 @@ public class ModLootTables {
         // NO-OP
     }
 
-    private static ResourceKey<LootTable> registerLootTableAddition(ResourceKey<LootTable> resourceKey) {
-        ResourceKey<LootTable> newResourceKey = ModRegistry.REGISTRIES.makeResourceKey(Registries.LOOT_TABLE,
-                "inject/" + resourceKey.identifier().getPath());
-        LOOT_TABLE_ADDITIONS.put(resourceKey.identifier(), newResourceKey);
-        return newResourceKey;
+    private static ResourceKey<LootTable> registerLootTableAddition(ResourceKey<LootTable> key) {
+        ResourceKey<LootTable> updatedKey = ModRegistry.REGISTRIES.makeResourceKey(Registries.LOOT_TABLE,
+                "inject/" + key.identifier().getPath());
+        LOOT_TABLE_ADDITIONS.put(key.identifier(), updatedKey);
+        return updatedKey;
     }
 
     public static void onLootTableLoad(Identifier identifier, LootTable.Builder lootTable, HolderLookup.Provider registries) {

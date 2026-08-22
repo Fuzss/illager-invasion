@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "illagerinvasion:platinum_block",
+  "ingredients": [
+    "illagerinvasion:platinum_block"
+  ],
+  "result": {
+    "count": 9,
+    "id": "illagerinvasion:platinum_ingot"
+  }
+}

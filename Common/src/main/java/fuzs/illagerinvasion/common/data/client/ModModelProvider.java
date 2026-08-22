@@ -1,10 +1,13 @@
 package fuzs.illagerinvasion.common.data.client;
 
+import com.google.common.collect.ImmutableMap;
+import fuzs.illagerinvasion.common.init.ModBlockFamilies;
 import fuzs.illagerinvasion.common.init.ModBlocks;
 import fuzs.illagerinvasion.common.init.ModItems;
 import fuzs.puzzleslib.common.api.client.data.v2.AbstractModelProvider;
 import fuzs.puzzleslib.common.api.client.data.v2.models.ItemModelGenerationHelper;
 import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
+import fuzs.puzzleslib.common.api.init.v3.family.BlockSetVariant;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.MultiVariant;
@@ -16,7 +19,14 @@ import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Block;
 
+import java.util.Collections;
+import java.util.Map;
+import java.util.function.BiConsumer;
+
 public class ModModelProvider extends AbstractModelProvider {
+    public static final Map<BlockSetVariant, BiConsumer<BlockModelGenerators, Block>> VARIANT_BLOCK_PROVIDERS = ImmutableMap.<BlockSetVariant, BiConsumer<BlockModelGenerators, Block>>builder()
+            .put(BlockSetVariant.CUT, BlockModelGenerators::createTrivialCube)
+            .build();
 
     public ModModelProvider(DataProviderContext context) {
         super(context);
@@ -24,6 +34,8 @@ public class ModModelProvider extends AbstractModelProvider {
 
     @Override
     public void addBlockModels(BlockModelGenerators generator) {
+        generator.createTrivialCube(ModBlocks.PLATINUM_BLOCK.value());
+        this.generateForBlocks(generator, ModBlockFamilies.PLATINUM, VARIANT_BLOCK_PROVIDERS);
         this.createImbuingTable(ModBlocks.IMBUING_TABLE.value(), generator);
         this.createSimpleFire(ModBlocks.MAGIC_FIRE.value(), generator);
     }
@@ -49,6 +61,7 @@ public class ModModelProvider extends AbstractModelProvider {
 
     @Override
     public void addItemModels(ItemModelGenerators generator) {
+        this.generateForItems(generator, ModBlockFamilies.PLATINUM, Collections.emptyMap());
         generator.generateFlatItem(ModItems.HALLOWED_GEM.value(), ModelTemplates.FLAT_ITEM);
         generator.generateFlatItem(ModItems.ILLUSIONARY_DUST.value(), ModelTemplates.FLAT_ITEM);
         generator.generateFlatItem(ModItems.PLATINUM_NUGGET.value(), ModelTemplates.FLAT_ITEM);

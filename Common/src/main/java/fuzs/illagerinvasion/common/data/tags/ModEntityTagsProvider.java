@@ -1,5 +1,6 @@
 package fuzs.illagerinvasion.common.data.tags;
 
+import fuzs.illagerinvasion.common.init.ModBlockFamilies;
 import fuzs.illagerinvasion.common.init.ModEntityTypes;
 import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
 import fuzs.puzzleslib.common.api.data.v2.tags.AbstractTagProvider;
@@ -8,14 +9,15 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.world.entity.EntityType;
 
-public class ModEntityTypeTagProvider extends AbstractTagProvider<EntityType<?>> {
+public class ModEntityTagsProvider extends AbstractTagProvider<EntityType<?>> {
 
-    public ModEntityTypeTagProvider(DataProviderContext context) {
+    public ModEntityTagsProvider(DataProviderContext context) {
         super(Registries.ENTITY_TYPE, context);
     }
 
     @Override
     public void addTags(HolderLookup.Provider provider) {
+        this.generateFor(ModBlockFamilies.PLATINUM.getEntityVariants(), VARIANT_ENTITY_TYPE_TAGS);
         this.tag(EntityTypeTags.RAIDERS)
                 .add(ModEntityTypes.BASHER,
                         ModEntityTypes.PROVOKER,

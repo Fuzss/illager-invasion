@@ -1,4 +1,9 @@
-// 26.2	2026-06-19T00:18:24.470129	Tags for minecraft:block mod id vanilla
+// 26.2	2026-08-22T18:45:05.879604	Tags for minecraft:block mod id vanilla
 eced346f282bb9a18f8a02f6b1c5cf9e865cf9a8 data/illagerinvasion/tags/block/magic_fire_replaceable.json
+511738c6ccb2359506ab070a827e4fa1ca234967 data/minecraft/tags/block/doors.json
 cf7012f8b0b6b356d855352f42b4c8fb8ca2c821 data/minecraft/tags/block/fire.json
 056d84d4ebf04369136bc80c9694620d50ce3b58 data/minecraft/tags/block/mineable/axe.json
+779c5fcf95a1cbe15d42705b33118b90381e5363 data/minecraft/tags/block/pressure_plates.json
+50dcf66cb270aec7a0afc441cc809add3e1ea63c data/minecraft/tags/block/slabs.json
+52a0136189a9aa873bbe0115daf14a68a27541a2 data/minecraft/tags/block/stairs.json
+f8c069bd62566284a7cc1a1785676bc175ebbbe4 data/minecraft/tags/block/trapdoors.json
