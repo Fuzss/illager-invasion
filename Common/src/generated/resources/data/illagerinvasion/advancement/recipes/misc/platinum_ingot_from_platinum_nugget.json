@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_platinum_chunk": {
+    "has_platinum_nugget": {
       "conditions": {
         "items": [
           {
-            "items": "illagerinvasion:platinum_chunk"
+            "items": "illagerinvasion:platinum_nugget"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "illagerinvasion:platinum_sheet"
+        "recipe": "minecraft:platinum_ingot_from_platinum_nugget"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_platinum_chunk"
+      "has_platinum_nugget"
     ]
   ],
   "rewards": {
     "recipes": [
-      "illagerinvasion:platinum_sheet"
+      "minecraft:platinum_ingot_from_platinum_nugget"
     ]
   }
 }

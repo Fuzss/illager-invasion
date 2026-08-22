@@ -1,9 +1,9 @@
-// 26.2	2026-06-19T00:18:24.47178	Entity Type Loot Tables
+// 26.2	2026-08-22T17:44:46.617444	Entity Type Loot Tables
 9e584b4b92874006cb5e7c75b552b106e879ec4e data/illagerinvasion/loot_table/entities/alchemist.json
 2f488379f6a8796f6b9dd67e88c1b0233d03ed4e data/illagerinvasion/loot_table/entities/archivist.json
 5476b3f3012e987b952b5299cc0a8423590df8ee data/illagerinvasion/loot_table/entities/basher.json
 a432b2f4e016db8aaed2bbf97bd91babed8f3e62 data/illagerinvasion/loot_table/entities/firecaller.json
-e3b0877e4250e1619678d2be5bfd27c9a6f4aa10 data/illagerinvasion/loot_table/entities/inquisitor.json
+908dfcabcb729bc35bf160e8431a90c050ba89fe data/illagerinvasion/loot_table/entities/inquisitor.json
 3726847d88dfe373cad9b816b6463f5734912f5e data/illagerinvasion/loot_table/entities/invoker.json
 c9bfd3a90900815b3cf4f83f11d2f2d4be157d65 data/illagerinvasion/loot_table/entities/marauder.json
 ff54c4b0ea7edfa0d717bb5fa29047149bc8c59e data/illagerinvasion/loot_table/entities/necromancer.json

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "illagerinvasion:item/platinum_chunk"
+    "layer0": "illagerinvasion:item/platinum_nugget"
   }
 }

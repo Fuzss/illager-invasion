@@ -1,9 +1,11 @@
-// 26.2	2026-06-19T00:18:24.474241	Recipes
+// 26.2	2026-08-22T17:44:46.618678	Recipes
 2434388272ebe99d40d0c335f4e6ff2e178336f4 data/illagerinvasion/advancement/recipes/decorations/imbuing_table.json
 1902f77039f91a8519a7800ee7bafb6b81aa22cb data/illagerinvasion/advancement/recipes/misc/hallowed_gem.json
-1de95c8b73d61004b40cc1665c69353eb5289936 data/illagerinvasion/advancement/recipes/misc/platinum_sheet.json
+c22061464fdd5b5a508a3782caaa9bb8b9f1af0d data/illagerinvasion/advancement/recipes/misc/platinum_ingot_from_platinum_nugget.json
+2c69125d29884cf6d09d5fba36fefaa011a23a63 data/illagerinvasion/advancement/recipes/misc/platinum_nugget.json
 c0227d694780036ec4bbbb3c7262516abddde5d6 data/illagerinvasion/advancement/recipes/tools/horn_of_sight.json
 32cd928d7c44287e05995b73d5e7ff330ad63e53 data/illagerinvasion/recipe/hallowed_gem.json
 d003b8118f2654bc63764f747d8362b394e06ba5 data/illagerinvasion/recipe/horn_of_sight.json
 d04b1cff5a077c5719c62ec0066a006961a190bc data/illagerinvasion/recipe/imbuing_table.json
-4fbdb805288c8136a66c1f98801d4552d2ca5196 data/illagerinvasion/recipe/platinum_sheet.json
+123b09c3917e2ca4a70c104a96fb9bca9027f098 data/illagerinvasion/recipe/platinum_ingot_from_platinum_nugget.json
+694140aa261b8bb532c3f974f9b58e139f0ef6ea data/illagerinvasion/recipe/platinum_nugget.json

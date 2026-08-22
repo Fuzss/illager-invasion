@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "illagerinvasion:item/platinum_sheet"
+    "model": "illagerinvasion:item/platinum_ingot"
   }
 }
