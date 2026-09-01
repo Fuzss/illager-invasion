@@ -6,11 +6,17 @@
     "26.1.x": "maintained",
     "26.2.x": "primary"
   },
-  "properties": {
-    "distributions.curseforge.id": "891324",
-    "distributions.curseforge.slug": "illager-invasion",
-    "distributions.github.slug": "illager-invasion",
-    "distributions.modrinth.id": "jSV9w0J5",
-    "distributions.modrinth.slug": "illager-invasion"
+  "distributions": {
+    "curseforge": {
+      "id": "891324",
+      "slug": "illager-invasion"
+    },
+    "github": {
+      "slug": "illager-invasion"
+    },
+    "modrinth": {
+      "id": "jSV9w0J5",
+      "slug": "illager-invasion"
+    }
   }
 }
